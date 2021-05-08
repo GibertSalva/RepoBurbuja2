@@ -76,6 +76,8 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repository
    ```sh
+   git init
+   
    git clone https://github.com/GibertSalva/RepoBurbuja2.git
    ```
 
