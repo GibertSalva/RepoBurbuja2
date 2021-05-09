@@ -34,12 +34,12 @@ class CarAdmin(admin.ModelAdmin):
 class CarAccidentFormAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Data', {
-          'fields': ('date','hour','alarmNumber','victims','description','car')  
+          'fields': ('formID', 'date','hour','alarmNumber','victims','description','car',)  
         }),
     )
-    list_display = ['date','hour','alarmNumber','victims','description','car']
-    list_display_links = ['date','hour','alarmNumber','victims','description','car']
-    search_fields = ['date','hour','alarmNumber','victims','description','car']
+    list_display = ['formID', 'date','hour','alarmNumber','victims','description','car',]
+    list_display_links = ['formID', 'date','hour','alarmNumber','victims','description','car',]
+    search_fields = ['formID', 'date','hour','alarmNumber','victims','description','car',]
 
     
 
