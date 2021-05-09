@@ -14,12 +14,17 @@ class Person(models.Model):
         return str(self.dni)
 
 class Form(models.Model):
-
+# abstract
     formID = models.CharField(max_length=50, primary_key=True)
     date = models.DateField()
     hour = models.TimeField()
     alarmNumber = models.IntegerField()
-    person = models.ManyToManyField(Person)
+    class Meta:
+        
+        abstract = True
+        verbose_name = 'Form'
+        verbose_name_plural = 'Forms'
+    
 
     def __str__(self):
         return str(self.formID)
@@ -37,12 +42,19 @@ class Car(models.Model):
         return str(self.numberPlate)
     
 
-class CarAccidentForm(models.Model):
+class CarAccidentForm(Form):
 
     victims = models.BooleanField()
     description = models.CharField(max_length=300)
-    car = models.ManyToManyField(Car)
-    form = models.ForeignKey(Form,on_delete=models.CASCADE)
+    car = models.ForeignKey(Car,on_delete=models.CASCADE)
+
+    class Meta:
+
+        verbose_name = 'Accidente de Auto'
+        verbose_name_plural = 'Accidentes de Autos'
+
+    def __str__(self):
+        return super().__str__()
 
 
 '''
