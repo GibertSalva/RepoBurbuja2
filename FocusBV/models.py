@@ -4,7 +4,7 @@ from django.db import models
 
 class Person(models.Model):
 
-    dni = models.IntegerField(max_leangth=8, primary_key=True)
+    dni = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     phone = models.IntegerField()
@@ -15,11 +15,11 @@ class Person(models.Model):
 
 class Form(models.Model):
 
-    formID = models.CharField(max=50, primary_key=True)
+    formID = models.CharField(max_length=50, primary_key=True)
     date = models.DateField()
     hour = models.TimeField()
-    alarmNumber = models.IntegerField(max=10)
-    person = models.ManyToManyField(Person, on_delete=models.CASCADE)
+    alarmNumber = models.IntegerField()
+    person = models.ManyToManyField(Person)
 
     def __str__(self):
         return str(self.formID)
@@ -27,11 +27,11 @@ class Form(models.Model):
 
 class Car(models.Model):
    
-    numberPlate = model.CharField(max=15, primary_key=True)
-    brand = models.CharField(max=15)
-    model = models.CharField(max=15)
-    color = models.CharField(max=20)
-    damage = models.CharField(max=30)
+    numberPlate = models.CharField(max_length=15, primary_key=True)
+    brand = models.CharField(max_length=15)
+    model = models.CharField(max_length=15)
+    color = models.CharField(max_length=20)
+    damage = models.CharField(max_length=30)
 
     def __str__(self):
         return str(self.numberPlate)
@@ -41,13 +41,9 @@ class CarAccidentForm(models.Model):
 
     victims = models.BooleanField()
     description = models.CharField(max_length=300)
-    car = models.ManyToManyField(Car, on_delete=models.CASCADE)
-    form = models.ForeignKey(Form, on_delete=models.CASCADE)
+    car = models.ManyToManyField(Car)
+    form = models.ForeignKey(Form,on_delete=models.CASCADE)
 
-
-
-// SECTION
-// TODO 
 
 '''
 class somethingForm(models.Model):
@@ -61,7 +57,5 @@ class somethingForm(models.Model):
 
 class somethingForm(models.Model):
     form = models.ForeignKey(Form, on_delete=models.CASCADE)
+
 '''
-
-
-// !SECTION
