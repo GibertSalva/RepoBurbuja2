@@ -22,6 +22,9 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -48,6 +51,11 @@ Algunas de sus ventajas son:
 * Impresión de formulario 
 * Sonido personalizado de la alarma para cada tipo de siniestro
 * Fácil modificación de formularios para agregar/eliminar información
+
+### Built With
+
+* [Python 3.8](https://www.python.org/downloads/release/python-380/)
+* [Django](https://www.djangoproject.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -76,8 +84,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repository
    ```sh
-   git init
-   
+
    git clone https://github.com/GibertSalva/RepoBurbuja2.git
    ```
 
