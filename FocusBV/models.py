@@ -132,7 +132,7 @@ class RescateAnimal(FormPadre):
         return super().__str__()
 
 class RescateCadaver(FormPadre):
-
+    esPolicia = models.BooleanField()
     #* Datos diferentes dependiendo si el que llamos es policia o civil
     cantPolicia: models.IntegerField()
     motivoMuerte: models.CharField(max_length=30)
@@ -150,3 +150,7 @@ class RescateCadaver(FormPadre):
 
     def __str__(self):
         return super().__str__()
+
+
+
+
