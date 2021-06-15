@@ -3,4 +3,6 @@ from.models import *
 
 # Create your views here.
 def homeview(request):
-    return render(request, "base.html")
+    return render(request, "home.html")
+
+
