@@ -2,9 +2,63 @@
 
 
 {% block content%}
+<p class="text-center fw-bold fs-2 align-top my-2 ">Recepcion de Alarmas</p>
 
-<p class="text-center fw-bold fs-2 align-top ">Recepcion de Alarmas</p>
 
+<div class="card w-75 d-flex mx-auto shadow">
+  <div class="card-body">
+
+<div class="row g-4">
+<div class = " col-3">
+  <div class=" input-group shadow">
+    <span class="input-group-text" id="addon-wrapping">Codigo</span>
+    <input type="text" class="form-control"  aria-describedby="addon-wrapping">
+  </div>
+</div>
+
+<div class="col-6 mx-">
+    <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+  </div>
+  <div class = " col-3 w-25 ">
+  <div class=" input-group shadow">
+    <span class="input-group-text" id="addon-wrapping">Hora</span>
+    <input type="time" class="form-control"  aria-describedby="addon-wrapping">
+  </div>
+</div>
+
+  <div class="col-8 mb-4 ">
+    <div class="form-floating shadow">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Descripcion </label>
+</div>
+  </div>
+
+<div class="col-1 ">
+    <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+  </div>
+
+  <div class = " col-3 ">
+  <div class=" input-group shadow" >
+    <span class="input-group-text" id="addon-wrapping">N*Alarma</span>
+    <input type="text" class="form-control"  aria-describedby="addon-wrapping">
+  </div>
+</div>
+
+<div class = "col-3 ">
+    <p>Llamado receptado por:</p>    
+</div>
+<div class = " col-5">
+    <input type="text" class="form-control shadow"  >
+  </div>
+
+
+</div>
+  </div>
+</div>
+
+
+
+</div>
 
 {% endblock %}
 
