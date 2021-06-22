@@ -9,7 +9,7 @@
     data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
     Codigos
   </button>
-  
+
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title fw-bold " id="offcanvasExampleLabel"> Codigos </h5>
@@ -28,7 +28,7 @@
             background-repeat: no-repeat;
             width: 100%;
             font-size: 15px;
-            padding:  12px  12px 10px;
+            padding: 12px 12px 10px;
             border: 1px solid rgb(107, 107, 107);
             margin-bottom: 12px;
           }
@@ -65,7 +65,8 @@
         <body>
 
 
-          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Codigo" title="Type in a name" class="fw-bold  ">
+          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Codigo" title="Type in a name"
+            class="fw-bold  ">
 
           <table id="myTable" class="table table-striped table-borderless ">
             <tr class="header ">
@@ -264,7 +265,7 @@
       </div>
       <script>
         function myFunction() {
-          var input, filter, table, tr, td , th, i, txtValue;
+          var input, filter, table, tr, td, th, i, txtValue;
           input = document.getElementById("myInput");
           filter = input.value.toUpperCase();
           table = document.getElementById("myTable");
@@ -272,7 +273,7 @@
           for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[0];
             th = tr[i].getElementsByTagName("th")[0];
-            
+
             if (td) {
               txtValue = td.textContent || td.innerText;
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
