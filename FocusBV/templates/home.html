@@ -2,43 +2,50 @@
 
 
 {% block content%}
-<p class="text-center fw-bold fs-2 align-top my-2 ">Recepcion de Alarmas</p>
 
 
-<div class="card w-75 d-flex mx-auto shadow">
+
+<div class="card w-75 d-flex mx-auto shadow mt-4 mb-4">
   <div class="card-body">
 
-    <div class="row g-4">
-      <div class=" col-3">
-        <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">Codigo</span>
+    <p class="text-center fw-bold fs-2 align-top  ">Recepcion de Alarmas</p>
+    <hr>
+    <div class="row g-3">
+      <div class=" col-3 mb-3">
+
+        <div class=" input-group shadow my-2">
+          <span class="input-group-text " id="addon-wrapping">Codigo</span>
           <input id="codigos" type="text" class="form-control" aria-describedby="addon-wrapping">
-          <button onclick="parte2()" class="mx-2 btn btn-secondary fs-5 fw-bold ">Cargar</button>
+          <button onclick="parte2()" class=" btn btn-danger ">Cargar</button>
         </div>
         <a id="demo" type="text"></a>
       </div>
 
-      <div class="col-6 mx-">
+      <div class="col-7 my-2">
         <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
       </div>
-      <div class=" col-3 w-25 ">
-        <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">Hora</span>
+
+      <div class="col-1 mx- ">
+        <input type="text" class="form-control my-2 shadow" placeholder=" Hora" aria-label=" name">
+      </div>
+
+      <div class=" col-1">
+        <div class=" input-group">
           <h1 onkeyup="mueveReloj()"></h1>
 
           <body onload="mueveReloj()">
             <form name="form_reloj">
-              <input style="border: 0px; background-color: transparent;" type="text" name="reloj" size="15"
-                class="form-control" aria-describedby="addon-wrapping" readonly>
+              <input  type="text" name="reloj" 
+                class="form-control shadow " aria-describedby="addon-wrapping" readonly>
             </form>
         </div>
       </div>
 
-      <div class="col-8 mb-4 ">
-        <div class="form-floating shadow">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-            style="height: 100px"></textarea>
-          <label for="floatingTextarea2">Descripcion </label>
+      <div class="col-8  ">
+        <div class="form-floating shadow fs-5">
+          <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2"
+            style="height: 150px"></textarea>
+          <label for="floatingTextarea2 ">Descripcion </label>
         </div>
       </div>
 
@@ -47,56 +54,59 @@
       </div>
 
       <div class=" col-3 ">
-        <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">Nº Alarma</span>
-          <input type="text" class="form-control" aria-describedby="addon-wrapping">
+        <div class=" input-group shadow ">
+          <span class="input-group-text fs-5" id="addon-wrapping">Nº Alarma</span>
+          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
+
       <span>
-        <div class="col-3 ">
-          <p>Llamado receptado por:</p>
-        </div>
-        <div class=" col-5">
-          <input type="text" class="form-control shadow">
-        </div>
-      </span>
-      <br>
-      <div class=" col-3 ">
+      
+        <div class=" col-7 mb-3 mt-3 fs-4 ">
         <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">Nombre y Apellido</span>
-          <input type="text" class="form-control" aria-describedby="addon-wrapping">
+          <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por: </span>
+          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+        </div>
+      </div>
+      </span>
+
+
+      <div class=" col-5 ">
+        <div class=" input-group shadow">
+          <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
+          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
       <div class="col-1 ">
         <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
       </div>
-      <div class=" col-3 ">
+      <div class=" col-5 ">
         <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">Nº Telefono</span>
-          <input type="text" class="form-control" aria-describedby="addon-wrapping">
+          <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
+          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
       <br>
       <span></span>
-      <div class=" col-3 ">
+ 
+      <div class=" col-5 ">
         <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">Direccion</span>
-          <input type="text" class="form-control" aria-describedby="addon-wrapping">
+          <span class="input-group-text fs-5" id="addon-wrapping">Direccion</span>
+          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
       <div class="col-1 ">
         <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
       </div>
-      <div class=" col-3 ">
+      <div class=" col-5 ">
         <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">Ciudad</span>
-          <input type="text" class="form-control" aria-describedby="addon-wrapping">
+          <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
+          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
-
-      <hr>
+  
     </div>
-
+    <br>
     <div class="row g-4">
       <div class=" col-3" id="codigo2" style="display: none;">
         <div class=" input-group shadow">
@@ -186,7 +196,7 @@
     </div>
     <br>
     <div class="d-flex justify-content-center">
-      <button class="mx-2 btn btn-secondary fs-5 fw-bold " onclick="window.print()">ENVIAR DATOS</button>
+      <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4" onclick="window.print()">Enviar Datos</button>
     </div>
 
   </div>
@@ -210,6 +220,7 @@
 
     setTimeout("mueveReloj()", 1000)
   }
+
   function parte2() {
     var c10_10 = document.getElementById('codigo2');
     var c20_20 = document.getElementById('codigo3');
