@@ -5,14 +5,16 @@
 
 
 
-<div class="card w-75 d-flex mx-auto shadow mt-4 mb-4">
-  <div class="card-body">
+<div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
+  <div class="card-body ">
 
     <p class="text-center fw-bold fs-2 align-top  ">Recepcion de Alarmas</p>
     <hr>
     <div class="row g-3">
       <div class=" col-3 mb-3">
 
+
+<!-- Codigo General -->
         <div class=" input-group shadow my-2">
           <span class="input-group-text " id="addon-wrapping">Codigo</span>
           <input id="codigos" type="text" class="form-control" aria-describedby="addon-wrapping">
@@ -39,11 +41,9 @@
       <div class="col-1 mx- ">
         <input type="text" class="form-control my-2 shadow" value=" Hora" aria-label=" name" readonly>
       </div>
-
       <div class=" col-1">
         <div class=" input-group">
           <h1 onkeyup="mueveReloj()"></h1>
-
           <body onload="mueveReloj()">
             <form name="form_reloj">
               <input  type="text" name="reloj" 
@@ -52,7 +52,7 @@
         </div>
       </div>
 
-      <div class="col-9  ">
+      <div class="col-12  ">
         <div class="form-floating shadow fs-5">
           <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2"
             style="height: 150px"></textarea>
@@ -60,13 +60,7 @@
         </div>
       </div>
 
-      <div class="col-1 ">
-        <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-      </div>
-
-
       <span>
-      
         <div class=" col-7 mb-3 mt-3 fs-4 ">
         <div class=" input-group shadow">
           <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por: </span>
@@ -82,43 +76,54 @@
           <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
+
       <div class="col-1 ">
         <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
       </div>
+
       <div class=" col-5 ">
         <div class=" input-group shadow">
           <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
           <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
+
       <br>
       <span></span>
- 
       <div class=" col-5 ">
         <div class=" input-group shadow">
           <span class="input-group-text fs-5" id="addon-wrapping">Direccion</span>
           <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
+
       <div class="col-1 ">
         <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
       </div>
+
       <div class=" col-5 ">
         <div class=" input-group shadow">
           <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
           <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
       </div>
-  
+
+<!-- Fin del codigo general -->
     </div>
     <br>
+
+
     <div class="row g-4">
+
       <div class=" col-3" id="codigo2" style="display: none;">
         <div class=" input-group shadow">
           <span class="input-group-text" id="addon-wrapping">AAAA</span>
           <input type="text" class="form-control" aria-describedby="addon-wrapping">
         </div>
       </div>
+
+
+<!-- Codigo 20-20 -->
       <div id="codigo3" style="display: none;">
         <div class=" col-3">
           <div class=" input-group shadow">
@@ -200,6 +205,9 @@
       </div>
     </div>
     <br>
+<!-- Termina codigo 20-20 -->
+
+<!-- Boton -->
     <div class="d-flex justify-content-center">
       <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4" onclick="window.print()">Enviar Datos</button>
     </div>
@@ -237,7 +245,14 @@
     } else {
       c10_10.style.display = 'none';
     }
+
     if (cod_1 == '20-20') {
+      c20_20.style.display = 'block';
+    } else {
+      c20_20.style.display = 'none';
+    }
+    
+     if (cod_1 == '20-20') {
       c20_20.style.display = 'block';
     } else {
       c20_20.style.display = 'none';
