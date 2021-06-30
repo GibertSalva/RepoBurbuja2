@@ -1,218 +1,263 @@
-{% extends 'base.html' %}
-
-
-{% block content%}
+{% extends 'base.html' %} {% block content%}
 
 
 
 <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
-  <div class="card-body ">
+    <div class="card-body ">
 
-    <p class="text-center fw-bold fs-2 align-top  ">Recepcion de Alarmas</p>
-    <hr>
-    <div class="row g-3">
-      <div class=" col-3 mb-3">
+        <p class="text-center fw-bold fs-2 align-top  ">Recepcion de Alarmas</p>
+        <hr>
+        <div class="row g-3">
+            <div class=" col-3 mb-3">
 
 
-<!-- Codigo General -->
-        <div class=" input-group shadow my-2">
-          <span class="input-group-text " id="addon-wrapping">Codigo</span>
-          <input id="codigos" type="text" class="form-control" aria-describedby="addon-wrapping">
-          <button onclick="parte2()" class=" btn btn-danger ">Cargar</button>
-        </div>
-        <a id="demo" type="text"></a>
-      </div>
+                <!-- Codigo General -->
+                <div class=" input-group shadow my-2">
+                    <span class="input-group-text " id="addon-wrapping">Codigo</span>
+                    <input id="codigos" type="text" class="form-control" aria-describedby="addon-wrapping">
+                    <button onclick="parte2()" class=" btn btn-danger ">Cargar</button>
+                </div>
+                <a id="demo" type="text"></a>
+            </div>
 
-      <div class="col-2 mx- ">
-        <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
-      </div>
+            <div class="col-2 mx- ">
+                <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
+            </div>
 
-      <div class=" col-3 ">
-        <div class=" input-group shadow my-2  ">
-          <span class="input-group-text" id="addon-wrapping">Nº Alarma</span>
-          <input type="text" class="form-control" aria-describedby="addon-wrapping">
-        </div>
-      </div>
+            <div class=" col-3 ">
+                <div class=" input-group shadow my-2  ">
+                    <span class="input-group-text" id="addon-wrapping">Nº Alarma</span>
+                    <input type="text" class="form-control" aria-describedby="addon-wrapping">
+                </div>
+            </div>
 
-      <div class="col-2 mx- ">
-        <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
-      </div>
+            <div class="col-2 mx- ">
+                <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
+            </div>
 
-      <div class="col-1 mx- ">
-        <input type="text" class="form-control my-2 shadow" value=" Hora" aria-label=" name" readonly>
-      </div>
-      <div class=" col-1">
-        <div class=" input-group">
-          <h1 onkeyup="mueveReloj()"></h1>
-          <body onload="mueveReloj()">
-            <form name="form_reloj">
-              <input  type="text" name="reloj" 
-                class="form-control shadow " aria-describedby="addon-wrapping" readonly>
-            </form>
-        </div>
-      </div>
+            <div class="col-1 mx- ">
+                <input type="text" class="form-control my-2 shadow" value=" Hora" aria-label=" name" readonly>
+            </div>
+            <div class=" col-1">
+                <div class=" input-group">
+                    <h1 onkeyup="mueveReloj()"></h1>
 
-      <div class="col-12  ">
-        <div class="form-floating shadow fs-5">
-          <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2"
-            style="height: 150px"></textarea>
-          <label for="floatingTextarea2 ">Descripcion </label>
-        </div>
-      </div>
+                    <body onload="mueveReloj()">
+                        <form name="form_reloj">
+                            <input type="text" name="reloj" class="form-control shadow " aria-describedby="addon-wrapping" readonly>
+                        </form>
+                </div>
+            </div>
 
-      <span>
-        <div class=" col-7 mb-3 mt-3 fs-4 ">
+
+            <span>
+        <div class=" col-7 mb-3 mt- fs-4 ">
         <div class=" input-group shadow">
           <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por: </span>
-          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
         </div>
-      </div>
-      </span>
-
-
-      <div class=" col-5 ">
-        <div class=" input-group shadow">
-          <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
-          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
-      </div>
-
-      <div class="col-1 ">
-        <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-      </div>
-
-      <div class=" col-5 ">
-        <div class=" input-group shadow">
-          <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
-          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
-      </div>
-
-      <br>
-      <span></span>
-      <div class=" col-5 ">
-        <div class=" input-group shadow">
-          <span class="input-group-text fs-5" id="addon-wrapping">Direccion</span>
-          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
-      </div>
-
-      <div class="col-1 ">
-        <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-      </div>
-
-      <div class=" col-5 ">
-        <div class=" input-group shadow">
-          <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
-          <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
-      </div>
-
-<!-- Fin del codigo general -->
     </div>
-    <br>
+    </span>
 
-
-    <div class="row g-4">
-
-      <div class=" col-3" id="codigo2" style="display: none;">
-        <div class=" input-group shadow">
-          <span class="input-group-text" id="addon-wrapping">AAAA</span>
-          <input type="text" class="form-control" aria-describedby="addon-wrapping">
+    <span>
+        <div class=" col-5 ">
+            <p class="h6 fs-5 mx-2" style="color: grey;"> Datos de la victima: </p>
         </div>
-      </div>
+    </span>
+
+
+    <div class=" col-6 ">
+        <div class=" input-group shadow">
+            <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
+            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+
+    <div class="col-1 ">
+        <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+    </div>
+
+    <div class=" col-4 ">
+        <div class=" input-group shadow">
+            <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
+            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+
+    <br>
+    <span></span>
+
+    <div class=" col-4 ">
+        <div class=" input-group shadow mb-">
+            <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
+            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+
+    <div class="col-1">
+        <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+    </div>
+
+
+
+    <div class=" col-6 ">
+        <div class=" input-group shadow">
+            <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
+            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+        </div>
+    </div>
+    <span></span>
+
+    <div class="col-10  ">
+        <div class="form-floating shadow fs-5">
+            <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
+            <label for="floatingTextarea2 ">Descripcion </label>
+        </div>
+    </div>
+
+    <!-- Fin del codigo general -->
+</div>
+<br>
+
+
+
+
+<!-- Codigo 10-10 -->
+<div id="cod10-10" style="display: none;">
+
+    <div class=" row g-2 ">
+        <p class=" col-4 h6 fs-5 mx-2 " style="color: grey; "> Sentido</p>
+        <p class=" col-4 h6 fs-5 mx-2 " style="color: grey; "> Hay riesgo de Propagacion?</p>
+        <p class=" col-3 h6 fs-5 mx-2 " style="color: grey; "> Edificacion o Vivienda Cerca?</p>
+        <span></span>
+        <div class=" col-2 ">
+            <div class="form-check ">
+                <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault1 ">
+                <label class="form-check-label fs-6 " for="flexRadioDefault1 ">Izquierda</label>
+            </div>
+        </div>
+        <div class="form-check col-2 ">
+            <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault2 " checked>
+            <label class="form-check-label fs-6 " for="flexRadioDefault2 ">Derecha</label>
+        </div>
+        <div class=" col-1 ">
+            <div class="form-check ">
+                <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault1 ">
+                <label class="form-check-label fs-6 " for="flexRadioDefault1 ">SI</label>
+            </div>
+        </div>
+        <div class=" col-1 "></div>
+        <div class="form-check col-2 ">
+            <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault2 " checked>
+            <label class="form-check-label fs-6 " for="flexRadioDefault2 ">
+          NO
+        </label>
+        </div>
+        <div class=" col-1 ">
+            <div class="form-check ">
+                <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault1 ">
+                <label class="form-check-label fs-6 " for="flexRadioDefault1 ">SI</label>
+            </div>
+        </div>
+        <div class=" col-1 "></div>
+        <div class="form-check col-2 ">
+            <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault2 " checked>
+            <label class="form-check-label fs-6 " for="flexRadioDefault2 ">
+          NO
+        </label>
+        </div>
+    </div>
+
+</div>
+
+
 
 
 <!-- Codigo 20-20 -->
-      <div id="codigo3" style="display: none;">
-        <div class=" col-3">
-          <div class=" input-group shadow">
-            <span class="input-group-text" id="addon-wrapping">Vehiculos Involucrados</span>
-            <input type="number" class="form-control" aria-describedby="addon-wrapping" id="numInputs"
-              onkeyup="multiplicarInputs(this)">
-          </div>
-          <br>
-          <span></span>
-          <div id="c_autos" style="display: none;">
-            <div class=" input-group shadow">
-              <span class="input-group-text" id="addon-wrapping">Tipos de Vehiculos</span>
-              <div id="divMultiInputs"></div>
-            </div>
-            <div class="col-1 ">
-              <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-            </div>
-            <div class=" input-group shadow" id="divMultiInputs">
-              <span class="input-group-text" id="addon-wrapping">Patentes</span>
-              <div id="divMultiInputs1"></div>
-            </div>
-          </div>
+<div id="cod20-20 " style="display: none; ">
+    <div class=" col-3 ">
+        <div class=" input-group shadow ">
+            <span class="input-group-text " id="addon-wrapping ">Vehiculos Involucrados</span>
+            <input type="number " class="form-control " aria-describedby="addon-wrapping " id="numInputs " onkeyup="multiplicarInputs(this) ">
         </div>
         <br>
-        <div class="row g-4">
-          <span></span>
-          <div class=" col-3 ">
-            <div class=" input-group shadow">
-              <span class="input-group-text" id="addon-wrapping">Personas Involucradas</span>
-              <input type="number" class="form-control" aria-describedby="addon-wrapping">
+        <span></span>
+        <div id="c_autos " style="display: none; ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Tipos de Vehiculos</span>
+                <div id="divMultiInputs "></div>
             </div>
-          </div>
-          <div class="col-1 ">
-            <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-          </div>
-          <div class=" col-3 ">
-            <span class="input-group-text" id="addon-wrapping">Interrumpe el transito??</span>
-            <input type="radio" name="opc" value="SI">
-            <label for="Ruta">SI</label><br>
-            <input type="radio" name="opc" value="NO">
-            <label for="Calle">NO</label><br>
-          </div>
-          <div class=" col-3 ">
-            <form id="lugar1">
-              <span class="input-group-text" id="addon-wrapping">Donde Ocurrio</span>
-                <input type="radio" name="opc" value="Ruta" onclick="sent()">
-                <label for="Ruta">Ruta</label><br>
-                <input type="radio" name="opc" value="Calle">
-                <label for="Calle">Calle</label><br>
-                <input type="radio" name="opc" value="Avenida">
-                <label for="Avenida">Avenida</label>
-            </form>
-          </div>
-          <br>
-          <span></span>
-          <div class=" col-3 ">
-            <div class=" input-group shadow">
-              <span class="input-group-text" id="addon-wrapping">Heridos/Atrapados</span>
-              <input type="number" class="form-control" aria-describedby="addon-wrapping">
+            <div class="col-1 ">
+                <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
             </div>
-          </div>
-          <div class="col-1 ">
-            <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-          </div>
-          <div class=" col-3 ">
-            <div class=" input-group shadow">
-              <span class="input-group-text" id="addon-wrapping">Servicio de Emergencia</span>
-              <input type="text" class="form-control" aria-describedby="addon-wrapping">
+            <div class=" input-group shadow " id="divMultiInputs ">
+                <span class="input-group-text " id="addon-wrapping ">Patentes</span>
+                <div id="divMultiInputs1 "></div>
             </div>
-          </div>
-          <div class=" col-3 " id="sentido1" style="display: none;">
-            <div class=" input-group shadow">
-              <span class="input-group-text" id="addon-wrapping">Sentido</span>
-              <input type="text" class="form-control" aria-describedby="addon-wrapping">
-            </div>
-          </div>
-          </span>
         </div>
-      </div>
     </div>
     <br>
+    <div class="row g-4 ">
+        <span></span>
+        <div class=" col-3 ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Personas Involucradas</span>
+                <input type="number " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        <div class="col-1 ">
+            <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+        </div>
+        <div class=" col-3 ">
+            <span class="input-group-text " id="addon-wrapping ">Interrumpe el transito??</span>
+            <input type="radio " name="opc " value="SI ">
+            <label for="Ruta ">SI</label><br>
+            <input type="radio " name="opc " value="NO ">
+            <label for="Calle ">NO</label><br>
+        </div>
+        <div class=" col-3 ">
+            <form id="lugar1 ">
+                <span class="input-group-text " id="addon-wrapping ">Donde Ocurrio</span>   <input type="radio " name="opc " value="Ruta " onclick="sent() ">   <label for="Ruta ">Ruta</label><br>   <input type="radio " name="opc " value="Calle">
+                <label for="Calle ">Calle</label><br>   <input type="radio " name="opc " value="Avenida ">   <label for="Avenida ">Avenida</label>
+            </form>
+        </div>
+        <br>
+        <span></span>
+        <div class=" col-3 ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Heridos/Atrapados</span>
+                <input type="number " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        <div class="col-1 ">
+            <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+        </div>
+        <div class=" col-3 ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Servicio de Emergencia</span>
+                <input type="text " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        <div class=" col-3 " id="sentido1 " style="display: none; ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Sentido</span>
+                <input type="text " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        </span>
+    </div>
+</div>
+</div>
+<br>
 <!-- Termina codigo 20-20 -->
 
 <!-- Boton -->
-    <div class="d-flex justify-content-center">
-      <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4" onclick="window.print()">Enviar Datos</button>
-    </div>
+<div class="d-flex justify-content-center ">
+    <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " onclick="window.print() ">Enviar Datos</button>
+</div>
+<br>
 
-  </div>
+</div>
 </div>
 </div>
 
@@ -221,75 +266,73 @@
 </div>
 
 <script>
+    function mueveReloj() {
+        momentoActual = new Date()
+        hora = momentoActual.getHours()
+        minuto = momentoActual.getMinutes()
 
-  function mueveReloj() {
-    momentoActual = new Date()
-    hora = momentoActual.getHours()
-    minuto = momentoActual.getMinutes()
+        horaImprimible = hora + " : " + minuto
 
-    horaImprimible = hora + " : " + minuto
+        document.form_reloj.reloj.value = horaImprimible
 
-    document.form_reloj.reloj.value = horaImprimible
-
-    setTimeout("mueveReloj()", 1000)
-  }
-
-  function parte2() {
-    var c10_10 = document.getElementById('codigo2');
-    var c20_20 = document.getElementById('codigo3');
-    var cod = document.getElementById('codigos');
-    var cod_1 = cod.value;
-
-    if (cod_1 == '10-10') {
-      c10_10.style.display = 'block';
-    } else {
-      c10_10.style.display = 'none';
+        setTimeout("mueveReloj()", 1000)
     }
 
-    if (cod_1 == '20-20') {
-      c20_20.style.display = 'block';
-    } else {
-      c20_20.style.display = 'none';
-    }
-    
-     if (cod_1 == '20-20') {
-      c20_20.style.display = 'block';
-    } else {
-      c20_20.style.display = 'none';
-    }
-  }
+    function parte2() {
+        var c10_10 = document.getElementById('cod10-10');
+        var c20_20 = document.getElementById('codigo3');
+        var cod = document.getElementById('codigos');
+        var cod_1 = cod.value;
 
-  function sent() {
-    var lugar = document.getElementById('lugar1');
-    var lug = lugar.value;
-    var sent = document.getElementById('sentido1');
+        if (cod_1 == '10-10') {
+            c10_10.style.display = 'block';
+        } else {
+            c10_10.style.display = 'none';
+        }
 
-    if (lug == 'ruta') {
-      sent.style.display = 'block';
-    } else {
-      sent.style.display = 'block';
-    }
-  }
-  function multiplicarInputs(text) {
-    var c_auto = document.getElementById('c_autos');
-    var num = text.value
-    var div = '';
-    for (var i = 0; i < num; i++) {
-      var cont = i + 1;
-      div += "<br > " + "" + cont + ":" + "<input maxlength='30' style='border:0px' name='inputTextMulti[]' size='10' type='text' />&nbsp;" + "<hr>";
+        if (cod_1 == '20-20') {
+            c20_20.style.display = 'block';
+        } else {
+            c20_20.style.display = 'none';
+        }
+
+        if (cod_1 == '20-20') {
+            c20_20.style.display = 'block';
+        } else {
+            c20_20.style.display = 'none';
+        }
     }
 
-    if (num == "") {
-      c_auto.style.display = 'none';
-    } else {
-      c_auto.style.display = 'block';
+    function sent() {
+        var lugar = document.getElementById('lugar1');
+        var lug = lugar.value;
+        var sent = document.getElementById('sentido1');
+
+        if (lug == 'ruta') {
+            sent.style.display = 'block';
+        } else {
+            sent.style.display = 'block';
+        }
     }
 
-    document.getElementById("divMultiInputs").innerHTML = div;
-    document.getElementById("divMultiInputs1").innerHTML = div;
-  }
+    function multiplicarInputs(text) {
+        var c_auto = document.getElementById('c_autos');
+        var num = text.value
+        var div = '';
+        for (var i = 0; i < num; i++) {
+            var cont = i + 1;
+            div += "<br > " + "" + cont + ":" + "<input maxlength='30' style='border:0px' name='inputTextMulti[]' size='10' type='text' />&nbsp;" + "<hr>";
+        }
 
+        if (num == "") {
+            c_auto.style.display = 'none';
+        } else {
+            c_auto.style.display = 'block';
+        }
 
+        document.getElementById("divMultiInputs").innerHTML = div;
+        document.getElementById("divMultiInputs1").innerHTML = div;
+    }
 </script>
 
 
