@@ -551,7 +551,11 @@
         hora = momentoActual.getHours()
         minuto = momentoActual.getMinutes()
 
-        horaImprimible = hora + " : " + minuto
+        if (minuto < 10){
+            horaImprimible = hora + " : 0" + minuto
+        } else{
+            horaImprimible = hora + " : " + minuto   
+        }
 
         document.form_reloj.reloj.value = horaImprimible
 
