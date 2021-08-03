@@ -157,26 +157,28 @@
             </div>
         </div>
 
+
         <div class="col-3 mt-4">
             <p class="  h6 fs-7 mx-2 " style="color: grey "> Hay alguna edificación o vivienda cerca?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio" name="customRadio1" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio1">SI</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio2">NO</label>
             </div>
         </div>
 
+
         <div class="col-3 mt-4">
             <p class="  h6 fs-7 mx-2 " style="color: grey "> Hay algún otro servicio de emergencia en el lugar?</p>
-            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <div class="custom-control custom-radio mx-2 h6 " style="color: grey;">
+                <input type="radio" id="customRadio3" name="customRadio2" class="custom-control-input ">
                 <label class="custom-control-label" for="customRadio1">SI</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input">
                 <label class="custom-control-label" for="customRadio2">NO</label>
             </div>
         </div>
@@ -454,7 +456,7 @@
 
 
 <!-- Codigo 20-20 -->
-<div id="cod20-20 " style="display: none; ">
+<div id="cod20-20" style="display: none; ">
     <div class=" col-3 ">
         <div class=" input-group shadow ">
             <span class="input-group-text " id="addon-wrapping ">Vehiculos Involucrados</span>
@@ -462,7 +464,7 @@
         </div>
         <br>
         <span></span>
-        <div id="c_autos " style="display: none; ">
+        <div id="c_autos " style="display: none;">
             <div class=" input-group shadow ">
                 <span class="input-group-text " id="addon-wrapping ">Tipos de Vehiculos</span>
                 <div id="divMultiInputs "></div>
@@ -518,7 +520,8 @@
                 <input type="text " class="form-control " aria-describedby="addon-wrapping ">
             </div>
         </div>
-        <div class=" col-3 " id="sentido1 " style="display: none; ">
+        <div class=" col-3 " id="sentido1 " style="display: none;
+        ">
             <div class=" input-group shadow ">
                 <span class="input-group-text " id="addon-wrapping ">Sentido</span>
                 <input type="text " class="form-control " aria-describedby="addon-wrapping ">
@@ -551,10 +554,10 @@
         hora = momentoActual.getHours()
         minuto = momentoActual.getMinutes()
 
-        if (minuto < 10){
+        if (minuto < 10) {
             horaImprimible = hora + " : 0" + minuto
-        } else{
-            horaImprimible = hora + " : " + minuto   
+        } else {
+            horaImprimible = hora + " : " + minuto
         }
 
         document.form_reloj.reloj.value = horaImprimible
