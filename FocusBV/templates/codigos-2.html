@@ -1,0 +1,104 @@
+
+<!-- Codigo 20-20 -->
+
+<div id="cod20-20" style="display: none; ">
+    <span>
+        <div class=" col-12 ">
+            <p class="h6 fs-5 mx-2 " style="color: grey;"> Accidente </p>
+        </div>
+    </span>
+    <hr>
+    <div>
+        <form>
+            <p class="h6 fs-5 mx-2 " style="color: grey;"> 20-20 (A-B-C-D-E) </p>
+            <input type="radio" name="opc1" value="A">
+            <label style="margin-right: 1%;" for="A">Automovil </label>   
+            <input type="radio" name="opc1" value="B">
+            <label style="margin-right: 1%;" for="B">Omnibus </label>    
+            <input type="radio" name="opc1" value="C">
+            <label style="margin-right: 1%;" for="C">Camion </label>    
+            <input type="radio" name="opc1" value="D">
+            <label style="margin-right: 1%;" for="D">Motocicleta </label>    
+            <input type="radio" name="opc1" value="E">
+            <label style="margin-right: 1%;" for="E">Atropellado </label>    
+        </form>
+    </div>
+    <br>
+    <div class=" col-3 " >
+        <div class=" input-group shadow ">
+            <span class="input-group-text " id="addon-wrapping ">Vehiculos Involucrados</span>
+            <input type="number " class="form-control " aria-describedby="addon-wrapping " id="numInputs" onkeyup="multiplicarInputs(this)">
+        </div>
+        <br>
+        <span></span>
+        <div id="c_autos" style="display: none;" >
+            <div class=" input-group shadow " style="width: 120%;">
+                <span class="input-group-text " id="addon-wrapping " >Tipos de Vehiculos </span>
+                <div id="divMultiInputs"></div>
+            </div>
+            <div class="col-1 ">
+                <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+            </div>
+            <div class=" input-group shadow " id="divMultiInputs">
+                <span class="input-group-text " id="addon-wrapping ">Patentes</span>
+                <div id="divMultiInputs1"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row g-4 ">
+        <span></span>
+        <div class=" col-3 ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Personas Involucradas</span>
+                <input type="number " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        <div class="col-1 ">
+            <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+        </div>
+        <div class=" col-3 ">
+            <span class="input-group-text " id="addon-wrapping ">Interrumpe el transito??</span>
+            <input type="radio" name="opc " value="SI ">  
+            <label for="Ruta ">SI</label><br>  
+            <input type="radio" name="opc " value="NO ">  
+            <label for="Calle ">NO</label><br>  
+        </div>
+        <div class=" col-3 ">
+                <span class="input-group-text " id="addon-wrapping ">Donde Ocurrio</span>   
+                <input type="radio" name="opc" value="Ruta" onclick="sent1('ruta')">   
+                <label for="Ruta">Ruta</label><br>   
+                <input type="radio" name="opc" value="Calle">   
+                <label for="Calle">Calle</label><br>   
+                <input type="radio" name="opc" value="Avenida">   
+                <label for="Avenida">Avenida</label>
+        </div>
+        <br>
+        <span></span>
+        <div class=" col-3 ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Heridos/Atrapados</span>
+                <input type="number " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        <div class="col-1 ">
+            <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+        </div>
+        <div class=" col-3 ">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Servicio de Emergencia</span>
+                <input type="text " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        <div class=" col-3 " id="sentido1" style="display: none;">
+            <div class=" input-group shadow ">
+                <span class="input-group-text " id="addon-wrapping ">Sentido</span>
+                <input type="text " class="form-control " aria-describedby="addon-wrapping ">
+            </div>
+        </div>
+        </span>
+    </div>
+</div>
+</div>
+
+<!-- Termina codigo 20-20 -->
