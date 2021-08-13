@@ -1,7 +1,5 @@
-
-
 <!-- Codigo 10-10 -->
-<div id="cod10-10" style="display: none;">
+<div id="cod10-10" style=";">
 
     <div class=" row g-2 ">
 
@@ -12,48 +10,57 @@
         </span>
         <hr>
 
-        <div class="col-12 mt-4 ">
+        <div class="col-12 mt-4 mb-3">
             <div class="form-floating shadow fs-5">
                 <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
                 <label for="floatingTextarea2 ">Referencia Fisica/Sentido (Ruta)  </label>
             </div>
         </div>
 
+
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Tiene riesgo de propagacion?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Tiene riesgo de propagacion?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">SI</label>
+                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">SI</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">NO</label>
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">NO</label>
             </div>
         </div>
 
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Hay alguna edificación o vivienda cerca?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Hay alguna edificación o vivienda cerca?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio" name="customRadio1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">SI</label>
+                <input type="radio" id="customRadio" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;" onclick="mostrarOtro()">
+                <label class="custom-control-label fs-5" for="customRadio1">SI</label>
             </div>
+
+            <div class="col-12 mt-4 mb-3" id="OTRO" style="display: none;">
+                <div class="form-floating shadow fs-5">
+                    <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
+                    <label for="floatingTextarea2 ">   </label>
+                </div>
+            </div>
+
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">NO</label>
+                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">NO</label>
             </div>
         </div>
 
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Hay algún otro servicio de emergencia en el lugar?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Hay algún otro servicio de emergencia en el lugar?</p>
             <div class="custom-control custom-radio mx-2 h6 " style="color: grey;">
-                <input type="radio" id="customRadio3" name="customRadio2" class="custom-control-input ">
-                <label class="custom-control-label" for="customRadio1">SI</label>
+                <input type="radio" id="customRadio3" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">SI</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">NO</label>
+                <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">NO</label>
             </div>
         </div>
 
@@ -327,4 +334,3 @@
 
     </div>
 </div>
-
