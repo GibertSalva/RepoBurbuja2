@@ -4,7 +4,8 @@ from .models import *
 class AlarmForm(forms.ModelForm):
     class Meta:
         model = FormPadre
-        fields = ['tipoSiniestro','hora','direccion','altura','referencia','nombre','telefono']
+        fields = '__all__'
+        exclude = ['idAlarma']
 
 class AVform(forms.ModelForm):
     class Meta:
