@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.fields import BooleanField, CharField, IntegerField
-# from django.forms import ModelForm
+from django.forms import ModelForm
 
 
 # Create your models here.
