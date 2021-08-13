@@ -120,11 +120,7 @@
 
     <!-- Fin del codigo general -->
 </div>
-<br>
-
-{% include 'codigos-1.html' %}
-
-{% include 'codigos-2.html' %}
+<br> {% include 'codigos-1.html' %} {% include 'codigos-2.html' %}
 
 <!-- Boton -->
 <div class="d-flex justify-content-center ">
@@ -137,6 +133,7 @@
 </div>
 
 <script>
+    // FUNCIONALIDAD DEL RELOJ
     function mueveReloj() {
         momentoActual = new Date()
         hora = momentoActual.getHours()
@@ -153,6 +150,7 @@
         setTimeout("mueveReloj()", 1000)
     }
 
+    // MOSTRAR CODIGOS
     function parte2() {
         var c10_10 = document.getElementById('cod10-10');
         var c10_11 = document.getElementById('cod10-11');
@@ -206,11 +204,13 @@
 
         if (opc == 'ruta') {
             sent.style.display = 'block';
-        } if (opc != 'ruta') {
+        }
+        if (opc != 'ruta') {
             sent.style.display = 'none';
         }
     }
 
+    // MOSTRAR MAS INPUTS
     function multiplicarInputs(text) {
         var c_auto = document.getElementById('c_autos');
         var num = text.value
@@ -228,6 +228,16 @@
 
         document.getElementById("divMultiInputs").innerHTML = div;
         document.getElementById("divMultiInputs1").innerHTML = div;
+    }
+
+    function mostrarOtro() {
+        var x = document.getElementById("OTRO");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+
+        } else {
+            x.style.display == "none";
+        }
     }
 </script>
 
