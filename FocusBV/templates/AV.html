@@ -115,23 +115,10 @@
             <div class=" col-3 " >
                 <div class=" input-group shadow ">
                     <span class="input-group-text " id="addon-wrapping ">Vehiculos Involucrados</span>
-                    <input name="cantVehiculos" type="number " class="form-control " aria-describedby="addon-wrapping " id="numInputs" onkeyup="multiplicarInputs(this)">
+                    {{ form.cantVehiculos }}
                 </div>
                 <br>
                 <span></span>
-                <div id="c_autos" style="display: none;" >
-                    <div class=" input-group shadow " style="width: 120%;">
-                        <span class="input-group-text " id="addon-wrapping " >Tipos de Vehiculos </span>
-                        <div id="divMultiInputs"></div>
-                    </div>
-                    <div class="col-1 ">
-                        <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
-                    </div>
-                    <div class=" input-group shadow " id="divMultiInputs">
-                        <span class="input-group-text " id="addon-wrapping ">Patentes</span>
-                        <div id="divMultiInputs1"></div>
-                    </div>
-                </div>
             </div>
             <br>
             <div class="row g-4 ">
@@ -139,7 +126,7 @@
                 <div class=" col-3 ">
                     <div class=" input-group shadow ">
                         <span class="input-group-text " id="addon-wrapping ">Personas Involucradas</span>
-                        <input name="cantPersonas" type="number " class="form-control " aria-describedby="addon-wrapping ">
+                        {{ form.cantVehiculos }}
                     </div>
                 </div>
                 <div class="col-1 ">
@@ -147,26 +134,18 @@
                 </div>
                 <div class=" col-3 ">
                     <span class="input-group-text " id="addon-wrapping ">Interrumpe el transito??</span>
-                    <input type="radio" name="opc " value="SI ">
-                    <label for="Ruta ">SI</label><br>
-                    <input type="radio" name="opc " value="NO ">
-                    <label for="Calle ">NO</label><br>
+                    {{ form.corteTransito }}
                 </div>
-                <div class=" col-3 ">
-                        <span class="input-group-text " id="addon-wrapping ">Donde Ocurrio</span>  
-                        <input type="radio" name="opc" value="Ruta" onclick="sent1('ruta')">  
-                        <label for="Ruta">Ruta</label><br>  
-                        <input type="radio" name="opc" value="Calle">  
-                        <label for="Calle">Calle</label><br>  
-                        <input type="radio" name="opc" value="Avenida">  
-                        <label for="Avenida">Avenida</label>
+                <div class="col-3 form-check-inline">
+                    <span class="input-group-text " id="addon-wrapping ">Donde Ocurrio</span>  
+                    {{ form.tipoCalle }}
                 </div>
                 <br>
                 <span></span>
                 <div class=" col-3 ">
                     <div class=" input-group shadow ">
                         <span class="input-group-text " id="addon-wrapping ">Heridos/Atrapados</span>
-                        <input type="number " class="form-control " aria-describedby="addon-wrapping ">
+                        {{form.herido}}
                     </div>
                 </div>
                 <div class="col-1 ">
@@ -175,7 +154,7 @@
                 <div class=" col-3 ">
                     <div class=" input-group shadow ">
                         <span class="input-group-text " id="addon-wrapping ">Servicio de Emergencia</span>
-                        <input type="text " class="form-control " aria-describedby="addon-wrapping ">
+                        {{form.servEmergencia}}
                     </div>
                 </div>
                 <div class=" col-3 " id="sentido1" style="display: none;">

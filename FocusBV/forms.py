@@ -21,7 +21,13 @@ class AVform(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id':'floatingTextarea2', 'style':'height: 150px'})),
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
-            'cantVehiculos': forms.IntegerField(attrs={'class': ''})
+            'cantVehiculos': forms.NumberInput(attrs={'class': 'form-control'}),
+            'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
+            'corteTransito': forms.CheckboxInput(attrs={'class':'form-check-inline'}),
+            'tipoCalle':forms.RadioSelect(),
+            'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
+            'servEmergencia': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'herido': forms.TextInput(attrs={'class': 'form-control'}),
 
         }
 
