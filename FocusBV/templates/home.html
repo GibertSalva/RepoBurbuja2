@@ -9,7 +9,7 @@
 
         <span>
             <div class=" col-5 ">
-                <p class="h6 fs-5 mx-2" style="color: grey;"> Datos  Generales: </p>
+                <p class="h6 fs-5 mx-2" style="color: grey;"> Datos Generales: </p>
             </div>
             <hr>
         </span>
@@ -22,7 +22,7 @@
                 <div class=" input-group shadow my-2">
                     <span class="input-group-text " id="addon-wrapping">Codigo</span>
                     <input id="codigos" type="text" class="form-control" aria-describedby="addon-wrapping">
-                    <button onclick="parte2()" class=" btn btn-danger " type='submit' id='boton' >Cargar</button>
+                    <button onclick="parte2()" class=" btn btn-danger " type='submit' id='boton'>Cargar</button>
                 </div>
                 <a id="demo" type="text"></a>
             </div>
@@ -51,88 +51,335 @@
 
                     <body onload="mueveReloj()">
                         <form name="form_reloj">
-                            <input type="text" name="reloj" class="form-control shadow " aria-describedby="addon-wrapping" readonly>
+                            <input type="text" name="reloj" class="form-control shadow "
+                                aria-describedby="addon-wrapping" readonly>
                         </form>
                 </div>
             </div>
 
 
             <span>
-        <div class=" col-7 mb-3 mt- fs-4 ">
-        <div class=" input-group shadow">
-          <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por: </span>
-            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+                <div class=" col-7 mb-3 mt- fs-4 ">
+                    <div class=" input-group shadow">
+                        <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por: </span>
+                        <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+            </span>
+
+            <span>
+                <div class=" col-5 ">
+                    <p class="h6 fs-5 mx-2" style="color: grey;"> Datos del solicitante: </p>
+                </div>
+                <hr>
+            </span>
+
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
+                    <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+
+            <div class="col-1 ">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
+                    <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+
+            <br>
+            <span></span>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow mb-">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
+                    <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+
+            <div class="col-1">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
+                    <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+            <span></span>
+
+
+
+            <!-- Fin del codigo general -->
         </div>
-    </div>
-    </span>
+        <br> {% include 'codigos-1.html' %} {% include 'codigos-2.html' %}
 
-    <span>
-        <div class=" col-5 ">
-            <p class="h6 fs-5 mx-2" style="color: grey;"> Datos del solicitante: </p>
+        <!-- Boton -->
+        <div class="d-flex justify-content-center ">
+            <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " onclick="window.print() ">Enviar Datos</button>
         </div>
-        <hr>
-    </span>
+        <br>
 
-
-    <div class=" col-6 ">
-        <div class=" input-group shadow">
-            <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
-            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
     </div>
-
-    <div class="col-1 ">
-        <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-    </div>
-
-    <div class=" col-4 ">
-        <div class=" input-group shadow">
-            <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
-            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
-    </div>
-
-    <br>
-    <span></span>
-
-    <div class=" col-4 ">
-        <div class=" input-group shadow mb-">
-            <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
-            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
-    </div>
-
-    <div class="col-1">
-        <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
-    </div>
-
-
-
-    <div class=" col-6 ">
-        <div class=" input-group shadow">
-            <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
-            <input type="text" class="form-control fs-5" aria-describedby="addon-wrapping">
-        </div>
-    </div>
-    <span></span>
-
-
-
-    <!-- Fin del codigo general -->
 </div>
-<br> {% include 'codigos-1.html' %} {% include 'codigos-2.html' %}
+</div>
+<div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+        <h3>Creacion de Formulario</h3>
+        <h4>Selecciones campos</h4>
+        <form action="">
+            <div class="row d-flex justify-content-center mt-100">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="orden">
+                                <label> <input type="checkbox" class="option-input checkbox" checked /> Vehiculos</label>
+                                <label> <input type="checkbox" class="option-input checkbox" /> Heridos </label>
+                                <label> <input type="checkbox" class="option-input checkbox" /> Fuego </label>
+                                <label> <input type="checkbox" class="option-input checkbox" checked /> Infraestructura</label>
+                                <label> <input type="checkbox" class="option-input checkbox" /> Servicio de Emergencia </label>
+                                <label> <input type="checkbox" class="option-input checkbox" /> Involucrados </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn-submit" value="Crear">
+        </form>
+    </div>
+</div>
 
-<!-- Boton -->
-<div class="d-flex justify-content-center ">
-    <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " onclick="window.print() ">Enviar Datos</button>
-</div>
-<br>
+<style>
+    .orden{
+        vertical-align: 2px;
+    }
+    
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid #d2d2dc;
+        border-radius: 0
+        
+    }
 
-</div>
-</div>
-</div>
+    .card .card-body {
+        padding: 1.25rem 1.75rem
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1.25rem
+    }
+
+    .card .card-title {
+        color: #000000;
+        margin-bottom: 0.625rem;
+        text-transform: capitalize;
+        font-size: 0.875rem;
+        font-weight: 500
+    }
+
+    .card .card-description {
+        margin-bottom: .875rem;
+        font-weight: 200;
+        color: #76838f
+    }
+
+    p {
+        font-size: 0.875rem;
+        margin-bottom: .5rem;
+        line-height: 1.5rem
+    }
+
+    @keyframes click-wave {
+        0% {
+            height: 40px;
+            width: 60px;
+            opacity: 0.15;
+            position: relative
+        }
+
+        100% {
+            height: 200px;
+            width: 200px;
+            margin-left: -80px;
+            margin-top: -80px;
+            opacity: 0
+        }
+    }
+
+    .option-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        position: relative;
+        top: 13.33333px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 60px;
+        width: 60px;
+        transition: all 0.15s ease-out 0s;
+        background: #cbd1d8;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 0.5rem;
+        outline: none;
+        position: relative;
+        z-index: 1000
+    }
+
+    .option-input:hover {
+        background: #9faab7
+    }
+
+    .option-input:checked {
+        background: #E91E63
+    }
+
+    .option-input:checked::before {
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        content: "\f111";
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        font-size: 26.66667px;
+        text-align: center;
+        line-height: 40px
+    }
+
+    .option-input:checked::after {
+        -webkit-animation: click-wave 0.25s;
+        -moz-animation: click-wave 0.25s;
+        animation: click-wave 0.25s;
+        background: #E91E63;
+        content: '';
+        display: block;
+        position: relative;
+        z-index: 100
+    }
+
+    .option-input.radio {
+        border-radius: 20%
+    }
+
+    .option-input.radio::after {
+        border-radius: 20%
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, .3);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        visibility: hidden;
+    }
+
+    .overlay.active {
+        visibility: visible;
+    }
+
+    .popup {
+        background: #F8F8F8;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        font-family: 'Montserrat', sans-serif;
+        padding: 20px;
+        text-align: center;
+        width: 600px;
+
+        transition: .3s ease all;
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    .popup .btn-cerrar-popup {
+        font-size: 16px;
+        line-height: 16px;
+        display: block;
+        text-align: right;
+        transition: .3s ease all;
+        color: #BBBBBB;
+    }
+
+    .popup .btn-cerrar-popup:hover {
+        color: #000;
+    }
+
+    .popup.active {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .popup.active h3 {
+        animation: entradaTitulo .8s ease .5s forwards;
+    }
+
+    .popup.active h4 {
+        animation: entradaSubtitulo .8s ease .5s forwards;
+    }
+
+    .popup.active .contenedor-inputs {
+        animation: entradaInputs 1s linear 1s forwards;
+    }
+
+
+    @keyframes entradaInputs {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+
 
 <script>
+
+    var btnAbrirPopup = document.getElementById('btn-abrir-popup'),
+        overlay = document.getElementById('overlay'),
+        popup = document.getElementById('popup'),
+        btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+
+    btnAbrirPopup.addEventListener('click', function () {
+        overlay.classList.add('active');
+        popup.classList.add('active');
+    });
+
+    btnCerrarPopup.addEventListener('click', function (e) {
+        e.preventDefault();
+        overlay.classList.remove('active');
+        popup.classList.remove('active');
+    });
+
     // FUNCIONALIDAD DEL RELOJ
     function mueveReloj() {
         momentoActual = new Date()
@@ -230,6 +477,16 @@
         document.getElementById("divMultiInputs1").innerHTML = div;
     }
 
+
+    function nuevoForm() {
+
+        div += "<br > " + " " + cont + ":" + "<input maxlength='30' style='border:0px' name='inputTextForm[]' size='10' type='text' />&nbsp;" + "<hr>";
+
+        document.getElementById("divVehiculo").innerHTML = div;
+        document.getElementById("divHeridos").innerHTML = div;
+    }
+
+
     function mostrarOtro() {
         var x = document.getElementById("OTRO");
         if (x.style.display === "none") {
@@ -241,7 +498,7 @@
     }
 
     var input = document.getElementById("codigos");
-    input.addEventListener("keyup", function(event) {
+    input.addEventListener("keyup", function (event) {
         if (event.keyCode === 13) {
             event.preventDefault();
             document.getElementById("boton").click();
