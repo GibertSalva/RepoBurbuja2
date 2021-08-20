@@ -6,4 +6,5 @@ from.import views
 
 urlpatterns = [
     path('', views.homeview, name = "home"),
+    path('av',views.ACview , name = "AC"),
 ]

@@ -11,11 +11,12 @@ class FormPadre(models.Model):
     idAlarma = models.CharField(max_length=50, primary_key=True)
     tipoSiniestro = models.CharField(max_length=30)
     hora = models.DateTimeField(auto_now_add=True)
-    direccion = models.CharField(max_length=50)
-    altura = models.IntegerField()
-    referencia = models.CharField(max_length=100)
+    receptor = models.CharField(max_length=50)
     nombre = models.CharField(max_length=35)
     telefono = models.CharField(max_length=15)
+    ciudad = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=50)
+    referencia = models.TextField(max_length=100)
     
     class Meta:
 
@@ -27,13 +28,27 @@ class FormPadre(models.Model):
         return str(self.idAlarma)
 
 
-class AccidenteVehicular(FormPadre):
+class AccidenteVehicular(FormPadre):# 20-20
+    tipoAV = [
+        ('A','Automovil'),
+        ('B','Omnibus'),
+        ('C','Camion'),
+        ('D','Motocicleta'),
+        ('E','Atropellado')
+    ]
 
-    sentido = models.CharField(max_length=15)
+    tiposC = [
+        ('C','Calle'),
+        ('A','Acenida'),
+        ('R','Ruta'),
+        ('U','Undefined')
+    ]
+    claseAC = models.CharField(max_length=10,choices=tipoAV,default=None)
     cantVehiculos = models.IntegerField()
     cantPersonas = models.IntegerField()
-    herido = models.CharField(max_length=20)
     corteTransito = models.BooleanField()
+    tipoCalle = models.CharField(max_length=10,choices=tiposC,default='U')
+    herido = models.CharField(max_length=20)
     servEmergencia = models.CharField(max_length=30)
 
     class Meta:
