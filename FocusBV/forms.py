@@ -21,8 +21,7 @@ class AVform(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id':'floatingTextarea2', 'style':'height: 150px'})),
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
-            'cantVehiculos': forms.IntegerField(attrs={'class': ''})
-
+            'cantVehiculos': forms.IntegerField()
         }
 
 class IFform(forms.ModelForm):
