@@ -20,6 +20,9 @@ class AVform(forms.ModelForm):
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id':'floatingTextarea2', 'style':'height: 150px'})),
+            'claseAC': forms.RadioSelect(attrs={'class': ''}),
+            'cantVehiculos': forms.IntegerField(attrs={'class': ''})
+
         }
 
 class IFform(forms.ModelForm):
@@ -108,7 +111,7 @@ class RAform(forms.ModelForm):
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TextInput(attrs={'class': 'form-control shadow'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow'}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),

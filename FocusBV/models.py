@@ -9,7 +9,7 @@ from django.forms import ModelForm
 class FormPadre(models.Model):
     
     idAlarma = models.CharField(max_length=50, primary_key=True)
-    hora = models.DateTimeField(auto_now_add=True)
+    hora = models.TimeField(auto_now_add=True)
     receptor = models.CharField(max_length=50)
     nombre = models.CharField(max_length=35)
     telefono = models.CharField(max_length=15)
