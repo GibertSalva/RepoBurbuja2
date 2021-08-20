@@ -1,5 +1,5 @@
 <!-- Codigo 10-10 -->
-<div id="cod10-10" style=";">
+<div id="cod10-10" style="display: none;">
 
     <div class=" row g-2 ">
 
@@ -18,7 +18,7 @@
         </div>
 
 
-        <div class="col-3 mt-4">
+        <div class="col-4 mt-4">
             <p class="  h6 fs-5 mx-2 " style="color: grey "> Tiene riesgo de propagacion?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
                 <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
@@ -31,18 +31,11 @@
         </div>
 
 
-        <div class="col-3 mt-4">
+        <div class="col-4 mt-4">
             <p class="  h6 fs-5 mx-2 " style="color: grey "> Hay alguna edificación o vivienda cerca?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;" onclick="mostrarOtro()">
+                <input type="radio" id="customRadio" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
                 <label class="custom-control-label fs-5" for="customRadio1">SI</label>
-            </div>
-
-            <div class="col-12 mt-4 mb-3" id="OTRO" style="display: none;">
-                <div class="form-floating shadow fs-5">
-                    <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
-                    <label for="floatingTextarea2 ">   </label>
-                </div>
             </div>
 
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
@@ -52,12 +45,20 @@
         </div>
 
 
-        <div class="col-3 mt-4">
+        <div class="col-4 mt-4">
             <p class="  h6 fs-5 mx-2 " style="color: grey "> Hay algún otro servicio de emergencia en el lugar?</p>
             <div class="custom-control custom-radio mx-2 h6 " style="color: grey;">
-                <input type="radio" id="customRadio3" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <input type="radio" id="customRadio3" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;" onclick="mostrarOtro()">
                 <label class="custom-control-label fs-5" for="customRadio1">SI</label>
             </div>
+
+            <div class=" mt-4 mb-3" id="OTRO" style="display: none;">
+                <div class="form-floating shadow fs-6">
+                    <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2 ">Servicio de Emergencia:   </label>
+                </div>
+            </div>
+
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
                 <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
                 <label class="custom-control-label fs-5" for="customRadio2">NO</label>
@@ -81,19 +82,27 @@
         </span>
         <hr>
         <p class=" col-4 h6 fs-5 mx-2 " style="color: grey; "> Hay riesgo de Propagacion?</p>
-        <div class=" col-1 ">
-            <div class="form-check ">
-                <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault1 ">
-                <label class="form-check-label fs-6 " for="flexRadioDefault1 ">SI</label>
+        <div class=" col-2 ">
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">SI</label>
             </div>
         </div>
         <div class=" col-1 "></div>
         <div class="form-check col-2 ">
-            <input class="form-check-input " type="radio " name="flexRadioDefault " id="flexRadioDefault2 " checked>
-            <label class="form-check-label fs-6 " for="flexRadioDefault2 ">
-          NO
-        </label>
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio4" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">NO</label>
+            </div>
         </div>
+
+        <div class="col-12 mt-4 ">
+            <div class="  input-group shadow">
+                <span class="input-group-text fs-7" id="addon-wrapping "> Calles en las que se encuentra </span>
+                <input type="text" class="form-control fs-6" aria-describedby="addon-wrapping">
+            </div>
+        </div>
+
         <div class="col-12 mt-4 ">
             <div class="form-floating shadow fs-5">
                 <textarea class="form-control " placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px"></textarea>
@@ -137,50 +146,50 @@
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> El fuego se encuentra generalizado o solo en una parte de la vivienda?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> El fuego se encuentra generalizado o solo en una parte de la vivienda?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Generalizado</label>
+                <input type="radio" id="customRadio1" name="customRadio2" class="custom-control-input"style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">Generalizado</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Solo en una parte</label>
-            </div>
-        </div>
-
-        <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Es una vivienda de 1 o 2 pisos? </p>
-            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">1</label>
-            </div>
-            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">2 o mas</label>
+                <input type="radio" id="customRadio2" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">Solo en una parte</label>
             </div>
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Puede ver a los propietarios afuera de la vivienda? </p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Es una vivienda de 1 o 2 pisos? </p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">SI</label>
+                <input type="radio" id="customRadio1" name="customRadio2" class="custom-control-input"style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">1</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">NO</label>
+                <input type="radio" id="customRadio2" name="customRadio2" class="custom-control-input"style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">2 o mas</label>
             </div>
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> La vivienda es de material o de madera tipo prefabricada? </p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Puede ver a los propietarios afuera de la vivienda? </p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Material</label>
+                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">SI</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Madera</label>
+                <input type="radio" id="customRadio2" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">NO</label>
+            </div>
+        </div>
+
+        <div class="col-3 mt-4">
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> La vivienda es de material o de madera tipo prefabricada? </p>
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">Material</label>
+            </div>
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">Madera</label>
             </div>
         </div>
     </div>
@@ -212,50 +221,50 @@
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Puede observar fuego/llama o solo humo?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Puede observar fuego/llama o solo humo?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Fuego/LLama</label>
+                <input type="radio" id="customRadio1" name="customRadio3" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">Fuego/LLama</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Solo humo</label>
-            </div>
-        </div>
-
-        <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey ">Los ocupantes se encuentran fuera del vehículo?</p>
-            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">SI</label>
-            </div>
-            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">NO</label>
+                <input type="radio" id="customRadio2" name="customRadio3" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">Solo humo</label>
             </div>
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Alcanza a ver si tiene tubo de GNC a la vista?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey ">Los ocupantes se encuentran fuera del vehículo?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Si Tiene tubo de GNC</label>
+                <input type="radio" id="customRadio1" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">SI</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">No Tiene tubo de GNC</label>
+                <input type="radio" id="customRadio2" name="customRadio2" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">NO</label>
             </div>
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> El fuego tiene riesgo de propagacion?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Alcanza a ver si tiene tubo de GNC a la vista?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">SI</label>
+                <input type="radio" id="customRadio1" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">Si Tiene tubo de GNC</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">NO</label>
+                <input type="radio" id="customRadio2" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">No Tiene tubo de GNC</label>
+            </div>
+        </div>
+
+        <div class="col-3 mt-4">
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> El fuego tiene riesgo de propagacion?</p>
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">SI</label>
+            </div>
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">NO</label>
             </div>
         </div>
 
@@ -289,48 +298,49 @@
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Puede observar fuego/llama o solo humo?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Puede observar fuego/llama o solo humo?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Fuego/LLama</label>
+                <input type="radio" id="customRadio11" name="customRadio5" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">Fuego/LLama</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Solo humo</label>
-            </div>
-        </div>
-
-        <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Se comunicaron con personal de EPEC?</p>
-            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">SI</label>
-            </div>
-            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">NO</label>
+                <input type="radio" id="customRadio12" name="customRadio5" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio2">Solo humo</label>
             </div>
         </div>
 
         <div class="col-3 mt-4">
-            <p class="  h6 fs-7 mx-2 " style="color: grey "> Se encuentra personal policial, seguridad ciudadana o algún otro servicio en el lugar?</p>
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Se comunicaron con personal de EPEC?</p>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio1">Policia</label>
+                <input type="radio" id="customRadio13" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio1">SI</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Seguridad Ciudadana</label>
+                <input type="radio" id="customRadio14" name="customRadio1" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label  fs-5" for="customRadio2">NO</label>
+            </div>
+        </div>
+
+        <div class="col-4 mt-4">
+            <p class="  h6 fs-5 mx-2 " style="color: grey "> Se encuentra personal policial, seguridad ciudadana o algún otro servicio en el lugar?</p>
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio15" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio15">Policia</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Otro Servicio</label>
+                <input type="radio" id="customRadio16" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio16">Seguridad Ciudadana</label>
             </div>
             <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
-                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                <label class="custom-control-label" for="customRadio2">Nadie</label>
+                <input type="radio" id="customRadio17" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio17">Otro Servicio</label>
+            </div>
+            <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                <input type="radio" id="customRadio18" name="customRadio" class="custom-control-input" style="width: 10%; height: 1em;">
+                <label class="custom-control-label fs-5" for="customRadio18">Nadie</label>
             </div>
         </div>
 
     </div>
 </div>
+

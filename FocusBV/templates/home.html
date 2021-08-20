@@ -26,7 +26,7 @@
                 <div class=" input-group shadow my-2">
                     <span class="input-group-text " id="addon-wrapping">Codigo</span>
                     <input id="codigos" type="text" class="form-control" aria-describedby="addon-wrapping">
-                    <button onclick="parte2()" class=" btn btn-danger ">Cargar</button>
+                    <button onclick="parte2()" class=" btn btn-danger " type='submit' id='boton' >Cargar</button>
                 </div>
                 <a id="demo" type="text"></a>
             </div>
@@ -243,6 +243,14 @@
             x.style.display == "none";
         }
     }
+
+    var input = document.getElementById("codigos");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("boton").click();
+        }
+    });
 </script>
 
 
