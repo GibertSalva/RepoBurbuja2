@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+import time
+
+from django.views.decorators.csrf import csrf_protect
 
 from .models import *
 from .forms import *
@@ -35,16 +38,14 @@ def homeview(request):
 }
     return render(request, "home.html", context)
 
+@csrf_protect
 def ACview(request):
     AVf = AVform()
     if request.method == "POST":
         AVf = AVform(request.POST)
-
         if AVf.is_valid():
-            print("hola")
             AVf.save(request)
-        else:
-            print("NOOOO")
+            print("se guardo")
 
     context = {
         'form': AVf,

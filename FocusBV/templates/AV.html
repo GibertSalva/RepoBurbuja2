@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+
+{% block bodysettings %} onload="mueveReloj()" {% endblock %}
 {% block content%}
 <form method="post">
     {% csrf_token %}
@@ -14,23 +16,18 @@
             <hr>
         </span>
         <div class="row g-3">
-            <div class=" col-3 ">
-                <div class=" input-group shadow my-2  ">
-                    <span class="input-group-text" id="addon-wrapping">Nº Alarma</span>
-                    <input type="text" class="form-control" aria-describedby="addon-wrapping">
+
+            <div class="col-2 mx- offset-9">
+                <div class="input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
+                    {{ form.hora }}
                 </div>
             </div>
 
-            <div class="col-6 mx- ">
-                <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
-            </div>
-
             <div class="col-1 mx- ">
-                <input type="text" class="form-control my-2 shadow" value=" Hora" aria-label=" name" readonly>
             </div>
             <div class=" col-1">
                 <div class=" input-group">
-                    {{ form.hora }} no aparece
                 </div>
             </div>
 
@@ -126,7 +123,7 @@
                 <div class=" col-3 ">
                     <div class=" input-group shadow ">
                         <span class="input-group-text " id="addon-wrapping ">Personas Involucradas</span>
-                        {{ form.cantVehiculos }}
+                        {{ form.cantPersonas }}
                     </div>
                 </div>
                 <div class="col-1 ">
@@ -167,6 +164,11 @@
             </div>
         </div>
     </div>
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors }}
+            </div>
+        {% endif %}
     <!-- Boton -->
     <div class="d-flex justify-content-center ">
         <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button>
@@ -187,10 +189,12 @@
         } else {
             horaImprimible = hora + " : " + minuto
         }
+        var r = document.getElementById("reloj")
 
-        document.form_reloj.reloj.value = horaImprimible
+        r.value = horaImprimible
 
         setTimeout("mueveReloj()", 1000)
+        console.log(horaImprimible)
     }
 </script>
 {% endblock %}
