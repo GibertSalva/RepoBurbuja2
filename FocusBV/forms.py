@@ -13,7 +13,7 @@ class AVform(forms.ModelForm):
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TextInput(attrs={'class': 'form-control shadow'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -21,7 +21,13 @@ class AVform(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id':'floatingTextarea2', 'style':'height: 150px'})),
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
-            'cantVehiculos': forms.IntegerField()
+            'cantVehiculos': forms.NumberInput(attrs={'class': 'form-control'}),
+            'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
+            'corteTransito': forms.CheckboxInput(attrs={'class':'form-check-inline'}),
+            'tipoCalle':forms.RadioSelect(),
+            'servEmergencia': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'herido': forms.TextInput(attrs={'class': 'form-control'}),
+
         }
 
 class IFform(forms.ModelForm):

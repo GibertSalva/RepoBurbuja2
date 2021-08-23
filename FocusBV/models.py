@@ -8,14 +8,14 @@ from django.forms import ModelForm
 
 class FormPadre(models.Model):
     
-    idAlarma = models.CharField(max_length=50, primary_key=True)
-    hora = models.TimeField(auto_now_add=True)
+    idAlarma = models.AutoField(primary_key=True)
+    hora = models.TimeField()
     receptor = models.CharField(max_length=50)
     nombre = models.CharField(max_length=35)
     telefono = models.CharField(max_length=15)
     ciudad = models.CharField(max_length=50)
     direccion = models.CharField(max_length=50)
-    referencia = models.TextField(max_length=100)
+    referencia = models.TextField(max_length=100, null=True)
     
     class Meta:
 
