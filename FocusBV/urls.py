@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.homeview, name = "home"),
     path('av/',views.ACview , name = "AC"),
     path('if/',views.IFview , name = "IF"),
+    path('ra/',views.IBview , name = "RA"),
     path('ib/',views.IBview , name = "IB"),
     path('ivh/',views.IVhview , name="IVh"),
     path('iv/',views.IVview , name = "IV"),
