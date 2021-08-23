@@ -151,7 +151,7 @@ class RAform(forms.ModelForm):
                 attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
         }
 
-class RCform(forms.ModelForm):
+class RCform(forms.ModelForm): #HECHO
     class Meta:
         model = RescateCadaver
         fields = '__all__'
