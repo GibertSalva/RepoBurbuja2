@@ -62,8 +62,7 @@ class IBform(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'referencia': forms.Textarea(
-                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
         }
 
 class IVform(forms.ModelForm):
@@ -72,14 +71,20 @@ class IVform(forms.ModelForm):
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TextInput(attrs={'class': 'form-control shadow'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'referencia': forms.Textarea(
-                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'entreCalles': forms.TextInput(attrs= ({'class': 'form-control fs-5'})),
+            'estadoFuego': forms.TextInput(attrs= ({'class': 'form-control fs-5'})),
+            'habitantes': forms.TextInput(attrs= ({'class': 'form-control fs-5'})),
+            'localHabit': forms.TextInput(attrs= ({'class': 'form-control fs-5'})),
+            'descVivienda': forms.TextInput(attrs= ({'class': 'form-control fs-5', 'style': 'width: 150px'})),            
+            'espera': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline'})),
+
         }
 
 class IVhform(forms.ModelForm):
