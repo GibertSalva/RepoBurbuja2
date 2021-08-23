@@ -106,10 +106,10 @@ class IVhform(forms.ModelForm):#Hecho
             'referencia': forms.Textarea(
                 attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
             'tipoVehiculo': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'humoLlamas': forms.TextArea(attrs={'class': 'form-control fs-5', 'style': 'height: 150px'}),
+            'humoLlamas': forms.Textarea(attrs={'class': 'form-control fs-5', 'style': 'height: 150px'}),
             'vehiculoOcup': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')],
                                             attrs=({'class': 'checkbox-inline'})),
-            'gnc':forms.TextArea(attrs={'class': 'form-control shadow','style': 'height: 100px'}),
+            'gnc':forms.Textarea(attrs={'class': 'form-control shadow','style': 'height: 100px'}),
             'riesgoProp': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')],
                                            attrs=({'class': 'checkbox-inline'})),
         }

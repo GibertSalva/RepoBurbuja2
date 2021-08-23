@@ -113,6 +113,7 @@ def IEview(request):
 
     return render(request,"IE.html",context)
 
+@csrf_protect
 def IVhview(request):
     IVhf = IVhform()
     if request.method == "POST":
