@@ -36,7 +36,7 @@ class IFform(forms.ModelForm):
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TextInput(attrs={'class': 'form-control shadow'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),

@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block bodysettings %}
+    onload="mueveReloj()"
+{% endblock %}
 {% block content%}
 <form method="post">
     {% csrf_token %}
@@ -25,15 +28,12 @@
                 <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
             </div>
 
-            <div class="col-1 mx- ">
-                <input type="text" class="form-control my-2 shadow" value=" Hora" aria-label=" name" readonly>
-            </div>
-            <div class=" col-1">
-                <div class=" input-group">
-                    {{ form.hora }} no aparece
+            <div class="col-2">
+                <div class="input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
+                    {{ form.hora }}
                 </div>
             </div>
-
 
             <span>
                 <div class=" col-7 mb-3 mt- fs-4 ">
@@ -151,6 +151,12 @@
         </div>
     </div>
     <!-- Boton -->
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+<!-- Boton -->
     <div class="d-flex justify-content-center ">
         <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button>
     </div>
@@ -166,14 +172,15 @@
         minuto = momentoActual.getMinutes()
 
         if (minuto < 10) {
-            horaImprimible = hora + " : 0" + minuto
+            horaImprimible = hora + ":0" + minuto
         } else {
-            horaImprimible = hora + " : " + minuto
+            horaImprimible = hora + ":" + minuto
         }
+        var r = document.getElementById("reloj")
 
-        document.form_reloj.reloj.value = horaImprimible
-
+        r.value = horaImprimible
         setTimeout("mueveReloj()", 1000)
+        console.log(horaImprimible)
     }
 </script>
 {% endblock %}

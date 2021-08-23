@@ -6,12 +6,15 @@ from .models import *
 class AccidenteVehicularAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor','claseAC')
 
+class IncendioForestalAdmin(admin.ModelAdmin):
+    list_display = ('idAlarma','receptor')    
+
 
 
     
 
 admin.site.register(AccidenteVehicular,AccidenteVehicularAdmin)
-admin.site.register(IncendioForestal)
+admin.site.register(IncendioForestal, IncendioForestalAdmin)
 admin.site.register(IncendioBaldio)
 admin.site.register(IncendioVehicular)
 admin.site.register(IncendioVivienda)

@@ -53,17 +53,14 @@ def ACview(request):
 
     return render(request,"AV.html",context)
 
-
+@csrf_protect
 def IFview(request):
     IFf = IFform()
     if request.method == "POST":
         IFf = IFform(request.POST)
-
         if IFf.is_valid():
-            print("hola")
             IFf.save(request)
-        else:
-            print("NOOOO")
+            print("se guardo")
 
     context = {
         'form': IFf,
