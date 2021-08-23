@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-{% block bodysettings %}
-    onload="mueveReloj()"
-{% endblock %}
+
+{% block bodysettings %} onload="mueveReloj()" {% endblock %}
 {% block content%}
 <form method="post">
     {% csrf_token %}
@@ -17,23 +16,21 @@
             <hr>
         </span>
         <div class="row g-3">
-            <div class=" col-3 ">
-                <div class=" input-group shadow my-2  ">
-                    <span class="input-group-text" id="addon-wrapping">Nº Alarma</span>
-                    <input type="text" class="form-control" aria-describedby="addon-wrapping">
-                </div>
-            </div>
 
-            <div class="col-6 mx- ">
-                <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
-            </div>
-
-            <div class="col-2">
+            <div class="col-2 mx- offset-9">
                 <div class="input-group shadow">
                     <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
                     {{ form.hora }}
                 </div>
             </div>
+
+            <div class="col-1 mx- ">
+            </div>
+            <div class=" col-1">
+                <div class=" input-group">
+                </div>
+            </div>
+
 
             <span>
                 <div class=" col-7 mb-3 mt- fs-4 ">
@@ -99,67 +96,60 @@
             </div>
 
     <!-- Fin del codigo general -->
-        </div>
-        <div id="cod20-20">
-            <span>
-                <div class=" col-12 ">
-                    <p class="h6 fs-5 mx-2 " style="color: grey;"> Accidente </p>
-                </div>
-            </span>
-            <hr>
-            <div>
-                <p class="h6 fs-5 mx-2 " style="color: grey;"> 10-10 </p>
-            </div>
-            <br>
-            <div class="row g-4 ">
-                <span></span>
-                <div class=" col-3 ">
-                    <div class=" input-group shadow ">
-                    <span class="input-group-text fs-5" id="addon-wrapping">Referencia de ruta</span>
-                    {{ form.sentido }}
+            <div class=" row g-2 ">
+
+                <span>
+                    <div class=" col-12 ">
+                        <p class="h6 fs-5 mx-2 " style="color: grey;"> Incendio Vehicular </p>
                     </div>
-                </div>
-                <div class="col-1 ">
-                    <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
-                </div>
-                <div class=" col-3 ">
-                    <span class="input-group-text " id="addon-wrapping ">Hay riesgo de propagación?</span>
-                    {{form.riesgoProp}} 
-                </div>
-                <div class="col-1 ">
-                    <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
-                </div>
-                <div class=" col-3 ">
-                    <div class=" input-group shadow ">
-                    <span class="input-group-text fs-5" id="addon-wrapping">Numero de Edificios</span>
-                    {{ form.edificios }}
-                    </div>
-                </div>
-                <br>
-                <span></span>
-                <div class=" col-3 ">
-                    <div class=" input-group shadow ">
-                        <span class="input-group-text fs-5" id="addon-wrapping">Hay algún Servicio de Emergencia?</span>
-                        {{form.servEmergencia}}
-                    </div>
-                </div>
-                <div class=" col-3 " id="sentido1" style="display: none;">
-                    <div class=" input-group shadow ">
-                        <span class="input-group-text " id="addon-wrapping ">Sentido</span>
-                        <input type="text " class="form-control " aria-describedby="addon-wrapping ">
-                    </div>
-                </div>
                 </span>
+                <hr>
+
+                <div class="col-10 mt-4 ">
+                    <div class="  input-group shadow">
+                        <span class="input-group-text fs-7" id="addon-wrapping "> Tipo de Vehiculo? </span>
+                        {{form.tipoVehiculo}}
+                    </div>
+                </div>
+
+                <div class="col-3 mt-4">
+                    <p class="  h6 fs-5 mx-2 " style="color: grey "> Puede observar fuego/llama o solo humo?</p>
+                    <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                        {{form.humoLlamas}}
+                    </div>
+                </div>
+
+                <div class="col-3 mt-4">
+                    <p class="  h6 fs-5 mx-2 " style="color: grey ">Los ocupantes se encuentran fuera del vehículo?</p>
+                    <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                        {{form.vehiculoOcupado}}
+                    </div>
+                </div>
+
+                <div class="col-3 mt-4">
+                    <p class="  h6 fs-5 mx-2 " style="color: grey "> Alcanza a ver si tiene tubo de GNC a la vista?</p>
+                    <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                        {{ form.gnc }}
+                    </div>
+                </div>
+
+                <div class="col-3 mt-4">
+                    <p class="  h6 fs-5 mx-2 " style="color: grey "> El fuego tiene riesgo de propagacion?</p>
+                    <div class="custom-control custom-radio mx-2 h6" style="color: grey;">
+                        {{ form.riesgoProp }}
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors }}
+            </div>
+        {% endif %}
     <!-- Boton -->
-    {% if form.errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ form.errors }}
-    </div>
-    {% endif %}
-<!-- Boton -->
     <div class="d-flex justify-content-center ">
         <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button>
     </div>
@@ -182,6 +172,7 @@
         var r = document.getElementById("reloj")
 
         r.value = horaImprimible
+
         setTimeout("mueveReloj()", 1000)
         console.log(horaImprimible)
     }

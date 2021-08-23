@@ -97,3 +97,47 @@ def IBview(request):
     }
 
     return render(request,"RAf.html",context)
+def IVview(request):
+    IVf = IVform()
+    if request.method == "POST":
+        IVf = IVform(request.POST)
+        if IVf.is_valid():
+            IVf.save(request)
+            print("se guardo")
+
+    context = {
+        'form': IVf,
+    }
+
+    return render(request,"IV.html",context)
+
+@csrf_protect
+def IEview(request):
+    IEf = IEform()
+    if request.method == "POST":
+        IEf = IEform(request.POST)
+        if IEf.is_valid():
+            IEf.save(request)
+            print("se guardo")
+
+    context = {
+        'form': IEf,
+    }
+
+    return render(request,"IE.html",context)
+
+@csrf_protect
+def IVhview(request):
+    IVhf = IVhform()
+    if request.method == "POST":
+        IVhf = IVhform(request.POST)
+        if IVhf.is_valid():
+            IVhf.save(request)
+            print("se guardo")
+
+    context = {
+        'form': IVhf,
+    }
+
+    return render(request,"IVh.html",context)
+

@@ -108,39 +108,57 @@
             </span>
             <hr>
             <div>
-                <p class="h6 fs-5 mx-2 " style="color: grey;"> 10-10 </p>
+                <p class="h6 fs-5 mx-2 " style="color: grey;"> 10-13 A </p>
             </div>
             <br>
             <div class="row g-4 ">
                 <span></span>
                 <div class=" col-3 ">
                     <div class=" input-group shadow ">
-                    <span class="input-group-text fs-5" id="addon-wrapping">Referencia de ruta</span>
-                    {{ form.sentido }}
+                    <span class="input-group-text fs-5" id="addon-wrapping">Entre calles?</span>
+                    {{ form.entreCalles }}
                     </div>
                 </div>
                 <div class="col-1 ">
                     <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
                 </div>
                 <div class=" col-3 ">
-                    <span class="input-group-text " id="addon-wrapping ">Hay riesgo de propagación?</span>
-                    {{form.riesgoProp}} 
+                    <span class="input-group-text " id="addon-wrapping ">Pueden esperar en la esquina?</span>
+                    {{form.espera}} 
                 </div>
                 <div class="col-1 ">
                     <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
                 </div>
                 <div class=" col-3 ">
                     <div class=" input-group shadow ">
-                    <span class="input-group-text fs-5" id="addon-wrapping">Numero de Edificios</span>
-                    {{ form.edificios }}
+                    <span class="input-group-text fs-5" id="addon-wrapping">Estado del Fuego</span>
+                    {{ form.estadoFuego }}
                     </div>
                 </div>
                 <br>
                 <span></span>
                 <div class=" col-3 ">
                     <div class=" input-group shadow ">
-                        <span class="input-group-text fs-5" id="addon-wrapping">Hay algún Servicio de Emergencia?</span>
-                        {{form.servEmergencia}}
+                        <span class="input-group-text fs-5" id="addon-wrapping">Habitantes</span>
+                        {{form.habitantes}}
+                    </div>
+                </div>
+                <div class="col-1 ">
+                    <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+                </div>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text fs-5" id="addon-wrapping">Puede ver a los propietarios?</span>
+                        {{form.localHabit}}
+                    </div>
+                </div>
+                <div class="col-1 ">
+                    <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+                </div>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text fs-5" id="addon-wrapping">Descripción de la vivienda</span>
+                        {{form.descVivienda}}
                     </div>
                 </div>
                 <div class=" col-3 " id="sentido1" style="display: none;">
