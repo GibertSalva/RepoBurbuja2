@@ -83,3 +83,17 @@ def IBview(request):
 
     return render(request,"IB.html",context)
 
+def IVhview(request):
+    IVhf = IVhform()
+    if request.method == "POST":
+        IVhf = IVhform(request.POST)
+        if IVhf.is_valid():
+            IVhf.save(request)
+            print("se guardo")
+
+    context = {
+        'form': IVhf,
+    }
+
+    return render(request,"IVh.html",context)
+

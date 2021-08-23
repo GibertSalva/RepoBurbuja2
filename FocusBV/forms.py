@@ -91,7 +91,7 @@ class IVhform(forms.ModelForm):
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TextInput(attrs={'class': 'form-control shadow'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -99,6 +99,13 @@ class IVhform(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(
                 attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'tipoVehiculo': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'humoLlamas': forms.TextArea(attrs={'class': 'form-control fs-5', 'style': 'height: 150px'}),
+            'vehiculoOcup': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')],
+                                            attrs=({'class': 'checkbox-inline'})),
+            'gnc':forms.TextArea(attrs={'class': 'form-control shadow','style': 'height: 100px'}),
+            'riesgoProp': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')],
+                                           attrs=({'class': 'checkbox-inline'})),
         }
 
 class IEform(forms.ModelForm):
@@ -107,7 +114,7 @@ class IEform(forms.ModelForm):
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TextInput(attrs={'class': 'form-control shadow'}),
+            'hora': forms.TextInput(attrs={'class': 'form-control shadow',}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),

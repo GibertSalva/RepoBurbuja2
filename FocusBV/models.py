@@ -105,7 +105,7 @@ class IncendioVehicular(FormPadre):
 
     tipoVehiculo = models.CharField(max_length=20)
     humoLlamas = models.CharField(max_length=30)
-    localOcup = models.BooleanField()
+    vehiculoOcup = models.BooleanField()
     gnc = models.CharField(max_length=20)
     riesgoProp = models.BooleanField()
     class Meta:
