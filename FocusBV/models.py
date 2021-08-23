@@ -38,7 +38,7 @@ class AccidenteVehicular(FormPadre):# 20-20
 
     tiposC = [
         ('C','Calle'),
-        ('A','Acenida'),
+        ('A','Avenida'),
         ('R','Ruta'),
         ('U','Undefined')
     ]
