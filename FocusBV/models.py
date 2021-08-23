@@ -61,7 +61,7 @@ class AccidenteVehicular(FormPadre):# 20-20
 class IncendioForestal(FormPadre):
 
     sentido = models.CharField(max_length=15)
-    riesgoProp = models.BooleanField()
+    riesgoProp = models.BooleanField() # Riesgo de Propagacion
     edificios = models.IntegerField()
     servEmergencia = models.CharField(max_length=30)
 
@@ -76,7 +76,7 @@ class IncendioForestal(FormPadre):
 class IncendioBaldio(FormPadre):
 
     entreCalles = models.CharField(max_length=30)
-    riesgoProp = models.BooleanField()
+    riesgoProp = models.BooleanField() # Riesgo de Propagacion
     class Meta:
 
         verbose_name = 'Incendio de Baldio'
@@ -90,8 +90,8 @@ class IncendioVivienda(FormPadre):
     entreCalles = models.CharField(max_length=30)
     estadoFuego = models.CharField(max_length=30)
     habitantes = models.CharField(max_length=20)
-    localHabit = models.CharField(max_length=40) 
-    descVivienda = models.CharField(max_length=50)
+    localHabit = models.CharField(max_length=40) # Hay habitantes en el momento? Cuantos?
+    descVivienda = models.CharField(max_length=50) # Como es la vivienda?
     espera = models.BooleanField()
     class Meta:
 
@@ -107,7 +107,7 @@ class IncendioVehicular(FormPadre):
     humoLlamas = models.CharField(max_length=30)
     localOcup = models.BooleanField()
     gnc = models.CharField(max_length=20)
-    riesgoProp = models.BooleanField()
+    riesgoProp = models.BooleanField() # Riesgo de Propagacion
     class Meta:
 
         verbose_name = 'Incendio Vehicular'

@@ -10,14 +10,14 @@ from .forms import *
 def homeview(request):
 # dependiendo del id que busques en el home deberia
 # de hacer o uno u otro form, pero esto, puede causar que la pagina sea recargada
-    AVf = AVform()
-    IFf = IFform()
-    IBf = IBform()
-    IVf = IVform()
-    IVhf = IVhform()
-    IEf = IEform()
-    RAf = RAform()
-    RCf = RCform()
+    AVf = AVform() # Accidente Vehicular
+    IFf = IFform() # Incendio Forestal
+    IBf = IBform() # Incendio Baldio
+    IVf = IVform() # Invencio Vivienda
+    IVhf = IVhform() # Incendio Vehicular
+    IEf = IEform() # Incendio Electrico
+    RAf = RAform() # Rescate Animal
+    RCf = RCform() # Rescate Cadaver
 
     if request.method == "POST":
         AVf = AVform(request)
@@ -83,3 +83,17 @@ def IBview(request):
 
     return render(request,"IB.html",context)
 
+@csrf_protect
+def IBview(request):
+    RAf = RAform()
+    if request.method == "POST":
+        RAf = RAform(request.POST)
+        if RAf.is_valid():
+            RAf.save(request)
+            print("se guardo")
+
+    context = {
+        'form': RAf,
+    }
+
+    return render(request,"RAf.html",context)
