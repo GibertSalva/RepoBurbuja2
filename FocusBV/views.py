@@ -84,7 +84,7 @@ def IBview(request):
     return render(request,"IB.html",context)
 
 @csrf_protect
-def IBview(request):
+def RAview(request):
     RAf = RAform()
     if request.method == "POST":
         RAf = RAform(request.POST)
