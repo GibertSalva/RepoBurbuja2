@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block content%}
+<form method="post">
+    {% csrf_token %}
+    <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
+    <div class="card-body ">
+
+        <p class="text-center fw-bold fs-2 align-top  ">Recepcion de Alarmas</p>
+
+        <span>
+            <div class=" col-5 ">
+                <p class="h6 fs-5 mx-2" style="color: grey;"> Datos  Generales: </p>
+            </div>
+            <hr>
+        </span>
+        <div class="row g-3">
+            <div class=" col-3 ">
+                <div class=" input-group shadow my-2  ">
+                    <span class="input-group-text" id="addon-wrapping">Nº Alarma</span>
+                    <input type="text" class="form-control" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+
+            <div class="col-6 mx- ">
+                <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
+            </div>
+
+            <div class="col-1 mx- ">
+                <input type="text" class="form-control my-2 shadow" value=" Hora" aria-label=" name" readonly>
+            </div>
+            <div class=" col-1">
+                <div class=" input-group">
+                    {{ form.hora }} no aparece
+                </div>
+            </div>
+
+
+            <span>
+                <div class=" col-7 mb-3 mt- fs-4 ">
+                    <div class=" input-group shadow">
+                      <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por:</span>
+                        {{ form.receptor }}
+                    </div>
+                </div>
+            </span>
+
+            <span>
+                <div class=" col-5 ">
+                    <p class="h6 fs-5 mx-2" style="color: grey;"> Datos del solicitante: </p>
+                </div>
+                <hr>
+            </span>
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
+                    {{ form.nombre }}
+                </div>
+            </div>
+
+            <div class="col-1 ">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
+                    {{ form.telefono }}
+                </div>
+            </div>
+
+            <br>
+            <span></span>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow mb-">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
+                    {{ form.ciudad }}
+                </div>
+            </div>
+
+            <div class="col-1">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
+                    {{ form.direccion }}
+                </div>
+            </div>
+            <span></span>
+
+            <div class="col-12 mt-4 mb-3">
+                <div class="form-floating shadow fs-5">
+                    {{ form.referencia }}
+                    <label for="floatingTextarea2 ">Referencias </label>
+                </div>
+            </div>
+
+    <!-- Fin del codigo general -->
+        </div>
+        <div id="cod20-20">
+            <span>
+                <div class=" col-12 ">
+                    <p class="h6 fs-5 mx-2 " style="color: grey;"> Accidente </p>
+                </div>
+            </span>
+            <hr>
+            <div>
+                <p class="h6 fs-5 mx-2 " style="color: grey;"> 10-10 </p>
+            </div>
+            <br>
+            <div class="row g-4 ">
+                <span></span>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Sentido</span>
+                    {{ form.sentido }}
+                    </div>
+                </div>
+                <div class="col-1 ">
+                    <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+                </div>
+                <div class=" col-3 ">
+                    <span class="input-group-text " id="addon-wrapping ">Hay riesgo de propagación?</span>
+                    {{form.riesgoProp}} 
+                </div>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Numero de Edificios</span>
+                    {{ form.edificios }}
+                    </div>
+                </div>
+                <br>
+                <span></span>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text fs-5" id="addon-wrapping">Servicio de Emergencia</span>
+                        {{form.servEmergencia}}
+                    </div>
+                </div>
+                <div class=" col-3 " id="sentido1" style="display: none;">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text " id="addon-wrapping ">Sentido</span>
+                        <input type="text " class="form-control " aria-describedby="addon-wrapping ">
+                    </div>
+                </div>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- Boton -->
+    <div class="d-flex justify-content-center ">
+        <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button>
+    </div>
+    <br>
+
+    </div>
+</form>
+
+<script>
+    function mueveReloj() {
+        momentoActual = new Date()
+        hora = momentoActual.getHours()
+        minuto = momentoActual.getMinutes()
+
+        if (minuto < 10) {
+            horaImprimible = hora + " : 0" + minuto
+        } else {
+            horaImprimible = hora + " : " + minuto
+        }
+
+        document.form_reloj.reloj.value = horaImprimible
+
+        setTimeout("mueveReloj()", 1000)
+    }
+</script>
+{% endblock %}

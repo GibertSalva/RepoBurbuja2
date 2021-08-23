@@ -21,8 +21,7 @@ class AVform(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id':'floatingTextarea2', 'style':'height: 150px'})),
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
-            'cantVehiculos': forms.IntegerField(attrs={'class': ''})
-
+            'cantVehiculos': forms.IntegerField()
         }
 
 class IFform(forms.ModelForm):
@@ -37,8 +36,12 @@ class IFform(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'referencia': forms.Textarea(
-                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'sentido': forms.TextInput(attrs= ({'class': 'form-control fs-5'})),
+            'riesgoProp': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline'})),
+            'edificios': forms.NumberInput(attrs= ({'class': 'form-control fs-5', 'min': 0})),
+            'servEmergencia': forms.TextInput(attrs = ({'class': 'form-control fs-5'})),
+
         }
 
 class IBform(forms.ModelForm):

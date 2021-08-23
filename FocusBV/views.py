@@ -53,3 +53,21 @@ def ACview(request):
     return render(request,"AV.html",context)
 
 
+def IFview(request):
+    IFf = IFform()
+    if request.method == "POST":
+        IFf = IFform(request.POST)
+
+        if IFf.is_valid():
+            print("hola")
+            IFf.save(request)
+        else:
+            print("NOOOO")
+
+    context = {
+        'form': IFf,
+    }
+
+    return render(request,"IF.html",context)
+
+
