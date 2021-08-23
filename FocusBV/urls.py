@@ -10,4 +10,5 @@ urlpatterns = [
     path('if/',views.IFview , name = "IF"),
     path('iv/',views.IVview , name = "IV"),
     path('ib/',views.IBview , name = "IB"),
+    path('ie/',views.IEview , name = "IE"),
 ]

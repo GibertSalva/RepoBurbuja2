@@ -97,3 +97,18 @@ def IVview(request):
     }
 
     return render(request,"IV.html",context)
+
+@csrf_protect
+def IEview(request):
+    IEf = IEform()
+    if request.method == "POST":
+        IEf = IEform(request.POST)
+        if IEf.is_valid():
+            IEf.save(request)
+            print("se guardo")
+
+    context = {
+        'form': IEf,
+    }
+
+    return render(request,"IE.html",context)

@@ -15,6 +15,9 @@ class IncendioBaldioAdmin(admin.ModelAdmin):
 class IncendioViviendaAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')   
 
+class IncendioElectricoAdmin(admin.ModelAdmin):
+    list_display = ('idAlarma','receptor')      
+
 
     
 
@@ -23,6 +26,6 @@ admin.site.register(IncendioForestal, IncendioForestalAdmin)
 admin.site.register(IncendioBaldio,IncendioBaldioAdmin)
 admin.site.register(IncendioVehicular)
 admin.site.register(IncendioVivienda, IncendioViviendaAdmin)
-admin.site.register(IncendioElectrico)
+admin.site.register(IncendioElectrico, IncendioElectricoAdmin)
 admin.site.register(RescateAnimal)
 admin.site.register(RescateCadaver)
