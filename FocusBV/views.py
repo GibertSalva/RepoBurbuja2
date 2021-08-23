@@ -68,6 +68,20 @@ def IFview(request):
 
     return render(request,"IF.html",context)
 
+@csrf_protect
+def IBview(request):
+    IBf = IBform()
+    if request.method == "POST":
+        IBf = IBform(request.POST)
+        if IBf.is_valid():
+            IBf.save(request)
+            print("se guardo")
+
+    context = {
+        'form': IBf,
+    }
+
+    return render(request,"IB.html",context)
 
 @csrf_protect
 def IVview(request):

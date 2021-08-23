@@ -9,4 +9,5 @@ urlpatterns = [
     path('av/',views.ACview , name = "AC"),
     path('if/',views.IFview , name = "IF"),
     path('iv/',views.IVview , name = "IV"),
+    path('ib/',views.IBview , name = "IB"),
 ]
