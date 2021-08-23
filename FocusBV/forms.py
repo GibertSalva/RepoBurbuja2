@@ -23,7 +23,7 @@ class AVform(forms.ModelForm):
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
             'cantVehiculos': forms.NumberInput(attrs={'class': 'form-control'}),
             'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
-            'corteTransito': forms.CheckboxInput(attrs={'class':'form-check-inline'}),
+            'corteTransito': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline'})),
             'tipoCalle':forms.RadioSelect(),
             'servEmergencia': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'herido': forms.TextInput(attrs={'class': 'form-control'}),
@@ -64,6 +64,9 @@ class IBform(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(
                 attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'entreCalles': forms.TextInput(attrs={'class':'form-control fs-5'}),
+            'riesgoProp': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')],
+                                            attrs=({'class': 'checkbox-inline'})),
         }
 
 class IVform(forms.ModelForm):
