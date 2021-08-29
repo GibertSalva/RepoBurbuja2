@@ -21,7 +21,7 @@ class AVform(forms.ModelForm): #HECHO
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id':'floatingTextarea2', 'style':'height: 150px'})),
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
-            'cantVehiculos': forms.NumberInput(attrs={'class': 'form-control'}),
+            'cantVehiculos': forms.Textarea(attrs={'class': 'form-control', 'id': 'mytextarea', 'style': 'width: 100%'}),
             'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
             'corteTransito': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline'})),
             'tipoCalle':forms.RadioSelect(),
@@ -168,4 +168,12 @@ class RCform(forms.ModelForm): #HECHO
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(
                 attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+        }
+
+class AUXform(forms.ModelForm): #HECHO
+    class Meta:
+        model = FormularioAuxiliar
+        fields = '__all__'
+        widgets = {
+            'aux': forms.Textarea(attrs=({'class': 'form-control', 'id': 'mytextarea', 'style':'height: 150px'})),
         }

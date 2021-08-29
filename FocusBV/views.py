@@ -69,6 +69,28 @@ def IFview(request):
 
     return render(request,"IF.html",context)
 
+####PRUEBA DE TINYMCE
+
+@csrf_protect
+def AUXview(request):
+    AUX = AUXform()
+    if request.method == "POST":
+        AUX = AUXform(request.POST)
+        if AUX.is_valid():
+            AUX.save(request)
+            print("se guardo")
+        else:
+            print("aguante del caño")
+
+    context = {
+        'form': AUX,
+    }
+
+    return render(request,"AUXf.html",context)
+
+
+####PRUEBA DE TINYMCE
+
 @csrf_protect
 def IBview(request):
     IBf = IBform()

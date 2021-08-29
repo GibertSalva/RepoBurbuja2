@@ -8,6 +8,9 @@ urlpatterns = [
     path('', views.homeview, name = "home"),
     path('av/',views.ACview , name = "AC"),
     path('if/',views.IFview , name = "IF"),
+    ####PRUEBA DE TINYMCE
+    path('auxf/',views.AUXview , name = "AUXf"),
+    ####PRUEBA DE TINYMCE
     path('ra/',views.RAview , name = "RA"),
     path('ra/pdf/',RAasPDF.as_view()),
     path('ib/',views.IBview , name = "IB"),

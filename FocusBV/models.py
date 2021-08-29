@@ -166,5 +166,20 @@ class RescateCadaver(FormPadre):
         return super().__str__()
 
 
+####FORMULARIO DE AUXILIO
+
+class FormularioAuxiliar(models.Model):
+
+    aux = models.TextField(null=False, default="Formulario Auxiliar")
+
+    class Meta:
+
+        verbose_name = 'Formulario Auxiliar'
+        verbose_name_plural = 'Formularios Auxiliares'
+
+    def __str__(self):
+        return super().__str__()
+
+
 
 

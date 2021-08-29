@@ -2,6 +2,20 @@
 
 {% block bodysettings %} onload="mueveReloj()" {% endblock %}
 {% block content%}
+
+
+<head>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+    <script>
+        tinymce.init({
+          selector: '#mytextarea'
+        });
+      </script>
+
+
+</head>
 <form method="post">
     {% csrf_token %}
     <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
@@ -109,9 +123,9 @@
                 {{ form.claseAC }}
             </div>
             <br>
-            <div class=" col-3 " >
-                <div class=" input-group shadow ">
-                    <span class="input-group-text " id="addon-wrapping ">Vehiculos Involucrados</span>
+            <div class=" col-3 " style="width: 100%" >
+                <div class=" input-group shadow " >
+                    <span class="input-group-text " id="addon-wrapping " style="width: 100%;">Vehiculos Involucrados</span>
                     {{ form.cantVehiculos }}
                 </div>
                 <br>
