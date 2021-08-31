@@ -284,7 +284,7 @@
                     tr = table.getElementsByTagName("tr");
                     for (i = 0; i < tr.length; i++) {
                         td = tr[i].getElementsByTagName("td")[0];
-                        th = tr[i].getElementsByTagName("th")[0];
+                        th = tr[i].getElementsByTagName("th")[1];
 
                         if (td) {
                             txtValue = td.textContent || td.innerText;
@@ -309,9 +309,8 @@
         </div>
     </div>
     </div>
-    
     <span class="navbar-brand mb-1 h1 text-white fs-2 fw-bold ">
-        <a href="/" style="color: white; text-decoration:none">Focus BV</a>
+        <a href="/" style="color: white; text-decoration:none; align-items: center;">Focus BV</a>
     </span>
 
     <form class="d-flex justify-content-end">
