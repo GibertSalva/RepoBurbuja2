@@ -149,12 +149,13 @@ class RAasPDF(View):
         # condicion = request.session.get('condicion')
 
         context = {
-            'nombre': dict['nombre'],
-            'animal': dict['animal'],
-            'telefono': dict['telefono'],
-            'direccion': dict['direccion'],
-            'referencia': dict['referencia'],
-            'condicion': dict['condicion'],
+            'dict': dict.items(),
+            # 'nombre': dict['nombre'],
+            # 'animal': dict['animal'],
+            # 'telefono': dict['telefono'],
+            # 'direccion': dict['direccion'],
+            # 'referencia': dict['referencia'],
+            # 'condicion': dict['condicion'],
         }
         # html = template.render(context)
         pdf = render_to_pdf('RApdf.html', context)

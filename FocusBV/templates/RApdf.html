@@ -39,7 +39,11 @@
         </div>
     <div>
     <div class='details'>
-        Nombre: {{nombre}}
+        {% for a , x in dict%}
+            {{a}}: {{x}}
+            <br>
+        {% endfor %}
+        <!-- Nombre: {{nombre}}
         <br>
         Animal: {{animal}}
         <br>
@@ -49,7 +53,7 @@
         <br>
         Referencia: {{referencia}}
         <br>
-        Condicion: {{condicion}}
+        Condicion: {{condicion}} -->
     </div>
 </body>
 </html>
