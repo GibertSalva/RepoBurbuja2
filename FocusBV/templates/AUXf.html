@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% block bodysettings %} onload="mueveReloj()" {% endblock %}
 {% block content%}
 {% load static %}
+
 <head>
     <script src="{% static '/tinymce/js/tinymce/tinymce.min.js' %}"></script>
 
@@ -18,11 +20,104 @@
     <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
     <div class="card-body ">
 
-        <p class="text-center fw-bold fs-2 align-top  ">Recepción de Alarma - Formulario Auxiliar</p>
+        <p class="text-center fw-bold fs-2 align-top  ">Recepción de Alarma - Formulario General</p>
+
+        <span>
+            <div class=" col-5 ">
+                <p class="h6 fs-5 mx-2" style="color: grey;"> Datos  Generales: </p>
+            </div>
+            <hr>
+        </span>
+        <div class="row g-3">
+
+            
+                <div class=" col-7 mb-3 mt- fs-4 ">
+                    <div class=" input-group shadow">
+                      <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por:</span>
+                        {{ form.receptor }}
+                    </div>
+                </div>
+            
+            <div class="col-2 ">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class="col-2 mx- ">
+                <div class="input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
+                    {{ form.hora }}
+                </div>
+            </div>
+
+            <div class="col-1 mx- ">
+            </div>
+            <div class=" col-1">
+                <div class=" input-group">
+                </div>
+            </div>
+
+
+
+            <span>
+                <div class=" col-5 ">
+                    <p class="h6 fs-5 mx-2" style="color: grey;"> Datos del solicitante: </p>
+                </div>
+                <hr>
+            </span>
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
+                    {{ form.nombre }}
+                </div>
+            </div>
+
+            <div class="col-1 ">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
+                    {{ form.telefono }}
+                </div>
+            </div>
+
+            <br>
+            <span></span>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow mb-">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
+                    {{ form.ciudad }}
+                </div>
+            </div>
+
+            <div class="col-1">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
+                    {{ form.direccion }}
+                </div>
+            </div>
+            <span></span>
+
+            <div class="col-12 mt-4">
+                <div class="form-floating shadow fs-5">
+                    {{ form.referencia }}
+                    <label for="floatingTextarea2 ">Referencias </label>
+                </div>
+            </div>
+
+    <!-- Fin del codigo general -->
+<form method="post">
+    {% csrf_token %}
 
         <span>
             <div class=" col-5 " style="width: 100%;">
-                <p class="h6 fs-5 mx-2" style="color: grey; width: max-content;"> Datos : </p>
                 <hr>
                 {{ form.aux }}
             </div>
@@ -43,4 +138,23 @@
 
 </form>
 
+<script>
+    function mueveReloj() {
+        momentoActual = new Date()
+        hora = momentoActual.getHours()
+        minuto = momentoActual.getMinutes()
+
+        if (minuto < 10) {
+            horaImprimible = hora + ":0" + minuto
+        } else {
+            horaImprimible = hora + ":" + minuto
+        }
+        var r = document.getElementById("reloj")
+
+        r.value = horaImprimible
+
+        setTimeout("mueveReloj()", 1000)
+        console.log(horaImprimible)
+    }
+</script>
 {% endblock %}

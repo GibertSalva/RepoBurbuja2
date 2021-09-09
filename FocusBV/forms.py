@@ -6,6 +6,7 @@ class AlarmForm(forms.ModelForm):
         model = FormPadre
         fields = '__all__'
         exclude = ['idAlarma']
+        
 
 class AVform(forms.ModelForm): #HECHO
     class Meta:
@@ -174,6 +175,16 @@ class AUXform(forms.ModelForm): #HECHO
     class Meta:
         model = FormularioAuxiliar
         fields = '__all__'
+        
         widgets = {
+            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'referencia': forms.Textarea(
+                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
             'aux': forms.Textarea(attrs=({'class': 'form-control', 'id': 'mytextarea', 'style':'height: 150px'})),
         }
+

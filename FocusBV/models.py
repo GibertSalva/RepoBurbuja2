@@ -168,7 +168,7 @@ class RescateCadaver(FormPadre):
 
 ####FORMULARIO DE AUXILIO
 
-class FormularioAuxiliar(models.Model):
+class FormularioAuxiliar(FormPadre):
 
     aux = models.TextField(null=False, default="Formulario Auxiliar")
 
