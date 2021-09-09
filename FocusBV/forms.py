@@ -66,7 +66,7 @@ class IBform(forms.ModelForm): #HECHO
                 attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
             'entreCalles': forms.TextInput(attrs={'class':'form-control fs-5'}),
             'riesgoProp': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')],
-                                            attrs=({'class': 'checkbox-inline'})),
+                                            attrs=({'class': 'checkbox-inline fs-5', 'style' : 'width: 10%' 'height: 2em'})),
         }
 
 class IVform(forms.ModelForm): #HECHO
@@ -87,7 +87,7 @@ class IVform(forms.ModelForm): #HECHO
             'habitantes': forms.TextInput(attrs= ({'class': 'form-control fs-5'})),
             'localHabit': forms.TextInput(attrs= ({'class': 'form-control fs-5'})),
             'descVivienda': forms.TextInput(attrs= ({'class': 'form-control fs-5', 'style': 'width: 150px'})),
-            'espera': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline'})),
+            'espera': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline', 'style' : 'width: 10%' 'height: 2em'})),
 
         }
 
