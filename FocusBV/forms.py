@@ -25,7 +25,7 @@ class AVform(forms.ModelForm): #HECHO
             'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
             'corteTransito': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline'})),
             'tipoCalle':forms.RadioSelect(),
-            'servEmergencia': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'servEmergencia': forms.TextInput(attrs={'class': 'form-control fs-6'}),
             'herido': forms.TextInput(attrs={'class': 'form-control'}),
 
         }
