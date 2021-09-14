@@ -15,7 +15,8 @@ class AVform(forms.ModelForm): #HECHO
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -38,8 +39,8 @@ class IFform(forms.ModelForm): #HECHO
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
-            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -58,7 +59,8 @@ class IBform(forms.ModelForm): #HECHO
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -77,7 +79,8 @@ class IVform(forms.ModelForm): #HECHO
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -99,7 +102,8 @@ class IVhform(forms.ModelForm):#Hecho
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -122,7 +126,8 @@ class IEform(forms.ModelForm): #HECHO
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control shadow', 'id': 'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -163,7 +168,8 @@ class RCform(forms.ModelForm): #HECHO
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TextInput(attrs={'class': 'form-control shadow'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -179,7 +185,8 @@ class AUXform(forms.ModelForm): #HECHO
         fields = '__all__'
         
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -196,7 +203,8 @@ class EGform(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -213,7 +221,8 @@ class RPVform(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -231,7 +240,8 @@ class PCform(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
