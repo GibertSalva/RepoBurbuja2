@@ -3,7 +3,6 @@ from django.db.models.fields import BooleanField, CharField, IntegerField
 from django.forms import ModelForm
 
 
-# Create your models here.
 # TODO agregar sentido de la ruta y entre calles
 
 class FormPadre(models.Model):
@@ -26,6 +25,104 @@ class FormPadre(models.Model):
     def __str__(self):
         return str(self.idAlarma)
 
+class IncendioForestal(FormPadre): #10-10
+
+    sentido = models.CharField(max_length=15)
+    riesgoProp = models.BooleanField() # Riesgo de Propagacion
+    edificios = models.IntegerField()
+    servEmergencia = models.CharField(max_length=30)
+
+    class Meta:
+
+        verbose_name = 'Incendio Forestal'
+        verbose_name_plural = 'Incendios Forestales'
+
+    def __str__(self):
+        return super().__str__()
+
+class IncendioBaldio(FormPadre): #10-11
+
+    entreCalles = models.CharField(max_length=30)
+    riesgoProp = models.BooleanField() # Riesgo de Propagacion
+    class Meta:
+
+        verbose_name = 'Incendio de Baldio'
+        verbose_name_plural = 'Incendios de Baldios'
+
+    def __str__(self):
+        return super().__str__()
+
+class IncendioVivienda(FormPadre): #10-13
+
+    entreCalles = models.CharField(max_length=30)
+    estadoFuego = models.CharField(max_length=30)
+    habitantes = models.CharField(max_length=20)
+    localHabit = models.CharField(max_length=40) # Hay habitantes en el momento? Cuantos?
+    descVivienda = models.CharField(max_length=50) # Como es la vivienda?
+    espera = models.BooleanField()
+    class Meta:
+
+        verbose_name = 'Incendio de Vivienda'
+        verbose_name_plural = 'Incendios de Viviendas'
+
+    def __str__(self):
+        return super().__str__()
+
+class IncendioVehicular(FormPadre): #10-14
+
+    tipoVehiculo = models.CharField(max_length=20)
+    humoLlamas = models.CharField(max_length=30)
+    vehiculoOcup = models.BooleanField()
+    gnc = models.CharField(max_length=20)
+    riesgoProp = models.BooleanField() # Riesgo de Propagacion
+    class Meta:
+
+        verbose_name = 'Incendio Vehicular'
+        verbose_name_plural = 'Incendios Vehiculares'
+
+    def __str__(self):
+        return super().__str__()
+
+class PerdidaCombustible(FormPadre): # 10-16
+
+    tipoCombustible = models.CharField(max_length=20)
+    servEmergencia = models.CharField(max_length=30)
+    hayVictimas = models.CharField(max_length=30)
+
+    class Meta:
+
+        verbose_name = 'Perdida de Combustible'
+        verbose_name_plural = 'Perdidas de Combustible'
+
+    def __str__(self):
+        return super().__str__()
+
+class EscapeGas(FormPadre): #10-17
+
+    tipoIncidente = models.CharField(max_length=20) #vivienda, auto o via publica
+    #AGREGAR INDICACIONES, probablemente sea simplemente un texto en el template.
+
+    class Meta:
+
+        verbose_name = 'Escape de Gas'
+        verbose_name_plural = 'Escapes de Gas'
+
+    def __str__(self):
+        return super().__str__()
+
+class IncendioElectrico(FormPadre): #10-19
+
+    desperfecto = models.CharField(max_length=30)
+    humoLlamas = models.CharField(max_length=30)
+    epec = models.CharField(max_length=30)
+    servEmergencia = models.CharField(max_length=30)
+    class Meta:
+
+        verbose_name = 'Incendio Electrico'
+        verbose_name_plural = 'Incendios Electricos'
+
+    def __str__(self):
+        return super().__str__()
 
 class AccidenteVehicular(FormPadre):# 20-20
     tipoAV = [
@@ -58,80 +155,7 @@ class AccidenteVehicular(FormPadre):# 20-20
     def __str__(self):
         return super().__str__()
 
-class IncendioForestal(FormPadre):
-
-    sentido = models.CharField(max_length=15)
-    riesgoProp = models.BooleanField() # Riesgo de Propagacion
-    edificios = models.IntegerField()
-    servEmergencia = models.CharField(max_length=30)
-
-    class Meta:
-
-        verbose_name = 'Incendio Forestal'
-        verbose_name_plural = 'Incendios Forestales'
-
-    def __str__(self):
-        return super().__str__()
-
-class IncendioBaldio(FormPadre):
-
-    entreCalles = models.CharField(max_length=30)
-    riesgoProp = models.BooleanField() # Riesgo de Propagacion
-    class Meta:
-
-        verbose_name = 'Incendio de Baldio'
-        verbose_name_plural = 'Incendios de Baldios'
-
-    def __str__(self):
-        return super().__str__()
-
-class IncendioVivienda(FormPadre):
-
-    entreCalles = models.CharField(max_length=30)
-    estadoFuego = models.CharField(max_length=30)
-    habitantes = models.CharField(max_length=20)
-    localHabit = models.CharField(max_length=40) # Hay habitantes en el momento? Cuantos?
-    descVivienda = models.CharField(max_length=50) # Como es la vivienda?
-    espera = models.BooleanField()
-    class Meta:
-
-        verbose_name = 'Incendio de Vivienda'
-        verbose_name_plural = 'Incendios de Viviendas'
-
-    def __str__(self):
-        return super().__str__()
-
-class IncendioVehicular(FormPadre):
-
-    tipoVehiculo = models.CharField(max_length=20)
-    humoLlamas = models.CharField(max_length=30)
-    vehiculoOcup = models.BooleanField()
-    gnc = models.CharField(max_length=20)
-    riesgoProp = models.BooleanField() # Riesgo de Propagacion
-    class Meta:
-
-        verbose_name = 'Incendio Vehicular'
-        verbose_name_plural = 'Incendios Vehiculares'
-
-    def __str__(self):
-        return super().__str__()
-
-class IncendioElectrico(FormPadre):
-
-    desperfecto = models.CharField(max_length=30)
-    humoLlamas = models.CharField(max_length=30)
-    epec = models.CharField(max_length=30)
-    servEmergencia = models.CharField(max_length=30)
-    class Meta:
-
-        verbose_name = 'Incendio Electrico'
-        verbose_name_plural = 'Incendios Electricos'
-
-    def __str__(self):
-        return super().__str__()
-
-
-class RescateAnimal(FormPadre):
+class RescateAnimal(FormPadre): #20-22
 
     animal = models.CharField(max_length=15)
     condicionAnimal = models.CharField(max_length=30)
@@ -145,7 +169,7 @@ class RescateAnimal(FormPadre):
     def __str__(self):
         return super().__str__()
 
-class RescateCadaver(FormPadre):
+class RescateCadaver(FormPadre): #20-23
     esPolicia = models.BooleanField()
     #* Datos diferentes dependiendo si el que llamos es policia o civil
     cantPolicia: models.IntegerField()
@@ -165,6 +189,15 @@ class RescateCadaver(FormPadre):
     def __str__(self):
         return super().__str__()
 
+class rescatePersonaVia(FormPadre): #20-24
+
+    estadoPersona = models.CharField(max_length=30)
+    lesion = models.CharField(max_length=30)
+
+    class Meta:
+        
+        verbose_name = 'Rescate de Persona en Via Publica'
+        verbose_name_plural = 'Rescates de Personas en Via Publica'
 
 ####FORMULARIO DE AUXILIO
 
@@ -179,7 +212,3 @@ class FormularioAuxiliar(FormPadre):
 
     def __str__(self):
         return super().__str__()
-
-
-
-
