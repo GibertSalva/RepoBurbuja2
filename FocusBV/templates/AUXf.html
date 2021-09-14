@@ -42,6 +42,13 @@
                 <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
             </div>
 
+            <div class=" col-3 ">
+                <div class=" input-group shadow my-2  ">
+                    <span class="input-group-text" id="addon-wrapping">Date</span>
+                    {{ form.date }}
+                </div>
+            </div>
+
             <div class="col-2 mx- ">
                 <div class="input-group shadow">
                     <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
@@ -113,8 +120,6 @@
             </div>
 
     <!-- Fin del codigo general -->
-<form method="post">
-    {% csrf_token %}
 
         <span>
             <div class=" col-5 " style="width: 100%;">
@@ -126,9 +131,9 @@
     </div>
     <!-- Boton -->
     {% if form.errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ form.errors }}
-    </div>
+        <div class="alert alert-danger" role="alert">
+            {{ form.errors }}
+        </div>
     {% endif %}
 <!-- Boton -->
     <div class="d-flex justify-content-center ">

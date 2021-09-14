@@ -23,7 +23,7 @@ class AVform(forms.ModelForm): #HECHO
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id':'floatingTextarea2', 'style':'height: 150px'})),
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
-            'cantVehiculos': forms.Textarea(attrs={'class': 'form-control', 'id': 'mytextarea', 'style': 'width: 100%'}),
+            'cantVehiculos': forms.Textarea(attrs=({'class': 'form-control fs-5', 'id': 'mytextarea', 'style':'height: 150px'})),
             'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
             'corteTransito': forms.RadioSelect(choices=[(True, 'SI'),(False, 'NO')],attrs= ({'class': 'checkbox-inline'})),
             'tipoCalle':forms.RadioSelect(),

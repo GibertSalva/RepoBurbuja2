@@ -41,12 +41,16 @@ def homeview(request):
 
 @csrf_protect
 def ACview(request):
+    print("hola")
     AVf = AVform()
     if request.method == "POST":
         AVf = AVform(request.POST)
+        print("q")
         if AVf.is_valid():
             AVf.save(request)
             print("se guardo")
+        else:
+            print("e")
 
     context = {
         'form': AVf,
@@ -205,6 +209,10 @@ def IVhview(request):
 
     return render(request,"IVh.html",context)
 
+
+def myfunc(e):
+    return e.date
+    
 def Histview(request):
     IF = IncendioForestal.objects.all()
     IB = IncendioBaldio.objects.all()
@@ -218,9 +226,18 @@ def Histview(request):
     RP = RescatePersonaVia.objects.all()
     FA = FormularioAuxiliar.objects.all()
 
-    everything = [IF,IB,IV,PC,EG,IE,AV,RA,RC,RP,FA].sort()
-    print(everything)
+    everything = [IF,IB,IV,PC,EG,IE,AV,RA,RC,RP,FA]
+    #print(everything)
 
+    eve = []
+    for queryset in everything:
+        for i in queryset:
+            eve.append(i)
+
+
+    print(eve)
+    eve.sort(key=myfunc, reverse=True)
+    print(eve)
     context = {
         'ra': RA,
     }

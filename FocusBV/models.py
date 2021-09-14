@@ -9,7 +9,7 @@ import datetime
 class FormPadre(models.Model):
     
     idAlarma = models.AutoField(primary_key=True)
-    date = models.DateField(default=datetime.date.today)
+    date = models.DateField(default=datetime.date.today,null=True)
     hora = models.TimeField()
     receptor = models.CharField(max_length=50)
     nombre = models.CharField(max_length=35)
@@ -142,7 +142,7 @@ class AccidenteVehicular(FormPadre):# 20-20
         ('U','Undefined')
     ]
     claseAC = models.CharField(max_length=10,choices=tipoAV,default=None)
-    cantVehiculos = models.IntegerField()
+    cantVehiculos = models.CharField(max_length=200,blank=True)
     cantPersonas = models.IntegerField()
     corteTransito = models.BooleanField()
     tipoCalle = models.CharField(max_length=10,choices=tiposC,default='U')
