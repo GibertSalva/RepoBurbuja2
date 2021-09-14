@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import fields
 from .models import *
 
 class AlarmForm(forms.ModelForm):
@@ -188,3 +189,56 @@ class AUXform(forms.ModelForm): #HECHO
             'aux': forms.Textarea(attrs=({'class': 'form-control', 'id': 'mytextarea', 'style':'height: 150px'})),
         }
 
+class EGform(forms.ModelForm):
+    class Meta:
+        model = EscapeGas
+        fields = '__all__'
+
+        widgets = {
+            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'referencia': forms.Textarea(
+                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'tipoIncidente': forms.Textarea(attrs=({'class': 'form-control', 'style':'height: 150px'})),
+        }
+
+class RPVform(forms.ModelForm):
+    class Meta:
+        model = RescatePersonaVia
+        fields = '__all__'
+
+        widgets = {
+            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'referencia': forms.Textarea(
+                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'estadoPersona': forms.Textarea(attrs=({'class': 'form-control', 'style':'height: 150px'})),
+            'lesion': forms.Textarea(attrs={'class':'form-contol fs-5', 'style':'height: 150px'})           
+        }
+
+class PCform(forms.ModelForm):
+    class Meta:
+        model = PerdidaCombustible
+        fields = '__all__'
+
+        widgets = {
+            'hora': forms.TimeInput(attrs={'class': 'form-control fs-5','id':'reloj'}),
+            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'referencia': forms.Textarea(
+                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'tipoCombustible': forms.TextInput(attrs=({'class': 'form-control'})),
+            'servEmergencia': forms.Textarea(attrs={'class':'form-contol fs-5', 'style':'height: 150px'}),
+            'hayVictimas': forms.TextInput(attrs=({'class':'form-control fs-5'}))           
+        }
