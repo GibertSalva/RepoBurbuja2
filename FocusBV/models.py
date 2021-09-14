@@ -189,7 +189,7 @@ class RescateCadaver(FormPadre): #20-23
     def __str__(self):
         return super().__str__()
 
-class rescatePersonaVia(FormPadre): #20-24
+class RescatePersonaVia(FormPadre): #20-24
 
     estadoPersona = models.CharField(max_length=30)
     lesion = models.CharField(max_length=30)

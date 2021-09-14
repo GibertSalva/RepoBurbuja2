@@ -14,9 +14,17 @@ class IncendioBaldioAdmin(admin.ModelAdmin):
 
 class RescateAnimalAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
+
 class IncendioVehicularAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
 
+class PerdidaCombustibleAdmin(admin.ModelAdmin):
+    list_display = ('idAlarma','receptor')
+
+class EscapeGasAdmin(admin.ModelAdmin):
+    list_display = ('idAlarma','receptor')
+class RescatePersonaViaAdmin(admin.ModelAdmin):
+    list_display = ('idAlarma','receptor')
 class IncendioViviendaAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
 
@@ -36,4 +44,7 @@ admin.site.register(RescateAnimal,RescateAnimalAdmin)
 admin.site.register(IncendioVehicular,IncendioVehicularAdmin)
 admin.site.register(IncendioVivienda, IncendioViviendaAdmin)
 admin.site.register(IncendioElectrico, IncendioElectricoAdmin)
+admin.site.register(PerdidaCombustible, PerdidaCombustibleAdmin)
+admin.site.register(EscapeGas, EscapeGasAdmin)
+admin.site.register(RescatePersonaVia, RescatePersonaViaAdmin)
 admin.site.register(FormularioAuxiliar, FormularioAuxiliarAdmin)
