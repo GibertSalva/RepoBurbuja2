@@ -14,4 +14,5 @@ urlpatterns = [
     path('ivh/',views.IVhview , name="IVh"),
     path('iv/',views.IVview , name = "IV"),
     path('ie/',views.IEview , name = "IE"),
+    path('hi/',views.Histview , name = "HI"),
 ]

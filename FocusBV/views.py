@@ -205,3 +205,24 @@ def IVhview(request):
 
     return render(request,"IVh.html",context)
 
+def Histview(request):
+    IF = IncendioForestal.objects.all()
+    IB = IncendioBaldio.objects.all()
+    IV = IncendioVivienda.objects.all()
+    PC = PerdidaCombustible.objects.all()
+    EG = EscapeGas.objects.all()
+    IE = IncendioElectrico.objects.all()
+    AV = AccidenteVehicular.objects.all()
+    RA = RescateAnimal.objects.all()
+    RC = RescateCadaver.objects.all()
+    RP = RescatePersonaVia.objects.all()
+    FA = FormularioAuxiliar.objects.all()
+
+    everything = [IF,IB,IV,PC,EG,IE,AV,RA,RC,RP,FA].sort()
+    print(everything)
+
+    context = {
+        'ra': RA,
+    }
+
+    return render(request,"historial.html",context)

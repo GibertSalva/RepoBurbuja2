@@ -143,7 +143,8 @@ class RAform(forms.ModelForm):
         fields = '__all__'
         exclude = ['idAlarma']
         widgets = {
-            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj'}),
+            'date': forms.DateInput(attrs={'class': 'form-control shadow','readonly': True}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control shadow','id':'reloj','readonly': True}),
             'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),

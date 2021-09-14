@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.fields import BooleanField, CharField, IntegerField
 from django.forms import ModelForm
+import datetime
 
 
 # TODO agregar sentido de la ruta y entre calles
@@ -8,6 +9,7 @@ from django.forms import ModelForm
 class FormPadre(models.Model):
     
     idAlarma = models.AutoField(primary_key=True)
+    date = models.DateField(default=datetime.date.today)
     hora = models.TimeField()
     receptor = models.CharField(max_length=50)
     nombre = models.CharField(max_length=35)
