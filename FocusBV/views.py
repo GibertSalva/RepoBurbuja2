@@ -6,6 +6,8 @@ from .forms import *
 from .utils import *
 from django.template.loader import get_template
 from django.views.generic import View
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 def homeview(request):
@@ -217,6 +219,7 @@ def Histview(request):
     IF = IncendioForestal.objects.all()
     IB = IncendioBaldio.objects.all()
     IV = IncendioVivienda.objects.all()
+    IVh = IncendioVehicular.objects.all()
     PC = PerdidaCombustible.objects.all()
     EG = EscapeGas.objects.all()
     IE = IncendioElectrico.objects.all()
@@ -226,20 +229,21 @@ def Histview(request):
     RP = RescatePersonaVia.objects.all()
     FA = FormularioAuxiliar.objects.all()
 
-    everything = [IF,IB,IV,PC,EG,IE,AV,RA,RC,RP,FA]
-    #print(everything)
+    everything = [IF,IB,IV,IVh,PC,EG,IE,AV,RA,RC,RP,FA]
 
     eve = []
     for queryset in everything:
         for i in queryset:
             eve.append(i)
-
-
-    print(eve)
+            print(type(i))
     eve.sort(key=myfunc, reverse=True)
-    print(eve)
-    context = {
-        'ra': RA,
-    }
 
+    paginator = Paginator(eve, 10)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj,
+    }
     return render(request,"historial.html",context)

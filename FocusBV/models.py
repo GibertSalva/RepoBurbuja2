@@ -27,6 +27,12 @@ class FormPadre(models.Model):
     def __str__(self):
         return str(self.idAlarma)
 
+    def getUrl(self):
+        return str(self.idAlarma)
+    
+    def getClass(self):
+        return self._meta.verbose_name_raw
+
 class IncendioForestal(FormPadre): #10-10
 
     sentido = models.CharField(max_length=15)
@@ -42,6 +48,9 @@ class IncendioForestal(FormPadre): #10-10
     def __str__(self):
         return super().__str__()
 
+    def getUrl(self):
+        return str(self.idAlarma)
+
 class IncendioBaldio(FormPadre): #10-11
 
     entreCalles = models.CharField(max_length=30)
@@ -53,6 +62,9 @@ class IncendioBaldio(FormPadre): #10-11
 
     def __str__(self):
         return super().__str__()
+
+    def getUrl(self):
+            return str(self.idAlarma)
 
 class IncendioVivienda(FormPadre): #10-13
 
@@ -70,6 +82,9 @@ class IncendioVivienda(FormPadre): #10-13
     def __str__(self):
         return super().__str__()
 
+    def getUrl(self):
+        return str(self.idAlarma)
+
 class IncendioVehicular(FormPadre): #10-14
 
     tipoVehiculo = models.CharField(max_length=20)
@@ -85,6 +100,9 @@ class IncendioVehicular(FormPadre): #10-14
     def __str__(self):
         return super().__str__()
 
+    def getUrl(self):
+        return str(self.idAlarma)
+
 class PerdidaCombustible(FormPadre): # 10-16
 
     tipoCombustible = models.CharField(max_length=20)
@@ -99,6 +117,9 @@ class PerdidaCombustible(FormPadre): # 10-16
     def __str__(self):
         return super().__str__()
 
+    def getUrl(self):
+        return str(self.idAlarma)
+
 class EscapeGas(FormPadre): #10-17
 
     tipoIncidente = models.CharField(max_length=20) #vivienda, auto o via publica
@@ -111,6 +132,9 @@ class EscapeGas(FormPadre): #10-17
 
     def __str__(self):
         return super().__str__()
+
+    def getUrl(self):
+        return str(self.idAlarma)
 
 class IncendioElectrico(FormPadre): #10-19
 
@@ -125,6 +149,9 @@ class IncendioElectrico(FormPadre): #10-19
 
     def __str__(self):
         return super().__str__()
+
+    def getUrl(self):
+        return str(self.idAlarma)
 
 class AccidenteVehicular(FormPadre):# 20-20
     tipoAV = [
@@ -157,6 +184,9 @@ class AccidenteVehicular(FormPadre):# 20-20
     def __str__(self):
         return super().__str__()
 
+    def getUrl(self):
+        return str(self.idAlarma)
+
 class RescateAnimal(FormPadre): #20-22
 
     animal = models.CharField(max_length=15)
@@ -170,6 +200,10 @@ class RescateAnimal(FormPadre): #20-22
 
     def __str__(self):
         return super().__str__()
+
+    def getUrl(self):
+        return str(self.idAlarma)
+
 
 class RescateCadaver(FormPadre): #20-23
     esPolicia = models.BooleanField()
@@ -191,6 +225,9 @@ class RescateCadaver(FormPadre): #20-23
     def __str__(self):
         return super().__str__()
 
+    def getUrl(self):
+        return str(self.idAlarma)
+
 class RescatePersonaVia(FormPadre): #20-24
 
     estadoPersona = models.CharField(max_length=30)
@@ -200,6 +237,9 @@ class RescatePersonaVia(FormPadre): #20-24
         
         verbose_name = 'Rescate de Persona en Via Publica'
         verbose_name_plural = 'Rescates de Personas en Via Publica'
+    
+    def getUrl(self):
+        return str(self.idAlarma)
 
 ####FORMULARIO DE AUXILIO
 
@@ -214,3 +254,6 @@ class FormularioAuxiliar(FormPadre):
 
     def __str__(self):
         return super().__str__()
+
+    def getUrl(self):
+        return str(self.idAlarma)
