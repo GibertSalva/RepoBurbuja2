@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-
-{% for all in page_obj %}
-
-    <a href="{{ all.getUrl }}"> {{all.getClass}} </a>
-    <br>
-    
-{% endfor %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tipo de alarma</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Receptor</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for all in page_obj %}
+        <tr>
+            <th scope="row"> {{all}} </th>
+            <td>{{all.getClass}}</td>
+            <td>{{all.date}}</td>
+            <td>{{all.hora}}</td>
+            <td>{{all.receptor}}</td>
+            <!--<a href="{{ all.getUrl }}"> {{all.getClass}} </a>
+            <br>-->
+        <tr>
+        {% endfor %}
+    </tbody>
+<table>
 
 <div class="pagination">
     <span class="step-links">
