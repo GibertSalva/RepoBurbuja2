@@ -170,6 +170,7 @@ def ibHist(request, pk):
     return render(request, "IB.html", context)
 
 
+# --- Formulario Rescate Animal ---
 @csrf_protect
 def RAview(request):
     RAf = RAform()
@@ -193,17 +194,32 @@ def RAview(request):
                 'referencia': RAf.cleaned_data['referencia'],
                 'condicion': RAf.cleaned_data['condicionAnimal']
             }
-
             return redirect('pdf/',RAf)
-    
     context = {
         'form': RAf,
-    }        
-    
+    }
     return render(request,"RAf.html",context)
 
+
+# --- Historial Rescate Animal ---
+@csrf_protect
+def raHist(request, pk):
+    rah = RescateAnimal.objects.get(pk=pk)
+    RAh = RAform(instance=rah)
+    if request.method == "POST":
+        RAh = RAform(request.POST, instance=rah)
+        if RAh.is_valid():
+            RAh.save(request)
+            return redirect('/')
+    context ={
+        'form': RAh,
+    }
+    return render(request, "RAf.html", context)
+
+
+# --- PDF Rescate Animal ---
 class RAasPDF(View):
-    def get(self,request,*args,**kwargs):
+    def get(self, request, *args, **kwargs):
         dict = request.session.get('dict')
         # nombre = request.session.get('nombre')
         # animal = request.session.get('animal')
@@ -223,8 +239,10 @@ class RAasPDF(View):
         }
         # html = template.render(context)
         pdf = render_to_pdf('RApdf.html', context)
-        return HttpResponse(pdf,content_type='application/pdf')
+        return HttpResponse(pdf, content_type='application/pdf')
 
+
+# --- Formulario Incencido Vivienda ---
 def IVview(request):
     IVf = IVform()
     if request.method == "POST":
@@ -232,12 +250,27 @@ def IVview(request):
         if IVf.is_valid():
             IVf.save(request)
             print("se guardo")
-
     context = {
         'form': IVf,
     }
+    return render(request, "IV.html", context)
 
-    return render(request,"IV.html",context)
+
+# --- Historial Incencido Vivienda ---
+@csrf_protect
+def IVHist(request, pk):
+    ivhi = IncendioVivienda.objects.get(pk=pk)
+    IVhi = IVform(instance=ivhi)
+    if request.method == "POST":
+        IVhi = IVform(request.POST, instance=ivhi)
+        if IVhi.is_valid():
+            IVhi.save(request)
+            return redirect('/')
+    context ={
+        'form': IVhi,
+    }
+    return render(request, "IV.html", context)
+
 
 @csrf_protect
 def IEview(request):

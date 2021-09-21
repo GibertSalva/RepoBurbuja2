@@ -21,4 +21,6 @@ urlpatterns = [
     path('if/<int:pk>/', views.ifHist, name="IFH"),
     path('<int:pk>/', views.auxHist, name="AUXH"),
     path('ib/<int:pk>/', views.ibHist, name="IBH"),
+    path('ra/<int:pk>/', views.raHist, name="RAH"),
+    path('iv/<int:pk>/', views.IVHist, name="IVHI"),
 ]
