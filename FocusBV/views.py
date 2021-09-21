@@ -7,6 +7,7 @@ from .utils import *
 from django.template.loader import get_template
 from django.views.generic import View
 
+
 # Create your views here.
 def homeview(request):
 # dependiendo del id que busques en el home deberia
@@ -31,7 +32,7 @@ def homeview(request):
     'IFf':IFf,
     'IBf':IBf,
     'IVf':IVf,
-    'IVhf': IVhf,
+    'IVhf':IVhf,
     'IEf':IEf,
     'RAf':RAf,
     'RCf':RCf,
@@ -39,9 +40,10 @@ def homeview(request):
 }
     return render(request, "home.html", context)
 
+
+# --- Formulario Accidente Vehicular ---
 @csrf_protect
 def ACview(request):
-    print("hola")
     AVf = AVform()
     if request.method == "POST":
         AVf = AVform(request.POST)
@@ -51,13 +53,29 @@ def ACview(request):
             print("se guardo")
         else:
             print("e")
-
     context = {
         'form': AVf,
     }
+    return render(request, "AV.html", context)
 
-    return render(request,"AV.html",context)
 
+# --- Historial Accidente Vehicular ---
+@csrf_protect
+def avHist(request, pk):
+    av = AccidenteVehicular.objects.get(pk=pk)
+    AVf = AVform(instance=av)
+    if request.method == "POST":
+        AVf = AVform(request.POST, instance=av)
+        if AVf.is_valid():
+            AVf.save(request)
+            return redirect('/')
+    context ={
+        'form': AVf,
+    }
+    return render(request, "AV.html", context)
+
+
+# --- Formulario Incendio Forestal ---
 @csrf_protect
 def IFview(request):
     IFf = IFform()
@@ -66,15 +84,29 @@ def IFview(request):
         if IFf.is_valid():
             IFf.save(request)
             print("se guardo")
-
     context = {
         'form': IFf,
     }
-
     return render(request,"IF.html",context)
 
-####PRUEBA DE TINYMCE
 
+# --- Historial Incendio Forestal ---
+@csrf_protect
+def ifHist(request, pk):
+    ifh = IncendioForestal.objects.get(pk=pk)
+    IFh = IFform(instance=ifh)
+    if request.method == "POST":
+        IFh = IFform(request.POST, instance=ifh)
+        if IFh.is_valid():
+            IFh.save(request)
+            return redirect('/')
+    context ={
+        'form': IFh,
+    }
+    return render(request, "IF.html", context)
+
+
+# --- Formulario Auxiliar ---
 @csrf_protect
 def AUXview(request):
     AUX = AUXform()
@@ -84,17 +116,30 @@ def AUXview(request):
             AUX.save(request)
             print("se guardo")
         else:
-            print("aguante del caño")
-
+            print("aguante del caño <3")
     context = {
         'form': AUX,
     }
-
     return render(request,"AUXf.html",context)
 
 
-####PRUEBA DE TINYMCE
+# --- Historial Auxiliar ---
+@csrf_protect
+def auxHist(request, pk):
+    auxh = FormularioAuxiliar.objects.get(pk=pk)
+    AUXh = AUXform(instance=auxh)
+    if request.method == "POST":
+        AUXh = AUXform(request.POST, instance=auxh)
+        if AUXh.is_valid():
+            AUXh.save(request)
+            return redirect('/')
+    context ={
+        'form': AUXh,
+    }
+    return render(request, "AUXf.html", context)
 
+
+# --- Formulario Incendio Baldio ---
 @csrf_protect
 def IBview(request):
     IBf = IBform()
@@ -103,12 +148,27 @@ def IBview(request):
         if IBf.is_valid():
             IBf.save(request)
             print("se guardo")
-
     context = {
         'form': IBf,
     }
-
     return render(request,"IB.html",context)
+
+
+# --- Historial Incendio Baldio ---
+@csrf_protect
+def ibHist(request, pk):
+    ibh = IncendioBaldio.objects.get(pk=pk)
+    IBh = IBform(instance=ibh)
+    if request.method == "POST":
+        IBh = IBform(request.POST, instance=ibh)
+        if IBh.is_valid():
+            IBh.save(request)
+            return redirect('/')
+    context ={
+        'form': IBh,
+    }
+    return render(request, "IB.html", context)
+
 
 @csrf_protect
 def RAview(request):

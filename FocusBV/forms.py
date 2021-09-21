@@ -2,6 +2,7 @@ from django import forms
 from django.forms import fields
 from .models import *
 
+
 class AlarmForm(forms.ModelForm):
     class Meta:
         model = FormPadre
@@ -30,8 +31,8 @@ class AVform(forms.ModelForm): #HECHO
             'tipoCalle':forms.RadioSelect(),
             'servEmergencia': forms.TextInput(attrs={'class': 'form-control fs-6'}),
             'herido': forms.TextInput(attrs={'class': 'form-control'}),
-
         }
+
 
 class IFform(forms.ModelForm): #HECHO
     class Meta:

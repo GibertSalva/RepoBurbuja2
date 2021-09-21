@@ -1,21 +1,20 @@
 {% extends 'base.html' %}
-
-{% block bodysettings %} onload="mueveReloj()" {% endblock %}
-{% block content%}
 {% load static %}
 
-<head>
+{% block bodysettings %} onload="mueveReloj()" {% endblock %}
+{% block head %}
     <script src="{% static '/tinymce/js/tinymce/tinymce.min.js' %}"></script>
-
-
     <script>
         tinymce.init({
           selector: '#mytextarea'
         });
       </script>
+{% endblock %}
+
+{% block content%}
 
 
-</head>
+
 <form method="post">
     {% csrf_token %}
     <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">

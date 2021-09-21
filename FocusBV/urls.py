@@ -15,4 +15,10 @@ urlpatterns = [
     path('iv/',views.IVview , name = "IV"),
     path('ie/',views.IEview , name = "IE"),
     path('hi/',views.Histview , name = "HI"),
+
+    # Liks historial
+    path('av/<int:pk>/', views.avHist, name="AVH"),
+    path('if/<int:pk>/', views.ifHist, name="IFH"),
+    path('<int:pk>/', views.auxHist, name="AUXH"),
+    path('ib/<int:pk>/', views.ibHist, name="IBH"),
 ]
