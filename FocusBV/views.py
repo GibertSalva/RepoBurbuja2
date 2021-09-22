@@ -70,7 +70,7 @@ def avHist(request, pk):
         AVf = AVform(request.POST, instance=av)
         if AVf.is_valid():
             AVf.save(request)
-            return redirect('/')
+            return redirect('/hi/')
     context ={
         'form': AVf,
     }
@@ -101,7 +101,7 @@ def ifHist(request, pk):
         IFh = IFform(request.POST, instance=ifh)
         if IFh.is_valid():
             IFh.save(request)
-            return redirect('/')
+            return redirect('/hi/')
     context ={
         'form': IFh,
     }
@@ -134,7 +134,7 @@ def auxHist(request, pk):
         AUXh = AUXform(request.POST, instance=auxh)
         if AUXh.is_valid():
             AUXh.save(request)
-            return redirect('/')
+            return redirect('/hi/')
     context ={
         'form': AUXh,
     }
@@ -165,7 +165,7 @@ def ibHist(request, pk):
         IBh = IBform(request.POST, instance=ibh)
         if IBh.is_valid():
             IBh.save(request)
-            return redirect('/')
+            return redirect('/hi/')
     context ={
         'form': IBh,
     }
@@ -212,7 +212,7 @@ def raHist(request, pk):
         RAh = RAform(request.POST, instance=rah)
         if RAh.is_valid():
             RAh.save(request)
-            return redirect('/')
+            return redirect('/hi/')
     context ={
         'form': RAh,
     }
@@ -267,13 +267,14 @@ def IVHist(request, pk):
         IVhi = IVform(request.POST, instance=ivhi)
         if IVhi.is_valid():
             IVhi.save(request)
-            return redirect('/')
+            return redirect('/hi/')
     context ={
         'form': IVhi,
     }
     return render(request, "IV.html", context)
 
 
+# --- Formulario Incencido Electrico ---
 @csrf_protect
 def IEview(request):
     IEf = IEform()
@@ -282,13 +283,29 @@ def IEview(request):
         if IEf.is_valid():
             IEf.save(request)
             print("se guardo")
-
     context = {
         'form': IEf,
     }
+    return render(request, "IE.html", context)
 
-    return render(request,"IE.html",context)
 
+# --- Historial Incencido Electrico ---
+@csrf_protect
+def IEHist(request, pk):
+    ieh = IncendioElectrico.objects.get(pk=pk)
+    IEh = IEform(instance=ieh)
+    if request.method == "POST":
+        IEh = IEform(request.POST, instance=ieh)
+        if IEh.is_valid():
+            IEh.save(request)
+            return redirect('/hi/')
+    context = {
+        'form': IEh,
+    }
+    return render(request, "IE.html", context)
+
+
+# --- Formulario Incendio Vehiciular ---
 @csrf_protect
 def IVhview(request):
     IVhf = IVhform()
@@ -297,12 +314,26 @@ def IVhview(request):
         if IVhf.is_valid():
             IVhf.save(request)
             print("se guardo")
-
     context = {
         'form': IVhf,
     }
+    return render(request, "IVh.html", context)
 
-    return render(request,"IVh.html",context)
+
+# --- Historial Incencido Vehicular ---
+@csrf_protect
+def IVhHist(request, pk):
+    ivh = IncendioVehicular.objects.get(pk=pk)
+    IVh = IVhform(instance=ivh)
+    if request.method == "POST":
+        IVh = IVhform(request.POST, instance=ivh)
+        if IVh.is_valid():
+            IVh.save(request)
+            return redirect('/hi/')
+    context = {
+        'form': IVh,
+    }
+    return render(request, "IVh.html", context)
 
 
 def myfunc(e):
@@ -322,7 +353,7 @@ def Histview(request):
     RP = RescatePersonaVia.objects.all()
     FA = FormularioAuxiliar.objects.all()
 
-    everything = [IF,IB,IV,IVh,PC,EG,IE,AV,RA,RC,RP,FA]
+    everything = [IF, IB, IV, IVh, PC, EG, IE, AV, RA, RC, RP, FA]
 
     eve = []
     for queryset in everything:

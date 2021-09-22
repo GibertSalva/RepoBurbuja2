@@ -15,7 +15,7 @@
         {% for all in page_obj %}
         <tr>
             <td>{{all.date}}</td>
-            <td><a href="{{ all.getUrl }}">{{all.getClass}}</a></td>
+            <td><a href="{{all.getClass}}/{{all.getUrl}}">{{all.getClass}}</a></td>
             <td>{{all.hora}}</td>
             <td>{{all.receptor}}</td>
             <td>  <input type="button" onclick="window.location.href='{{all.getClass}}/{{all.getUrl}}';" value="Enviar">  </td>
@@ -42,4 +42,4 @@
         {% endif %}
     </span>
 </div>
-{% endblock content %}%}
+{% endblock content %}

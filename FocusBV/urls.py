@@ -17,10 +17,12 @@ urlpatterns = [
     path('hi/',views.Histview , name = "HI"),
 
     # Liks historial
-    path('av/<int:pk>/', views.avHist, name="AVH"),
-    path('if/<int:pk>/', views.ifHist, name="IFH"),
-    path('<int:pk>/', views.auxHist, name="AUXH"),
-    path('ib/<int:pk>/', views.ibHist, name="IBH"),
-    path('ra/<int:pk>/', views.raHist, name="RAH"),
-    path('iv/<int:pk>/', views.IVHist, name="IVHI"),
+    path('hi/Formulario Auxiliar/<int:pk>/', views.auxHist, name="AUXH"),
+    path('hi/Accidente Vehicular/<int:pk>/', views.avHist, name="AVH"),
+    path('hi/Incendio Forestal/<int:pk>/', views.ifHist, name="IFH"),
+    path('hi/Incendio de Baldio/<int:pk>/', views.ibHist, name="IBH"),
+    path('hi/Rescate Animal/<int:pk>/', views.raHist, name="RAH"),
+    path('hi/Incendio de Vivienda/<int:pk>/', views.IVHist, name="IVHI"),
+    path('hi/Incendio Electrico/<int:pk>/', views.IEHist, name="IEH"),
+    path('hi/Incendio Vehicular/<int:pk>/', views.IVhHist, name="IVhH")
 ]
