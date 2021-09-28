@@ -7,6 +7,7 @@ from .utils import *
 from django.template.loader import get_template
 from django.views.generic import View
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 
 
@@ -49,12 +50,13 @@ def ACview(request):
     AVf = AVform()
     if request.method == "POST":
         AVf = AVform(request.POST)
-        print("q")
         if AVf.is_valid():
             AVf.save(request)
-            print("se guardo")
+            messages.success(request, 'Form submission successful.')
         else:
-            print("e")
+            messages.error(request, 'Form submission error.')
+
+
     context = {
         'form': AVf,
     }
@@ -71,6 +73,8 @@ def avHist(request, pk):
         if AVf.is_valid():
             AVf.save(request)
             return redirect('/hi/')
+
+
     context ={
         'form': AVf,
     }
@@ -86,6 +90,9 @@ def IFview(request):
         if IFf.is_valid():
             IFf.save(request)
             print("se guardo")
+            messages.success(request, 'Form submission successful.')
+        else:
+            messages.error(request, 'Form submission error.')
     context = {
         'form': IFf,
     }
@@ -117,8 +124,9 @@ def AUXview(request):
         if AUX.is_valid():
             AUX.save(request)
             print("se guardo")
+            messages.success(request, 'Form submission successful.')
         else:
-            print("aguante del caño <3")
+            messages.error(request, 'Form submission error.')
     context = {
         'form': AUX,
     }
@@ -150,6 +158,9 @@ def IBview(request):
         if IBf.is_valid():
             IBf.save(request)
             print("se guardo")
+            messages.success(request, 'Form submission successful.')
+        else:
+            messages.error(request, 'Form submission error.')
     context = {
         'form': IBf,
     }
@@ -252,6 +263,9 @@ def IVview(request):
         if IVf.is_valid():
             IVf.save(request)
             print("se guardo")
+            messages.success(request, 'Form submission successful.')
+        else:
+            messages.error(request, 'Form submission error.')
     context = {
         'form': IVf,
     }
@@ -283,6 +297,9 @@ def IEview(request):
         if IEf.is_valid():
             IEf.save(request)
             print("se guardo")
+            messages.success(request, 'Form submission successful.')
+        else:
+            messages.error(request, 'Form submission error.')
     context = {
         'form': IEf,
     }
@@ -314,6 +331,9 @@ def IVhview(request):
         if IVhf.is_valid():
             IVhf.save(request)
             print("se guardo")
+            messages.success(request, 'Form submission successful.')
+        else:
+            messages.error(request, 'Form submission error.')
     context = {
         'form': IVhf,
     }

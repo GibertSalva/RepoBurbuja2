@@ -7,13 +7,42 @@
     {% block head %} {% endblock head %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/static/bootstrap-5.0.2/dist/css/bootstrap.min.css">
-
+    <script src="/static/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
     <title>Focus BV</title>
   </head>
 
   <body style= "background-color: lightgrey" {% block bodysettings %} {% endblock %}>
 
 {% include 'navbar.html' %}
+<style>
+    .error{
+        background-color: red;
+        color: white;
+    }
+    .success{
+        background-color: #50fa7b;
+    }
+</style>
+{% if messages %}
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100 rounded-pill ">
+    {% for message in messages %}
+    <div class="toast rounded-pill" role="alert"  aria-live="assertive" aria-atomic="true" data-bs-delay="4000" >
+
+      <div class="toast-body {% if message.tags%} {{ message.tags }} {% endif %} rounded-pill text-center" >
+          {{ message}}
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+        // Creates an array of toasts (it only initializes them)
+          return new bootstrap.Toast(toastEl) // No need for options; use the default options
+        });
+       toastList.forEach(toast => toast.show()); //
+    </script>
+{% endif %}
 
 {% block content %}
 
