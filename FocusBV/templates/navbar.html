@@ -1,13 +1,12 @@
 <nav class="navbar navbar-dark p-1  bg-danger shadow ">
 
     <div class="container-fluid ">
-    </div>
-
-
-<span>
+    <div class="col-5 d-flex justify-content-start">
+        <span>
     <button class=" mx-2 fs-5  fw-bold btn btn-success " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Codigos</button>
     <button id="btn-abrir-popup" class="btn-abrir-popup mx-2 fs-5  fw-bold btn btn-success" data-bs-toggle="offcanvas" aria-controls="offcanvasExample">Crear Codigo</button>
 </span>
+    </div>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header ">
             <h5 class="offcanvas-title fw-bold  " id="offcanvasExampleLabel"> Codigos </h5>
@@ -20,7 +19,7 @@
                     * {
                         box-sizing: border-box;
                     }
-                    
+
                     #myInput {
                         background-position: 10px 10px;
                         background-repeat: no-repeat;
@@ -30,7 +29,7 @@
                         border: 1px solid rgb(107, 107, 107);
                         margin-bottom: 12px;
                     }
-                    
+
                     #myTable {
                         border-collapse: collapse;
                         width: 100%;
@@ -38,21 +37,21 @@
                         font-size: 14px;
                         background-color: #bdbdbd;
                     }
-                    
+
                     #ref {
                         width: 180%;
                     }
-                    
+
                     #myTable th,
                     #myTable td {
                         text-align: left;
                         padding: 10px;
                     }
-                    
+
                     #myTable tr {
                         border-bottom: 0px solid rgb(0, 0, 0);
                     }
-                    
+
                     #myTable tr.header,
                     #myTable tr:hover {
                         background-color: #8f8f8f;
@@ -74,7 +73,7 @@
                             <th scope="row">10-10</th>
                             <td>
                                 <a href="/if" style="text-decoration:none">Incendio Forestal</a>
-                                
+
                             </td>
                         </tr>
                         <tr>
@@ -308,11 +307,17 @@
 
         </div>
     </div>
-    </div>
-    <span class="navbar-brand mb-1 h1 text-white fs-2 fw-bold ">
-        <a href="/" style="color: white; text-decoration:none; align-items: center;">Focus BV</a>
-    </span>
 
-    <a href="/hi/" class="mx-2 btn btn-success fs-5 fw-bold " >Historial</a>
+    <div class="col-2 d-flex">
+        <span class="navbar-brand mb-1 h1 text-white fs-2 fw-bold">
+        <a href="/" style="color: white; text-decoration:none; align-items: center;">FocusBV</a>
+    </span>
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+        <a href="/hi/" class="mx-2 btn btn-success fs-5 fw-bold " >Historial</a>
+    </div>
+    </div>
+
 
 </nav>
+
