@@ -192,12 +192,6 @@ def RAview(request):
         if RAf.is_valid():
             RAf.save(request)
             print("se guardo")
-            # request.session['nombre'] = RAf.cleaned_data['nombre']
-            # request.session['animal'] = RAf.cleaned_data['animal']
-            # request.session['telefono'] = RAf.cleaned_data['telefono']
-            # request.session['direccion'] = RAf.cleaned_data['direccion']
-            # request.session['referencia'] = RAf.cleaned_data['referencia']
-            # request.session['condicion'] = RAf.cleaned_data['condicionAnimal']
 
             request.session['dict'] = dict = {
                 'nombre': RAf.cleaned_data['nombre'],
@@ -356,9 +350,13 @@ def IVhHist(request, pk):
     return render(request, "IVh.html", context)
 
 
-def myfunc(e):
+def myfunc1(e):
     return e.date
-    
+
+
+def myfunc2(e):
+    return e.hora
+
 def Histview(request):
     IF = IncendioForestal.objects.all()
     IB = IncendioBaldio.objects.all()
@@ -380,7 +378,8 @@ def Histview(request):
         for i in queryset:
             eve.append(i)
             print(type(i))
-    eve.sort(key=myfunc, reverse=True)
+    eve.sort(key=myfunc1, reverse=True)
+    eve.sort(key=myfunc2, reverse=True)
 
     paginator = Paginator(eve, 10)
 
