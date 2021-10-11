@@ -20,7 +20,7 @@
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <form method="post" id="formId">
     {% csrf_token %}
-    <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
+    <div class="card w-75 d-flex mx-auto  mt-4 mb-4 rounded-3">
     <div class="card-body ">
 
         <p class="text-center fw-bold fs-2 align-top  ">Recepción de Alarma - Accidente Vehicular</p>
@@ -34,14 +34,14 @@
         <br>
         <div class="row g-3">
             <div class="col-8 col-sm-6">
-                <div class=" input-group shadow my-2  ">
+                <div class=" input-group  my-2  ">
                     <span class="input-group-text" id="addon-wrapping">Date</span>
                     {{ form.date }}
                 </div>
             </div>
 
             <div class="col-2 mx- ">
-                <div class="input-group shadow">
+                <div class="input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
                     {{ form.hora }}
                 </div>
@@ -57,7 +57,7 @@
 
             <span>
                 <div class=" col-7 mb-3 mt- fs-4 ">
-                    <div class=" input-group shadow">
+                    <div class=" input-group ">
                       <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por:</span>
                         {{ form.receptor }}
                     </div>
@@ -72,7 +72,7 @@
             </span>
 
             <div class=" col-6 ">
-                <div class=" input-group shadow">
+                <div class=" input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
                     {{ form.nombre }}
                 </div>
@@ -83,7 +83,7 @@
             </div>
 
             <div class=" col-4 ">
-                <div class=" input-group shadow">
+                <div class=" input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
                     {{ form.telefono }}
                 </div>
@@ -93,7 +93,7 @@
             <span></span>
 
             <div class=" col-4 ">
-                <div class=" input-group shadow mb-">
+                <div class=" input-group  mb-">
                     <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
                     {{ form.ciudad }}
                 </div>
@@ -104,7 +104,7 @@
             </div>
 
             <div class=" col-6 ">
-                <div class=" input-group shadow">
+                <div class=" input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
                     {{ form.direccion }}
                 </div>
@@ -112,7 +112,7 @@
             <span></span>
 
             <div class="col-12 mt-4 mb-3">
-                <div class="form-floating shadow fs-5">
+                <div class="form-floating  fs-5">
                     {{ form.referencia }}
                     <label for="floatingTextarea2 ">Referencias </label>
                 </div>
@@ -133,7 +133,7 @@
             </div>
             <br>
             <div class=" col-3 " style="width: 100%" >
-                <div class=" input-group shadow " >
+                <div class=" input-group  " >
                     <span class="input-group-text " id="addon-wrapping " style="width: 100%;">Vehiculos Involucrados</span>
                     {{ form.cantVehiculos }}
                 </div>
@@ -143,7 +143,7 @@
             <div class="row g-4 ">
                 <span></span>
                 <div class=" col-3 ">
-                    <div class=" input-group shadow ">
+                    <div class=" input-group  ">
                         <span class="input-group-text " id="addon-wrapping ">Personas Involucradas</span>
                         {{ form.cantPersonas }}
                     </div>
@@ -162,7 +162,7 @@
                 <br>
                 <span></span>
                 <div class=" col-3 ">
-                    <div class=" input-group shadow ">
+                    <div class=" input-group  ">
                         <span class="input-group-text " id="addon-wrapping ">Heridos/Atrapados</span>
                         {{form.herido}}
                     </div>
@@ -171,13 +171,13 @@
                     <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
                 </div>
                 <div class=" col-3 ">
-                    <div class=" input-group shadow ">
+                    <div class=" input-group  ">
                         <span class="input-group-text " id="addon-wrapping ">Servicio de Emergencia</span>
                         {{form.servEmergencia}}
                     </div>
                 </div>
                 <div class=" col-3 " id="sentido1" style="display: none;">
-                    <div class=" input-group shadow ">
+                    <div class=" input-group  ">
                         <span class="input-group-text " id="addon-wrapping ">Sentido</span>
                         <input type="text " class="form-control " aria-describedby="addon-wrapping ">
                     </div>
