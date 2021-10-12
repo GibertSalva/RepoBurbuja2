@@ -14,7 +14,7 @@
 
 <form method="post">
     {% csrf_token %}
-    <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
+    <div class="card w-75 d-flex mx-auto  mt-4 mb-4 rounded-3">
     <div class="card-body ">
 
         <p class="text-center fw-bold fs-2 align-top  ">Recepción de Alarma - Formulario General</p>
@@ -28,7 +28,7 @@
         <div class="row g-3">
 
             <div class=" col-3 ">
-                <div class=" input-group shadow my-2  ">
+                <div class=" input-group my-2  ">
                     <span class="input-group-text" id="addon-wrapping">Date</span>
                     {{ form.date }}
                 </div>
@@ -39,7 +39,7 @@
             </div>
 
             <div class="col-2">
-                <div class="input-group shadow">
+                <div class="input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
                     {{ form.hora }}
                 </div>
@@ -47,7 +47,7 @@
 
             <span>
                 <div class=" col-7 mb-3 mt- fs-4 ">
-                    <div class=" input-group shadow">
+                    <div class=" input-group ">
                       <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por:</span>
                         {{ form.receptor }}
                     </div>
@@ -71,7 +71,7 @@
             </span>
 
             <div class=" col-6 ">
-                <div class=" input-group shadow">
+                <div class=" input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
                     {{ form.nombre }}
                 </div>
@@ -82,7 +82,7 @@
             </div>
 
             <div class=" col-4 ">
-                <div class=" input-group shadow">
+                <div class=" input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
                     {{ form.telefono }}
                 </div>
@@ -92,7 +92,7 @@
             <span></span>
 
             <div class=" col-4 ">
-                <div class=" input-group shadow mb-">
+                <div class=" input-group  mb-">
                     <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
                     {{ form.ciudad }}
                 </div>
@@ -103,7 +103,7 @@
             </div>
 
             <div class=" col-6 ">
-                <div class=" input-group shadow">
+                <div class=" input-group ">
                     <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
                     {{ form.direccion }}
                 </div>
@@ -111,7 +111,7 @@
             <span></span>
 
             <div class="col-12 mt-4">
-                <div class="form-floating shadow fs-5">
+                <div class="form-floating  fs-5">
                     {{ form.referencia }}
                     <label for="floatingTextarea2 ">Referencias </label>
                 </div>
