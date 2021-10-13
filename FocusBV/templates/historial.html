@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+<div>
+    <form method="GET" >
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                <span>{{ searcher.as_p }} </span>
+            </div>
+            <div class="col">
+                <input class="btn" type="submit" name="action"></input>
+            </div>
+        </div>
+    </form>
+</div>
+    <br>
 
 <table class="table table-hover">
     <thead>
@@ -15,7 +29,7 @@
         {% for all in page_obj %}
         <tr>
             <td>{{all.date}}</td>
-            <td><a href="{{all.getClass}}/{{all.getUrl}}">{{all.getClass}}</a></td>
+            <td><a class="page-link" href="{{all.getClass}}/{{all.getUrl}}">{{all.getClass}}</a></td>
             <td>{{all.hora}}</td>
             <td>{{all.receptor}}</td>
             <td>  <input type="button" onclick="window.location.href='{{all.getClass}}/{{all.getUrl}}';" value="Enviar">  </td>
@@ -28,8 +42,8 @@
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            <a  class="page-link" href="?page=1">&laquo; first</a>
+            <a  class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
         {% endif %}
 
         <span class="current">
@@ -37,8 +51,8 @@
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            <a  class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+            <a  class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
     </span>
 </div>
