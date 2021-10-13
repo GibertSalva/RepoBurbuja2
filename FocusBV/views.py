@@ -8,6 +8,8 @@ from django.template.loader import get_template
 from django.views.generic import View
 from django.core.paginator import Paginator
 from django.contrib import messages
+from django.shortcuts import render
+from django.db.models import Q
 
 
 
@@ -360,6 +362,7 @@ def myfunc(e):
     return e.date
     
 def Histview(request):
+    d = dateForm()
     IF = IncendioForestal.objects.all()
     IB = IncendioBaldio.objects.all()
     IV = IncendioVivienda.objects.all()
@@ -373,13 +376,46 @@ def Histview(request):
     RP = RescatePersonaVia.objects.all()
     FA = FormularioAuxiliar.objects.all()
 
+    if request.method == "GET":
+        print("aloh?")
+        d = dateForm(request.GET)
+        if d.is_valid():
+            search_date = d.cleaned_data['date']
+            print(search_date)
+            if search_date == None:
+                IF = IncendioForestal.objects.all()
+                IB = IncendioBaldio.objects.all()
+                IV = IncendioVivienda.objects.all()
+                IVh = IncendioVehicular.objects.all()
+                PC = PerdidaCombustible.objects.all()
+                EG = EscapeGas.objects.all()
+                IE = IncendioElectrico.objects.all()
+                AV = AccidenteVehicular.objects.all()
+                RA = RescateAnimal.objects.all()
+                RC = RescateCadaver.objects.all()
+                RP = RescatePersonaVia.objects.all()
+                FA = FormularioAuxiliar.objects.all()
+            else:
+                IF = IncendioForestal.objects.filter(date=search_date)
+                IB = IncendioBaldio.objects.filter(date=search_date)
+                IV = IncendioVivienda.objects.filter(date=search_date)
+                IVh = IncendioVehicular.objects.filter(date=search_date)
+                PC = PerdidaCombustible.objects.filter(date=search_date)
+                EG = EscapeGas.objects.filter(date=search_date)
+                IE = IncendioElectrico.objects.filter(date=search_date)
+                AV = AccidenteVehicular.objects.filter(date=search_date)
+                RA = RescateAnimal.objects.filter(date=search_date)
+                RC = RescateCadaver.objects.filter(date=search_date)
+                RP = RescatePersonaVia.objects.filter(date=search_date)
+                FA = FormularioAuxiliar.objects.filter(date=search_date)
+
     everything = [IF, IB, IV, IVh, PC, EG, IE, AV, RA, RC, RP, FA]
+    print(everything)
 
     eve = []
     for queryset in everything:
         for i in queryset:
             eve.append(i)
-            print(type(i))
     eve.sort(key=myfunc, reverse=True)
 
     paginator = Paginator(eve, 10)
@@ -389,5 +425,6 @@ def Histview(request):
 
     context = {
         'page_obj': page_obj,
+        'searcher': d,
     }
     return render(request,"historial.html",context)

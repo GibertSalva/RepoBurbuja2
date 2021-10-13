@@ -1,7 +1,10 @@
 from django import forms
 from django.forms import fields
+import datetime
 from .models import *
 
+class dateForm(forms.Form):
+    date = forms.DateField(initial=datetime.date.today,required=False)
 
 class AlarmForm(forms.ModelForm):
     class Meta:
