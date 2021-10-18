@@ -8,10 +8,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/static/bootstrap-5.0.2/dist/css/bootstrap.min.css">
     <script src="/static/bootstrap-5.0.2/dist/js/bootstrap.js"></script>
+    <!-- Google FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+
     <title>Focus BV</title>
   </head>
 
-  <body style= "background-color: " {% block bodysettings %} {% endblock %}>
+  <body style="font-family: Lato, sans-serif; background-color: lightgrey" {% block bodysettings %} {% endblock %}>
 
 {% include 'navbar.html' %}
 <style>
