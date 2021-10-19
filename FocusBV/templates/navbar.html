@@ -1,323 +1,290 @@
-<nav class="navbar navbar-dark p-1  bg-danger  ">
+<nav class="navbar navbar-dark p-1 rojo">
 
     <div class="container-fluid ">
-    <div class="col-5 d-flex justify-content-start">
-        <span>
-    <button class=" mx-2 fs-5  fw-bold btn btn-success " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Codigos</button>
-    <button id="btn-abrir-popup" class="btn-abrir-popup mx-2 fs-5  fw-bold btn btn-success" data-bs-toggle="offcanvas" aria-controls="offcanvasExample">Crear Codigo</button>
+        <div class="col-5 d-flex justify-content-start">
+            <span>
+    <button class=" mx-2 fs-5  fw-bold btn naranja" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Codigos</button>
+    <button id="btn-abrir-popup" class="btn-abrir-popup mx-2 fs-5  fw-bold btn naranja" data-bs-toggle="offcanvas" aria-controls="offcanvasExample">Crear Codigo</button>
 </span>
-    </div>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header ">
-            <h5 class="offcanvas-title fw-bold  " id="offcanvasExampleLabel"> Codigos </h5>
-            <button type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-            <div>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <style>
-                    * {
-                        box-sizing: border-box;
-                    }
-
-                    #myInput {
-                        background-position: 10px 10px;
-                        background-repeat: no-repeat;
-                        width: 100%;
-                        font-size: 15px;
-                        padding: 12px 12px 10px;
-                        border: 1px solid rgb(107, 107, 107);
-                        margin-bottom: 12px;
-                    }
-
-                    #myTable {
-                        border-collapse: collapse;
-                        width: 100%;
-                        border: 1px solid rgb(0, 0, 0);
-                        font-size: 14px;
-                        background-color: #bdbdbd;
-                    }
-
-                    #ref {
-                        width: 180%;
-                    }
-
-                    #myTable th,
-                    #myTable td {
-                        text-align: left;
-                        padding: 10px;
-                    }
-
-                    #myTable tr {
-                        border-bottom: 0px solid rgb(0, 0, 0);
-                    }
-
-                    #myTable tr.header,
-                    #myTable tr:hover {
-                        background-color: #8f8f8f;
-                    }
-                </style>
-                </head>
-
-                <body>
-
-
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Codigo" title="Type in a name" class="fw-bold  ">
-
-                    <table id="myTable" class="table table-striped table-borderless ">
-                        <tr class="header ">
-                            <th style="width:30%;">Codigo</th>
-                            <th id="ref">Referencia</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-10</th>
-                            <td>
-                                <a href="/if" style="text-decoration:none">Incendio Forestal</a>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-11</th>
-                            <td>
-                                <a href="/ib" style="text-decoration:none">Incendio de Baldío</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-12</th>
-                            <td>Incendio de Quincho</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-13</th>
-                            <td>INC (A-B-C-D)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>
-                                <a href="/iv" style="text-decoration:none">Incendio de Vivienda</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>B- Comercio</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>C- Fabrica</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>D- Distribucion</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-14</th>
-                            <td>
-                                <a href="/ivh" style="text-decoration:none">Incendio Vehicular</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>A- Automovil</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>B- Omnibus</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>C- Camion</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>D- Motocicleta</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-15</th>
-                            <td>Incendio Est. de Servicio</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-16</th>
-                            <td>Perdida de Combustible</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-17</th>
-                            <td>Escape de Gas</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-18</th>
-                            <td>INC (A-B-C)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>A- Farmacia</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>B- Clinica</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>C- Hospital</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10-19</th>
-                            <td>
-                                <a href="/ie" style="text-decoration:none">Incendio Eléctrico</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-20</th>
-                            <td>
-                                <a href="/av" style="text-decoration:none">Accidente Vehicular</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>A- Automovil</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>B- Omnibus</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>C- Camion</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>D- Motocicleta</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>E- Atropellado</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-21</th>
-                            <td>Atrapado en Vehiculo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-22</th>
-                            <td>
-                                <a href="/ra" style="text-decoration:none">Rescate Animal</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-23</th>
-                            <td>Rescate de Cadaver</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-24</th>
-                            <td>Rescate persona (A-B-C-D-E)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>A- Automovil</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>B- Omnibus</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>C- Camion</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>D- Motocicleta</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>E- Atropellado</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-25</th>
-                            <td>Rescate Vehiculo (A-B-C)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>A- Rio</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>B- Lago</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>C- Montaña</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-26</th>
-                            <td>Inundacion Inmueble</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-27</th>
-                            <td>Derrumbe (A-B-C)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>A- Inmueble</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>B- De Pozo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>C- Otros</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-28</th>
-                            <td>Rescate aeronaves</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20-29</th>
-                            <td>Explosivos</td>
-                        </tr>
-                    </table>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header ">
+                <h5 class="offcanvas-title fw-bold  " id="offcanvasExampleLabel"> Codigos </h5>
+                <button type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <script>
-                function myFunction() {
-                    var input, filter, table, tr, td, th, i, txtValue;
-                    input = document.getElementById("myInput");
-                    filter = input.value.toUpperCase();
-                    table = document.getElementById("myTable");
-                    tr = table.getElementsByTagName("tr");
-                    for (i = 0; i < tr.length; i++) {
-                        td = tr[i].getElementsByTagName("td")[0];
-                        th = tr[i].getElementsByTagName("th")[1];
-
-                        if (td) {
-                            txtValue = td.textContent || td.innerText;
-                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                tr[i].style.display = "";
-                            } else {
-                                tr[i].style.display = "none";
-                            }
+            <div class="offcanvas-body">
+                <div>
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    </head>
+                    <style>
+                        .rojo {
+                            background-color: rgb(132, 13, 42) !important
                         }
-                        if (th) {
-                            txtValue = th.textContent || th.innerText;
-                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                tr[i].style.display = "";
-                            } else {
-                                tr[i].style.display = "none";
+                        
+                        .naranja {
+                            background-color: rgb(218, 26, 70) !important;
+                            color: white;
+                        }
+                    </style>
+
+                    <body>
+
+
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar Codigo" title="Type in a name" class="fw-bold  ">
+
+                        <table id="myTable" class="table table-striped table-borderless ">
+                            <tr class="header ">
+                                <th style="width:30%;">Codigo</th>
+                                <th id="ref">Referencia</th>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-10</th>
+                                <td>
+                                    <a href="/if" style="text-decoration:none">Incendio Forestal</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-11</th>
+                                <td>
+                                    <a href="/ib" style="text-decoration:none">Incendio de Baldío</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-12</th>
+                                <td>Incendio de Quincho</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-13</th>
+                                <td>INC (A-B-C-D)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>
+                                    <a href="/iv" style="text-decoration:none">Incendio de Vivienda</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>B- Comercio</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>C- Fabrica</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>D- Distribucion</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-14</th>
+                                <td>
+                                    <a href="/ivh" style="text-decoration:none">Incendio Vehicular</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>A- Automovil</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>B- Omnibus</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>C- Camion</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>D- Motocicleta</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-15</th>
+                                <td>Incendio Est. de Servicio</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-16</th>
+                                <td>Perdida de Combustible</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-17</th>
+                                <td>Escape de Gas</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-18</th>
+                                <td>INC (A-B-C)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>A- Farmacia</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>B- Clinica</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>C- Hospital</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10-19</th>
+                                <td>
+                                    <a href="/ie" style="text-decoration:none">Incendio Eléctrico</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-20</th>
+                                <td>
+                                    <a href="/av" style="text-decoration:none">Accidente Vehicular</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>A- Automovil</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>B- Omnibus</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>C- Camion</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>D- Motocicleta</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>E- Atropellado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-21</th>
+                                <td>Atrapado en Vehiculo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-22</th>
+                                <td>
+                                    <a href="/ra" style="text-decoration:none">Rescate Animal</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-23</th>
+                                <td>Rescate de Cadaver</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-24</th>
+                                <td>Rescate persona (A-B-C-D-E)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>A- Automovil</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>B- Omnibus</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>C- Camion</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>D- Motocicleta</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>E- Atropellado</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-25</th>
+                                <td>Rescate Vehiculo (A-B-C)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>A- Rio</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>B- Lago</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>C- Montaña</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-26</th>
+                                <td>Inundacion Inmueble</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-27</th>
+                                <td>Derrumbe (A-B-C)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>A- Inmueble</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>B- De Pozo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>C- Otros</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-28</th>
+                                <td>Rescate aeronaves</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20-29</th>
+                                <td>Explosivos</td>
+                            </tr>
+                        </table>
+                </div>
+                <script>
+                    function myFunction() {
+                        var input, filter, table, tr, td, th, i, txtValue;
+                        input = document.getElementById("myInput");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("myTable");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            th = tr[i].getElementsByTagName("th")[1];
+
+                            if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                            if (th) {
+                                txtValue = th.textContent || th.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
                             }
                         }
                     }
-                }
-            </script>
+                </script>
 
+            </div>
         </div>
-    </div>
 
-    <div class="col-2 d-flex">
-        <span class="navbar-brand mb-1 h1 text-white fs-2 fw-bold">
+        <div class="col-2 d-flex">
+            <span class="navbar-brand mb-1 h1 text-white fs-2 fw-bold">
         <a href="/" style="color: white; text-decoration:none; align-items: center;">FocusBV</a>
     </span>
-    </div>
-    <div class="col-4 d-flex justify-content-end">
-        <a href="/hi/" class="mx-2 btn btn-success fs-5 fw-bold " >Historial</a>
-    </div>
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+            <a href="/hi/" class="mx-2 btn naranja fs-5 fw-bold ">Historial</a>
+        </div>
     </div>
 
 
 </nav>
-
