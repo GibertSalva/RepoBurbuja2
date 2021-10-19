@@ -21,7 +21,7 @@
 
         <span>
             <div class=" col-5 ">
-                <p class="h6 fs-5 mx-2" style="color: grey;"> Datos  Generales: </p>
+                <p class="h6 fs-5 mx-2" > Datos  Generales: </p>
             </div>
             <hr>
         </span>
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="col-6 mx- ">
+            <div class="col-7 mx- ">
                 <input type="text" class="form-control my-2 invisible" placeholder=" Hora" aria-label=" name">
             </div>
 
@@ -46,7 +46,7 @@
             </div>
 
             <span>
-                <div class=" col-7 mb-3 mt- fs-4 ">
+                <div class=" col-7 mb-3 mt- fs-4 " >
                     <div class=" input-group ">
                       <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por:</span>
                         {{ form.receptor }}
@@ -65,7 +65,7 @@
 
             <span>
                 <div class=" col-5 ">
-                    <p class="h6 fs-5 mx-2" style="color: grey;"> Datos del solicitante: </p>
+                    <p class="h6 fs-5 mx-2" > Datos del solicitante: </p>
                 </div>
                 <hr>
             </span>
@@ -93,7 +93,7 @@
 
             <div class=" col-4 ">
                 <div class=" input-group  mb-">
-                    <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
+                    <span class="input-group-text fs-5 " id="addon-wrapping">Ciudad</span>
                     {{ form.ciudad }}
                 </div>
             </div>
@@ -127,7 +127,7 @@
     {% endif %}
 <!-- Boton -->
     <div class="d-flex justify-content-center ">
-        <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button>
+        <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 naranja" type="submit">Enviar Datos</button>
     </div>
     <br>
 
@@ -152,4 +152,6 @@
         console.log(horaImprimible)
     }
 </script>
+
+
 {% endblock %}
