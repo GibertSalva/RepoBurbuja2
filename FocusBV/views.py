@@ -93,6 +93,17 @@ def IFview(request):
             IFf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
+            request.session['dict'] = dict = {
+                'nombre': IFf.cleaned_data['nombre'],
+                'riesgoProp': IFf.cleaned_data['riesgoProp'],
+                'telefono': IFf.cleaned_data['telefono'],
+                'direccion': IFf.cleaned_data['direccion'],
+                'referencia': IFf.cleaned_data['referencia'],
+                'edificios': IFf.cleaned_data['edificios'],
+                'servEmergencia': IFf.cleaned_data['servEmergencia']
+            }
+
+            return redirect('pdf/',IFf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
@@ -116,6 +127,17 @@ def ifHist(request, pk):
     }
     return render(request, "IF.html", context)
 
+class IFasPDF(View):
+    def get(self, request, *args, **kwargs):
+        dict = request.session.get('dict')
+
+        context = {
+            'dict': dict.items(),
+
+        }
+        # html = template.render(context)
+        pdf = render_to_pdf('IFpdf.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
 
 # --- Formulario Auxiliar ---
 @csrf_protect
@@ -161,6 +183,15 @@ def IBview(request):
             IBf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
+            request.session['dict'] = dict = {
+                'nombre': IBf.cleaned_data['nombre'],
+                'riesgoProp': IBf.cleaned_data['riesgoProp'],
+                'telefono': IBf.cleaned_data['telefono'],
+                'direccion': IBf.cleaned_data['direccion'],
+                'referencia': IBf.cleaned_data['referencia'],
+            }
+
+            return redirect('pdf/',IBf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
@@ -183,6 +214,20 @@ def ibHist(request, pk):
         'form': IBh,
     }
     return render(request, "IB.html", context)
+
+# --- PDF Incendio Baldio ---
+class IBasPDF(View):
+    def get(self, request, *args, **kwargs):
+        dict = request.session.get('dict')
+
+        context = {
+            'dict': dict.items(),
+
+        }
+        # html = template.render(context)
+        pdf = render_to_pdf('IBpdf.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
+
 
 
 # --- Formulario Rescate Animal ---
@@ -267,6 +312,18 @@ def IVview(request):
             IVf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
+            request.session['dict'] = dict = {
+                'nombre': IVf.cleaned_data['nombre'],
+                'telefono': IVf.cleaned_data['telefono'],
+                'direccion': IVf.cleaned_data['direccion'],
+                'referencia': IVf.cleaned_data['referencia'],
+                'estadoFuego': IVf.cleaned_data['estadoFuego'],
+                'descVivienda': IVf.cleaned_data['descVivienda'],
+                'habitantes': IVf.cleaned_data['habitantes'],
+            
+            }
+
+            return redirect('pdf/',IVf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
@@ -289,6 +346,20 @@ def IVHist(request, pk):
         'form': IVhi,
     }
     return render(request, "IV.html", context)
+
+# --- PDF Incendio Vivienda ---
+class IVasPDF(View):
+    def get(self, request, *args, **kwargs):
+        dict = request.session.get('dict')
+
+        context = {
+            'dict': dict.items(),
+
+        }
+        # html = template.render(context)
+        pdf = render_to_pdf('IVpdf.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
+
 
 
 # --- Formulario Incencido Electrico ---
@@ -413,7 +484,6 @@ def Histview(request):
                 FA = FormularioAuxiliar.objects.filter(date=search_date)
 
     everything = [IF, IB, IV, IVh, PC, EG, IE, AV, RA, RC, RP, FA]
-    #
 
     eve = []
     for queryset in everything:
@@ -423,11 +493,8 @@ def Histview(request):
             print(eve)
     eve.sort(key=myfunc2, reverse=True)        
     eve.sort(key=myfunc, reverse=True)
-  
-    print("sort")
-    print(eve)
 
-    paginator = Paginator(eve, 10)
+    paginator = Paginator(eve, 100)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
