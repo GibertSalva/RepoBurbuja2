@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download PDF</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 35px;
+                font-weight: 100;
+               padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                font-size: 22px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+        </style> 
+</head>
+<body>
+    <div class='wrapper'>
+        <div class='header'>
+            <p class='title'>Incendio Forestal</p>
+        </div>
+    <div>
+    <div class='details'>
+        {% for a , x in dict%}
+            {{a}}: {{x}}
+            <br>
+        {% endfor %}
+        <!-- Nombre: {{nombre}}
+        <br>
+        Animal: {{animal}}
+        <br>
+        Telefono: {{telefono}}
+        <br>
+        Direccion: {{direccion}}
+        <br>
+        Referencia: {{referencia}}
+        <br>
+        Condicion: {{condicion}} -->
+    </div>
+</body>
+</html>

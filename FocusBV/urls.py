@@ -9,14 +9,13 @@ urlpatterns = [
     path('av/',views.ACview , name = "AC"),
     path('if/',views.IFview , name = "IF"),
     path('ra/',views.RAview , name = "RA"),
-    path('ra/pdf/',RAasPDF.as_view()),
     path('ib/',views.IBview , name = "IB"),
     path('ivh/',views.IVhview , name="IVh"),
     path('iv/',views.IVview , name = "IV"),
     path('ie/',views.IEview , name = "IE"),
     path('hi/',views.Histview , name = "HI"),
 
-    # Liks historial
+    # Links historial
     path('hi/Formulario Auxiliar/<int:pk>/', views.auxHist, name="AUXH"),
     path('hi/Accidente Vehicular/<int:pk>/', views.avHist, name="AVH"),
     path('hi/Incendio Forestal/<int:pk>/', views.ifHist, name="IFH"),
@@ -24,5 +23,14 @@ urlpatterns = [
     path('hi/Rescate Animal/<int:pk>/', views.raHist, name="RAH"),
     path('hi/Incendio de Vivienda/<int:pk>/', views.IVHist, name="IVHI"),
     path('hi/Incendio Electrico/<int:pk>/', views.IEHist, name="IEH"),
-    path('hi/Incendio Vehicular/<int:pk>/', views.IVhHist, name="IVhH")
+    path('hi/Incendio Vehicular/<int:pk>/', views.IVhHist, name="IVhH"),
+
+    # Links pdf
+    path('if/pdf/',IFasPDF.as_view()),
+    path('ib/pdf/',IBasPDF.as_view()),
+    path('iv/pdf/',IVasPDF.as_view()),
+    path('ra/pdf/',RAasPDF.as_view()),
+    
+
+
 ]

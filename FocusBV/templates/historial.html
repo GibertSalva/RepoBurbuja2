@@ -3,26 +3,41 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-
-    <form enctype="multipart/form-data" method="GET" autocomplete="off" >
-        {% csrf_token %}
-        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-          {{ searcher.as_p }}
-          <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-          </div>
-        </div>
-        <input class="btn" type="submit" name="action"></input>
-    </form>
-    <br>
-<input type="text" id="search" onkeyup="buscar()" placeholder="Busca por alarma"></input>
 <br>
-<table id="hist" class="table table-hover">
+
+<table id="hist" class="table table-hover bg-white">
     <thead>
     <tr>
         <th scope="col">Fecha</th>
         <th scope="col">Tipo de alarma</th>
         <th scope="col">Hora</th>
         <th scope="col">Receptor</th>
+        <th scope="col"> # </th>
+    </tr>
+    <tr>
+        <th scope="col">
+            <form enctype="multipart/form-data" method="GET" autocomplete="off">
+                <div class="row">
+                    <div class="col">
+                            {% csrf_token %}
+                            {{searcher.as_p}}
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            </div>  
+                    </div>
+                    <div class="col">
+                        <input class="btn" type="submit" name="action"></input>
+                    </div>
+                </div>
+            </form>
+        </th>
+        <th>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="search" onkeyup="buscar()" placeholder="Busca por alarma"></input></th>
+                </div>
+            </div>
+        <th scope="col"> # </th>
+        <th scope="col"> # </th>
         <th scope="col"> # </th>
     </tr>
     </thead>
