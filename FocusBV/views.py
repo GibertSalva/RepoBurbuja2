@@ -360,8 +360,12 @@ def IVhHist(request, pk):
 
 
 def myfunc(e):
+    print(e.date)
     return e.date
     
+def myfunc2(e):
+    return e.hora
+
 def Histview(request):
     d = dateForm()
     IF = IncendioForestal.objects.all()
@@ -378,11 +382,9 @@ def Histview(request):
     FA = FormularioAuxiliar.objects.all()
 
     if request.method == "GET":
-        print("aloh?")
         d = dateForm(request.GET)
         if d.is_valid():
             search_date = d.cleaned_data['date']
-            print(search_date)
             if search_date == None:
                 IF = IncendioForestal.objects.all()
                 IB = IncendioBaldio.objects.all()
@@ -411,13 +413,19 @@ def Histview(request):
                 FA = FormularioAuxiliar.objects.filter(date=search_date)
 
     everything = [IF, IB, IV, IVh, PC, EG, IE, AV, RA, RC, RP, FA]
-    print(everything)
+    #
 
     eve = []
     for queryset in everything:
         for i in queryset:
             eve.append(i)
+            print(i)
+            print(eve)
+    eve.sort(key=myfunc2, reverse=True)        
     eve.sort(key=myfunc, reverse=True)
+  
+    print("sort")
+    print(eve)
 
     paginator = Paginator(eve, 10)
 
