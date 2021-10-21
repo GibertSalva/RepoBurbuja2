@@ -2,9 +2,11 @@ from django import forms
 from django.forms import fields
 import datetime
 from .models import *
+from functools import partial
+DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
 class dateForm(forms.Form):
-    date = forms.DateField(initial=datetime.date.today,required=False)
+    date = forms.DateField(required=False, widget=DateInput())
 
 class AlarmForm(forms.ModelForm):
     class Meta:
@@ -44,7 +46,8 @@ class IFform(forms.ModelForm): #HECHO
         exclude = ['idAlarma']
         widgets = {
             'date': forms.DateInput(attrs={'class': 'form-control ','readonly': True}),
-            'hora': forms.TimeInput(attrs={'class': 'form-control ','id':'reloj','readonly': True}),            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control ','id':'reloj','readonly': True}),
+            'receptor': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
@@ -214,8 +217,7 @@ class EGform(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'referencia': forms.Textarea(
-                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
+            'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
             'tipoIncidente': forms.Textarea(attrs=({'class': 'form-control', 'style':'height: 150px'})),
         }
 

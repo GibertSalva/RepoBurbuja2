@@ -209,6 +209,7 @@ def RAview(request):
                 'referencia': RAf.cleaned_data['referencia'],
                 'condicion': RAf.cleaned_data['condicionAnimal']
             }
+
             return redirect('pdf/',RAf)
     context = {
         'form': RAf,

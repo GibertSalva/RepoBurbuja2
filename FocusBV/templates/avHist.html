@@ -1,0 +1,216 @@
+{% extends 'AV.html' %}
+{% load static %}
+
+{% block head %}
+    <script src="{% static '/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+    <script>
+        tinymce.init({
+          selector: '#mytextarea'
+        });
+      </script>
+{% endblock %}
+
+{% block content%}
+<form method="post">
+    {% csrf_token %}
+    <div class="card w-75 d-flex mx-auto shadow mt-4 mb-4 rounded-3">
+    <div class="card-body ">
+
+        <p class="text-center fw-bold fs-2 align-top  ">Recepción de Alarma - Accidente Vehicular</p>
+
+        <span>
+            <div class=" col-5 ">
+                <p class="h6 fs-5 mx-2" style="color: grey;"> Datos  Generales: </p>
+            </div>
+            <hr>
+        </span>
+        <br>
+        <div class="row g-3">
+            <div class=" col-3 ">
+                <div class=" input-group shadow my-2  ">
+                    <span class="input-group-text" id="addon-wrapping">Date</span>
+                    {{ info.date }}
+                </div>
+            </div>
+
+            <div class="col-2 mx- ">
+                <div class="input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Hora</span>
+                    {{ info.hora }}
+                </div>
+            </div>
+
+            <div class="col-1 mx- ">
+            </div>
+            <div class=" col-1">
+                <div class=" input-group">
+                </div>
+            </div>
+
+
+            <span>
+                <div class=" col-7 mb-3 mt- fs-4 ">
+                    <div class=" input-group shadow">
+                      <span class="input-group-text fs-5" id="addon-wrapping">Llamado receptado por:</span>{% csrf_token %}
+                        {{ EditAVForm.receptor }}
+                    </div>
+                </div>
+            </span>
+
+            <span>
+                <div class=" col-5 ">
+                    <p class="h6 fs-5 mx-2" style="color: grey;"> Datos del solicitante: </p>
+                </div>
+                <hr>
+            </span>
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Nombre y Apellido</span>
+                    {{ info.nombre }}
+                </div>
+            </div>
+
+            <div class="col-1 ">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping ">Nº Telefono</span>
+                    {{ info.telefono }}
+                </div>
+            </div>
+
+            <br>
+            <span></span>
+
+            <div class=" col-4 ">
+                <div class=" input-group shadow mb-">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Ciudad</span>
+                    {{ info.ciudad }}
+                </div>
+            </div>
+
+            <div class="col-1">
+                <input type="text" class="form-control invisible" placeholder="Last name" aria-label=" name">
+            </div>
+
+            <div class=" col-6 ">
+                <div class=" input-group shadow">
+                    <span class="input-group-text fs-5" id="addon-wrapping">Direccion y Altura</span>
+                    {{ info.direccion }}
+                </div>
+            </div>
+            <span></span>
+
+            <div class="col-12 mt-4 mb-3">
+                <div class="form-floating shadow fs-5">
+                    {{ form.referencia }}
+                    <label for="floatingTextarea2 ">Referencias </label>
+                </div>
+            </div>
+
+    <!-- Fin del codigo general -->
+        </div>
+        <div id="cod20-20">
+            <span>
+                <div class=" col-12 ">
+                    <p class="h6 fs-5 mx-2 " style="color: grey;"> Accidente </p>
+                </div>
+            </span>
+            <hr>
+            <div>
+                <p class="h6 fs-5 mx-2 " style="color: grey;"> 20-20 (A-B-C-D-E) </p>
+                {{ form.claseAC }}
+            </div>
+            <br>
+            <div class=" col-3 " style="width: 100%" >
+                <div class=" input-group shadow " >
+                    <span class="input-group-text " id="addon-wrapping " style="width: 100%;">Vehiculos Involucrados</span>
+                    {{ form.cantVehiculos }}
+                </div>
+                <br>
+            </div>
+            <br>
+            <div class="row g-4 ">
+                <span></span>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text " id="addon-wrapping ">Personas Involucradas</span>
+                        {{ form.cantPersonas }}
+                    </div>
+                </div>
+                <div class="col-1 ">
+                    <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+                </div>
+                <div class=" col-3 ">
+                    <span class="input-group-text " id="addon-wrapping ">Interrumpe el transito??</span>
+                    {{ form.corteTransito }}
+                </div>
+                <div class="col-3 form-check-inline">
+                    <span class="input-group-text " id="addon-wrapping ">Donde Ocurrio</span>  
+                    {{ form.tipoCalle }}
+                </div>
+                <br>
+                <span></span>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text " id="addon-wrapping ">Heridos/Atrapados</span>
+                        {{form.herido}}
+                    </div>
+                </div>
+                <div class="col-1 ">
+                    <input type="text " class="form-control invisible " placeholder="Last name " aria-label=" name ">
+                </div>
+                <div class=" col-3 ">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text " id="addon-wrapping ">Servicio de Emergencia</span>
+                        {{form.servEmergencia}}
+                    </div>
+                </div>
+                <div class=" col-3 " id="sentido1" style="display: none;">
+                    <div class=" input-group shadow ">
+                        <span class="input-group-text " id="addon-wrapping ">Sentido</span>
+                        <input type="text " class="form-control " aria-describedby="addon-wrapping ">
+                    </div>
+                </div>
+                </span>
+            </div>
+        </div>
+    </div>
+        {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+    <!-- Boton -->
+    <div class="d-flex justify-content-center ">
+        <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button>
+    </div>
+    <br>
+
+    </div>
+</form>
+
+<script>
+    function mueveReloj() {
+        momentoActual = new Date()
+        hora = momentoActual.getHours()
+        minuto = momentoActual.getMinutes()
+
+        if (minuto < 10) {
+            horaImprimible = hora + ":0" + minuto
+        } else {
+            horaImprimible = hora + ":" + minuto
+        }
+        var r = document.getElementById("reloj")
+
+        r.value = horaImprimible
+
+        setTimeout("mueveReloj()", 1000)
+        console.log(horaImprimible)
+    }
+</script>
+{% endblock %}
+
