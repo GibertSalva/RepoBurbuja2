@@ -6,7 +6,8 @@ from functools import partial
 DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
 class dateForm(forms.Form):
-    date = forms.DateField(required=False, widget=DateInput())
+    date = forms.DateField(required=False, widget=DateInput(),)
+
 
 class AlarmForm(forms.ModelForm):
     class Meta:
