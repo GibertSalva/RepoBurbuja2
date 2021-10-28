@@ -26,10 +26,13 @@ urlpatterns = [
     path('hi/Incendio Vehicular/<int:pk>/', views.IVhHist, name="IVhH"),
 
     # Links pdf
-    path('if/pdf/',IFasPDF.as_view()),
-    path('ib/pdf/',IBasPDF.as_view()),
-    path('iv/pdf/',IVasPDF.as_view()),
-    path('ra/pdf/',RAasPDF.as_view()),
+    path('if/pdf/', IFasPDF.as_view()),
+    path('ib/pdf/', IBasPDF.as_view()),
+    path('iv/pdf/', IVasPDF.as_view()),
+    path('ra/pdf/', RAasPDF.as_view()),
+    path('av/pdf/', AVasPDF.as_view()),
+    path('ie/pdf/', IEasPDF.as_view()),
+    path('ivh/pdf/', IVhasPDF.as_view()),
     
 
 

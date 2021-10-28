@@ -14,11 +14,9 @@
 {% block content%}
 
 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
-
-
-   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<form method="post" id="formId">
+<form method="post" id="formId" target="_blank">
     {% csrf_token %}
     <div class="card w-75 d-flex mx-auto  mt-4 mb-4 rounded-3">
     <div class="card-body ">
@@ -193,7 +191,9 @@
         {% endif %}
     <!-- Boton -->
     <div class="d-flex justify-content-center ">
-        <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit" id="btnEnviar">Enviar Datos</button>
+        <div class="col-3"></div>
+        <div class="col-6 text-center"><button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button></div>
+        <div class="col-3 text-center"><input class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="button" value="Borrar" id="btnLimpiar" onclick="reset()"></div>
     </div>
     <br>
 
@@ -217,6 +217,11 @@
 
         setTimeout("mueveReloj()", 1000)
         console.log(horaImprimible)
+    }
+
+    function reset(){
+            document.getElementById('formId').reset();
+            console.log("holaaaaaaaaaaaa")
     }
 
 

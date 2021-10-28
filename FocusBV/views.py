@@ -12,7 +12,6 @@ from django.shortcuts import render
 from django.db.models import Q
 
 
-
 # Create your views here.
 def homeview(request):
 # dependiendo del id que busques en el home deberia
@@ -31,7 +30,6 @@ def homeview(request):
         if AVf.is_valid():
             AVf.save()
 
-
     context = {
     'AVf':AVf,
     'IFf':IFf,
@@ -41,7 +39,6 @@ def homeview(request):
     'IEf':IEf,
     'RAf':RAf,
     'RCf':RCf,
-
 }
     return render(request, "home.html", context)
 
@@ -55,9 +52,15 @@ def ACview(request):
         if AVf.is_valid():
             AVf.save(request)
             messages.success(request, 'Form submission successful.')
+            request.session['dict'] = dict = {
+                'nombre': AVf.cleaned_data['nombre'],
+                'telefono': AVf.cleaned_data['telefono'],
+                'direccion': AVf.cleaned_data['direccion'],
+                'referencia': AVf.cleaned_data['referencia'],
+            }
+            return redirect('pdf/', AVf)
         else:
             messages.error(request, 'Form submission error.')
-
 
     context = {
         'form': AVf,
@@ -75,12 +78,21 @@ def avHist(request, pk):
         if AVf.is_valid():
             AVf.save(request)
             return redirect('/hi/')
-
-
-    context ={
+    context = {
         'form': AVf,
     }
     return render(request, "AV.html", context)
+
+
+# --- PDF Accidente Vehicular ---
+class AVasPDF(View):
+    def get(self, request, *args, **kwargs):
+        dict = request.session.get('dict')
+        context = {
+            'dict': dict.items(),
+        }
+        pdf = render_to_pdf('AVpdf.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
 
 
 # --- Formulario Incendio Forestal ---
@@ -102,14 +114,13 @@ def IFview(request):
                 'edificios': IFf.cleaned_data['edificios'],
                 'servEmergencia': IFf.cleaned_data['servEmergencia']
             }
-
-            return redirect('pdf/',IFf)
+            return redirect('pdf/', IFf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
         'form': IFf,
     }
-    return render(request,"IF.html",context)
+    return render(request, "IF.html", context)
 
 
 # --- Historial Incendio Forestal ---
@@ -127,17 +138,19 @@ def ifHist(request, pk):
     }
     return render(request, "IF.html", context)
 
+
+# --- PDF Incendio Forestal ---
 class IFasPDF(View):
     def get(self, request, *args, **kwargs):
         dict = request.session.get('dict')
 
         context = {
             'dict': dict.items(),
-
         }
         # html = template.render(context)
         pdf = render_to_pdf('IFpdf.html', context)
         return HttpResponse(pdf, content_type='application/pdf')
+
 
 # --- Formulario Auxiliar ---
 @csrf_protect
@@ -154,7 +167,7 @@ def AUXview(request):
     context = {
         'form': AUX,
     }
-    return render(request,"AUXf.html",context)
+    return render(request, "AUXf.html", context)
 
 
 # --- Historial Auxiliar ---
@@ -190,14 +203,13 @@ def IBview(request):
                 'direccion': IBf.cleaned_data['direccion'],
                 'referencia': IBf.cleaned_data['referencia'],
             }
-
-            return redirect('pdf/',IBf)
+            return redirect('pdf/', IBf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
         'form': IBf,
     }
-    return render(request,"IB.html",context)
+    return render(request, "IB.html", context)
 
 
 # --- Historial Incendio Baldio ---
@@ -215,6 +227,7 @@ def ibHist(request, pk):
     }
     return render(request, "IB.html", context)
 
+
 # --- PDF Incendio Baldio ---
 class IBasPDF(View):
     def get(self, request, *args, **kwargs):
@@ -222,12 +235,10 @@ class IBasPDF(View):
 
         context = {
             'dict': dict.items(),
-
         }
         # html = template.render(context)
         pdf = render_to_pdf('IBpdf.html', context)
         return HttpResponse(pdf, content_type='application/pdf')
-
 
 
 # --- Formulario Rescate Animal ---
@@ -255,11 +266,11 @@ def RAview(request):
                 'condicion': RAf.cleaned_data['condicionAnimal']
             }
 
-            return redirect('pdf/',RAf)
+            return redirect('pdf/', RAf)
     context = {
         'form': RAf,
     }
-    return render(request,"RAf.html",context)
+    return render(request, "RAf.html", context)
 
 
 # --- Historial Rescate Animal ---
@@ -323,7 +334,7 @@ def IVview(request):
             
             }
 
-            return redirect('pdf/',IVf)
+            return redirect('pdf/', IVf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
@@ -347,6 +358,7 @@ def IVHist(request, pk):
     }
     return render(request, "IV.html", context)
 
+
 # --- PDF Incendio Vivienda ---
 class IVasPDF(View):
     def get(self, request, *args, **kwargs):
@@ -361,7 +373,6 @@ class IVasPDF(View):
         return HttpResponse(pdf, content_type='application/pdf')
 
 
-
 # --- Formulario Incencido Electrico ---
 @csrf_protect
 def IEview(request):
@@ -372,6 +383,13 @@ def IEview(request):
             IEf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
+            request.session['dict'] = dict = {
+                'nombre': IEf.cleaned_data['nombre'],
+                'telefono': IEf.cleaned_data['telefono'],
+                'direccion': IEf.cleaned_data['direccion'],
+                'referencia': IEf.cleaned_data['referencia'],
+            }
+            return redirect('pdf/', IEf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
@@ -396,6 +414,17 @@ def IEHist(request, pk):
     return render(request, "IE.html", context)
 
 
+# --- PDF Incencido Electrico ---
+class IEasPDF(View):
+    def get(self, request, *args, **kwargs):
+        dict = request.session.get('dict')
+        context = {
+            'dict': dict.items(),
+        }
+        pdf = render_to_pdf('IEpdf.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
+
+
 # --- Formulario Incendio Vehiciular ---
 @csrf_protect
 def IVhview(request):
@@ -406,6 +435,13 @@ def IVhview(request):
             IVhf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
+            request.session['dict'] = dict = {
+                'nombre': IVhf.cleaned_data['nombre'],
+                'telefono': IVhf.cleaned_data['telefono'],
+                'direccion': IVhf.cleaned_data['direccion'],
+                'referencia': IVhf.cleaned_data['referencia'],
+            }
+            return redirect('pdf/', IVhf)
         else:
             messages.error(request, 'Form submission error.')
     context = {
@@ -430,12 +466,25 @@ def IVhHist(request, pk):
     return render(request, "IVh.html", context)
 
 
+# --- PDF Accidente Vehicular ---
+class IVhasPDF(View):
+    def get(self, request, *args, **kwargs):
+        dict = request.session.get('dict')
+        context = {
+            'dict': dict.items(),
+        }
+        pdf = render_to_pdf('IVhpdf.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
+
+
 def myfunc(e):
     print(e.date)
     return e.date
-    
+
+
 def myfunc2(e):
     return e.hora
+
 
 def Histview(request):
     d = dateForm()
@@ -503,4 +552,4 @@ def Histview(request):
         'page_obj': page_obj,
         'searcher': d,
     }
-    return render(request,"historial.html",context)
+    return render(request, "historial.html", context)

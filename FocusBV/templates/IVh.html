@@ -2,7 +2,7 @@
 
 {% block bodysettings %} onload="mueveReloj()" {% endblock %}
 {% block content%}
-<form method="post">
+<form method="post" target="_blank">
     {% csrf_token %}
     <div class="card w-75 d-flex mx-auto  mt-4 mb-4 rounded-3">
     <div class="card-body ">
@@ -154,7 +154,9 @@
         {% endif %}
     <!-- Boton -->
     <div class="d-flex justify-content-center ">
-        <button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button>
+        <div class="col-3"></div>
+        <div class="col-6 text-center"><button class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="submit">Enviar Datos</button></div>
+        <div class="col-3 text-center"><input class="mx-2 btn btn-danger fs-5 fw-bold mt-4 " type="button" value="Borrar" id="btnLimpiar" onclick="reset()"></div>
     </div>
     <br>
 
