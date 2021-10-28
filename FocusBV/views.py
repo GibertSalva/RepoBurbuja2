@@ -489,18 +489,12 @@ def Histview(request):
     for queryset in everything:
         for i in queryset:
             eve.append(i)
-            print(i)
-            print(eve)
+            
     eve.sort(key=myfunc2, reverse=True)        
     eve.sort(key=myfunc, reverse=True)
 
-    paginator = Paginator(eve, 100)
-
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
     context = {
-        'page_obj': page_obj,
-        'searcher': d,
+        'arr':eve,
     }
+    
     return render(request,"historial.html",context)
