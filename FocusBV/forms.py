@@ -195,10 +195,12 @@ class RCform(forms.ModelForm):
         }
 
 
-class AUXform(forms.ModelForm): #HECHO
+# HECHO
+class AUXform(forms.ModelForm):
     class Meta:
         model = FormularioAuxiliar
         fields = '__all__'
+        exclude = ['referencia', ]
         widgets = {
             'date': forms.DateInput(attrs={'class': 'form-control ', 'readonly': True}),
             'hora': forms.TimeInput(attrs={'class': 'form-control ', 'id': 'reloj', 'readonly': True}),
@@ -207,8 +209,6 @@ class AUXform(forms.ModelForm): #HECHO
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'referencia': forms.Textarea(
-                attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
             'aux': forms.Textarea(attrs=({'class': 'form-control', 'id': 'mytextarea', 'style': 'height: 150px'})),
         }
 
