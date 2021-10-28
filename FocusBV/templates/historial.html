@@ -1,105 +1,56 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+<script src="{% static '/DataTables/jQuery-3.6.0/jquery-3.6.0.min.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+ 
+<script type="text/javascript" src= "{% static '/DataTables/datatables.js' %}"></script>
+
 <br>
-
-<table id="hist" class="table table-hover bg-white">
-    <thead>
-    <tr>
-        <th scope="col">Fecha</th>
-        <th scope="col">Tipo de alarma</th>
-        <th scope="col">Hora</th>
-        <th scope="col">Receptor</th>
-        <th scope="col"> # </th>
-    </tr>
-    <tr>
-        <th scope="col">
-            <form enctype="multipart/form-data" method="GET" autocomplete="off">
-                <div class="row">
-                    <div class="col">
-                            {% csrf_token %}
-                            {{searcher.as_p}}
-                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                            </div>  
-                    </div>
-                    <div class="col">
-                        <input class="btn" type="submit" name="action"></input>
-                    </div>
-                </div>
-            </form>
-        </th>
-        <th>
-            <div class="row">
-                <div class="col">
-                    <input type="text" id="search" onkeyup="buscar()" placeholder="Busca por alarma"></input></th>
-                </div>
-            </div>
-        <th scope="col"> # </th>
-        <th scope="col"> # </th>
-        <th scope="col"> # </th>
-    </tr>
-    </thead>
-    <tbody>
-        {% for all in page_obj %}
+<div class="bg-white">
+    <table id="table_db" class="table align-middle bg-white" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">Fecha    </th>
+                <th scope="col">Tipo de alarma</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Receptor</th>
+                <th scope="col"> # </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for all in arr %}
         <tr>
-            <td>{{all.date}}</td>
-            <td><a class="page-link" href="{{all.getClass}}/{{all.getUrl}}">{{all.getClass}}</a></td>
-            <td>{{all.hora}}</td>
-            <td>{{all.receptor}}</td>
-            <td>  <input type="button" onclick="window.location.href='{{all.getClass}}/{{all.getUrl}}';" value="Enviar">  </td>
-        <tr>
+            <td scope="col">{{all.date | date:"d/m/Y"}}</td>
+            <td scope="col"><a class="page-link" href="{{all.getClass}}/{{all.getUrl}}">{{all.getClass}}</a></td>
+            <td scope="col">{{all.hora}}</td>
+            <td scope="col">{{all.receptor}}</td>
+            <td scope="col"><input type="button" onclick="window.location.href='{{all.getClass}}/{{all.getUrl}}';" value="Enviar"></td>
+        </tr>
         {% endfor %}
-    </tbody>
-</table>
-
-
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a  class="page-link" href="?page=1">&laquo; first</a>
-            <a  class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a  class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
-            <a  class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
+        </tbody>        
+    </table>
 </div>
 
 <script>
-function buscar() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("search");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("hist");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
+    $(document).ready(function () {
+    $('#table_db').DataTable( {
+        "paging": true,
+        "searching": true,
+        "autoWidth": false,
+        "ordering": true,
+        "columnDefs": [
+            {"width": "50px", "targets": 0},
+            {"width": "250px", "targets": 1},
+        ],
     }
-  }
-}
+    );
+} );
 </script>
 
-<script>
-$(document).ready(function() {
-    $('.datepicker').datepicker();
-});
-</script>
+
+
+
 {% endblock content %}
