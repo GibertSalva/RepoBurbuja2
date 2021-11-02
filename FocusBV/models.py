@@ -245,7 +245,7 @@ class RescatePersonaVia(FormPadre): #20-24
 
 class FormularioAuxiliar(FormPadre):
 
-    aux = models.TextField(null=False, default="Formulario Auxiliar")
+    aux = models.TextField(null=False)
 
     class Meta:
 

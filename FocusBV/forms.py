@@ -209,7 +209,7 @@ class AUXform(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'aux': forms.Textarea(attrs=({'class': 'form-control', 'id': 'mytextarea', 'style': 'height: 150px'})),
+            'aux': forms.Textarea(attrs=({'class': 'form-control', 'id': 'mytextarea', 'style': 'height: 150px', 'placeholder': 'Formulario General'})),
         }
 
 
