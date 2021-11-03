@@ -3,36 +3,49 @@ from .models import *
 
 # Register your models here.
 
+
 class AccidenteVehicularAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor','claseAC')
+
 
 class IncendioForestalAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
 
+
 class IncendioBaldioAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
+
 
 class RescateAnimalAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
 
+
 class IncendioVehicularAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
+
 
 class PerdidaCombustibleAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
 
+
 class EscapeGasAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
+
+
 class RescatePersonaViaAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
+
+
 class IncendioViviendaAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
+
 
 class IncendioElectricoAdmin(admin.ModelAdmin):
     list_display = ('idAlarma','receptor')
 
+
 class FormularioAuxiliarAdmin(admin.ModelAdmin):
-    list_display = ('aux',)
+    list_display = ('auxiliar',)
 
 
     

@@ -57,6 +57,7 @@ def ACview(request):
                 'telefono': AVf.cleaned_data['telefono'],
                 'direccion': AVf.cleaned_data['direccion'],
                 'referencia': AVf.cleaned_data['referencia'],
+                'asdasda': AVf.cleaned_data['cantVehiculos']
             }
             return redirect('pdf/', AVf)
         else:
@@ -162,12 +163,32 @@ def AUXview(request):
             AUX.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
+            request.session['dict'] = dict = {
+                'nombre': AUX.cleaned_data['nombre'],
+                'telefono': AUX.cleaned_data['telefono'],
+                'direccion': AUX.cleaned_data['direccion'],
+                'auxiliar': AUX.cleaned_data['auxiliar'],
+            }
+            return redirect('pdf/', AUX)
         else:
             messages.error(request, 'Form submission error.')
     context = {
         'form': AUX,
     }
     return render(request, "AUXf.html", context)
+
+
+# --- PDF Auxiliar ---
+class AUXasPDF(View):
+    def get(self, request, *args, **kwargs):
+        dict = request.session.get('dict')
+
+        context = {
+            'dict': dict.items(),
+        }
+        # html = template.render(context)
+        pdf = render_to_pdf('AUXpdf.html', context)
+        return HttpResponse(pdf, content_type='application/pdf')
 
 
 # --- Historial Auxiliar ---
@@ -466,7 +487,7 @@ def IVhHist(request, pk):
     return render(request, "IVh.html", context)
 
 
-# --- PDF Accidente Vehicular ---
+# --- PDF Incencido Vehicular ---
 class IVhasPDF(View):
     def get(self, request, *args, **kwargs):
         dict = request.session.get('dict')

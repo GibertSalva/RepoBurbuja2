@@ -197,6 +197,7 @@ class RCform(forms.ModelForm):
 
 # HECHO
 class AUXform(forms.ModelForm):
+
     class Meta:
         model = FormularioAuxiliar
         fields = '__all__'
@@ -209,7 +210,7 @@ class AUXform(forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'ciudad': forms.TextInput(attrs={'class': 'form-control fs-5'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5'}),
-            'aux': forms.Textarea(attrs=({'class': 'form-control', 'id': 'mytextarea', 'style': 'height: 150px', 'placeholder': 'Formulario General'})),
+            'auxiliar': forms.Textarea(attrs=({'class': 'form-control fs-5', 'id': 'mytextarea', 'style':'height: 150px'})),
         }
 
 

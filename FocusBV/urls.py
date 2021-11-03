@@ -33,7 +33,7 @@ urlpatterns = [
     path('av/pdf/', AVasPDF.as_view()),
     path('ie/pdf/', IEasPDF.as_view()),
     path('ivh/pdf/', IVhasPDF.as_view()),
-    
+    path('pdf/', AUXasPDF.as_view()),
 
 
 ]
