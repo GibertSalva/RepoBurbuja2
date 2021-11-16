@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Download PDF</title>
             <style type="text/css">
                 body {
@@ -30,7 +30,7 @@
                     font-size: 22px;
                     font-family: 'Times New Roman', Times, serif;
                 }
-            </style>
+            </style >
     </head>
     <body>
         <div class='wrapper'>
@@ -40,10 +40,16 @@
         <div>
         <div class='details'>
             {% for a , x in dict%}
-                {{a}}: {{x}}
+                {{a}}: {{ x|safe }}
                 <br>
             {% endfor %}
-            <!-- Nombre: {{nombre}}
+        <form>
+
+            {{ dict.nombre }}
+        </form>
+
+
+            <!-- Nombre: {{nombre}}{{a}}: {{x}}
             <br>
             Animal: {{animal}}
             <br>

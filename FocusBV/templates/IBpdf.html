@@ -40,7 +40,7 @@
     <div>
     <div class='details'>
         {% for a , x in dict%}
-            {{a}}: {{x}}
+            {{a}}: {{ x|safe }}
             <br>
         {% endfor %}
         <!-- Nombre: {{nombre}}

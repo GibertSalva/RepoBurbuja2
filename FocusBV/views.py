@@ -53,11 +53,20 @@ def ACview(request):
             AVf.save(request)
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
+                'date': AVf.data['date'],
+                'hora': AVf.data['hora'],
                 'nombre': AVf.cleaned_data['nombre'],
                 'telefono': AVf.cleaned_data['telefono'],
+                'ciudad': AVf.cleaned_data['ciudad'],
                 'direccion': AVf.cleaned_data['direccion'],
                 'referencia': AVf.cleaned_data['referencia'],
-                'asdasda': AVf.cleaned_data['cantVehiculos']
+                'claseAC': AVf.cleaned_data['claseAC'],
+                'cantVehiculos': AVf.cleaned_data['cantVehiculos'],
+                'cantPersonas': AVf.cleaned_data['cantPersonas'],
+                'corteTransito': AVf.cleaned_data['corteTransito'],
+                'tipoCalle': AVf.cleaned_data['tipoCalle'],
+                'servEmergencia': AVf.cleaned_data['servEmergencia'],
+                'herido': AVf.cleaned_data['herido'],
             }
             return redirect('pdf/', AVf)
         else:
@@ -107,13 +116,17 @@ def IFview(request):
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
+                'date': IFf.data['date'],
+                'hora': IFf.data['hora'],
                 'nombre': IFf.cleaned_data['nombre'],
-                'riesgoProp': IFf.cleaned_data['riesgoProp'],
                 'telefono': IFf.cleaned_data['telefono'],
+                'ciudad': IFf.cleaned_data['ciudad'],
                 'direccion': IFf.cleaned_data['direccion'],
                 'referencia': IFf.cleaned_data['referencia'],
+                'sentido': IFf.cleaned_data['sentido'],
+                'riesgoProp': IFf.cleaned_data['riesgoProp'],
                 'edificios': IFf.cleaned_data['edificios'],
-                'servEmergencia': IFf.cleaned_data['servEmergencia']
+                'servEmergencia': IFf.cleaned_data['servEmergencia'],
             }
             return redirect('pdf/', IFf)
         else:
@@ -162,8 +175,11 @@ def AUXview(request):
         if AUX.is_valid():
             AUX.save(request)
             print("se guardo")
+            print(AUX)
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
+                'date': AUX.data['date'],
+                'hora': AUX.data['hora'],
                 'nombre': AUX.cleaned_data['nombre'],
                 'telefono': AUX.cleaned_data['telefono'],
                 'direccion': AUX.cleaned_data['direccion'],
@@ -182,7 +198,7 @@ def AUXview(request):
 class AUXasPDF(View):
     def get(self, request, *args, **kwargs):
         dict = request.session.get('dict')
-
+        print(dict)
         context = {
             'dict': dict.items(),
         }
@@ -218,11 +234,15 @@ def IBview(request):
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
+                'date': IBf.data['date'],
+                'hora': IBf.data['hora'],
                 'nombre': IBf.cleaned_data['nombre'],
-                'riesgoProp': IBf.cleaned_data['riesgoProp'],
                 'telefono': IBf.cleaned_data['telefono'],
+                'ciudad': IBf.cleaned_data['ciudad'],
                 'direccion': IBf.cleaned_data['direccion'],
                 'referencia': IBf.cleaned_data['referencia'],
+                'entreCalles': IBf.cleaned_data['entreCalles'],
+                'riesgoProp': IBf.cleaned_data['riesgoProp'],
             }
             return redirect('pdf/', IBf)
         else:
@@ -279,12 +299,16 @@ def RAview(request):
             # request.session['condicion'] = RAf.cleaned_data['condicionAnimal']
 
             request.session['dict'] = dict = {
+                'date': RAf.data['date'],
+                'hora': RAf.data['hora'],
                 'nombre': RAf.cleaned_data['nombre'],
-                'animal': RAf.cleaned_data['animal'],
                 'telefono': RAf.cleaned_data['telefono'],
+                'ciudad': RAf.cleaned_data['ciudad'],
                 'direccion': RAf.cleaned_data['direccion'],
                 'referencia': RAf.cleaned_data['referencia'],
-                'condicion': RAf.cleaned_data['condicionAnimal']
+                'animal': RAf.cleaned_data['animal'],
+                'condicionAnimal': RAf.cleaned_data['condicionAnimal'],
+                'vision': RAf.cleaned_data['vision'],
             }
 
             return redirect('pdf/', RAf)
@@ -345,14 +369,19 @@ def IVview(request):
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
+                'date': IVf.data['date'],
+                'hora': IVf.data['hora'],
                 'nombre': IVf.cleaned_data['nombre'],
                 'telefono': IVf.cleaned_data['telefono'],
+                'ciudad': IVf.cleaned_data['ciudad'],
                 'direccion': IVf.cleaned_data['direccion'],
                 'referencia': IVf.cleaned_data['referencia'],
+                'entreCalles': IVf.cleaned_data['entreCalles'],
                 'estadoFuego': IVf.cleaned_data['estadoFuego'],
-                'descVivienda': IVf.cleaned_data['descVivienda'],
                 'habitantes': IVf.cleaned_data['habitantes'],
-            
+                'localHabit': IVf.cleaned_data['localHabit'],
+                'descVivienda': IVf.cleaned_data['descVivienda'],
+                'espera': IVf.cleaned_data['espera'],
             }
 
             return redirect('pdf/', IVf)
@@ -405,10 +434,17 @@ def IEview(request):
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
+                'date': IEf.data['date'],
+                'hora': IEf.data['hora'],
                 'nombre': IEf.cleaned_data['nombre'],
                 'telefono': IEf.cleaned_data['telefono'],
+                'ciudad': IEf.cleaned_data['ciudad'],
                 'direccion': IEf.cleaned_data['direccion'],
                 'referencia': IEf.cleaned_data['referencia'],
+                'desperfecto': IEf.cleaned_data['desperfecto'],
+                'humoLlamas': IEf.cleaned_data['humoLlamas'],
+                'epec': IEf.cleaned_data['epec'],
+                'servEmergencia': IEf.cleaned_data['servEmergencia'],
             }
             return redirect('pdf/', IEf)
         else:
@@ -457,10 +493,18 @@ def IVhview(request):
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
+                'date': IVhf.data['date'],
+                'hora': IVhf.data['hora'],
                 'nombre': IVhf.cleaned_data['nombre'],
                 'telefono': IVhf.cleaned_data['telefono'],
+                'ciudad': IVhf.cleaned_data['ciudad'],
                 'direccion': IVhf.cleaned_data['direccion'],
                 'referencia': IVhf.cleaned_data['referencia'],
+                'tipoVehiculo': IVhf.cleaned_data['tipoVehiculo'],
+                'humoLlamas': IVhf.cleaned_data['humoLlamas'],
+                'vehiculoOcup': IVhf.cleaned_data['vehiculoOcup'],
+                'gnc': IVhf.cleaned_data['gnc'],
+                'riesgoProp': IVhf.cleaned_data['riesgoProp'],
             }
             return redirect('pdf/', IVhf)
         else:
