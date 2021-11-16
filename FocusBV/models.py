@@ -154,25 +154,25 @@ class IncendioElectrico(FormPadre): #10-19
         return str(self.idAlarma)
 
 class AccidenteVehicular(FormPadre):# 20-20
-    tipoAV = [
-        ('A','Automovil'),
-        ('B','Omnibus'),
-        ('C','Camion'),
-        ('D','Motocicleta'),
-        ('E','Atropellado')
-    ]
+    tipoAV = {
+        ('Automovil','Automovil'),
+        ('Omnibus','Omnibus'),
+        ('Camion','Camion'),
+        ('Motocicleta','Motocicleta'),
+        ('Atropellado','Atropellado')
+    }
 
-    tiposC = [
-        ('C','Calle'),
-        ('A','Avenida'),
-        ('R','Ruta'),
-        ('U','Undefined')
-    ]
-    claseAC = models.CharField(max_length=10,choices=tipoAV,default=None)
+    tiposC = {
+        ('Calle','Calle'),
+        ('Avenida','Avenida'),
+        ('Ruta','Ruta'),
+        ('Undefined','Undefined')
+    }
+    claseAC = models.CharField(max_length=90,choices=tipoAV,default=None)
     cantVehiculos = models.CharField(max_length=200,blank=True)
     cantPersonas = models.IntegerField()
     corteTransito = models.BooleanField()
-    tipoCalle = models.CharField(max_length=10,choices=tiposC,default='U')
+    tipoCalle = models.CharField(max_length=90,choices=tiposC,default='U')
     herido = models.CharField(max_length=20)
     servEmergencia = models.CharField(max_length=30)
 

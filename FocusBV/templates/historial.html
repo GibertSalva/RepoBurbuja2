@@ -2,12 +2,14 @@
 {% load static %}
 {% block content %}
 
-<script src="{% static '/DataTables/jQuery-3.6.0/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static '/jQuery-3.6.0/jquery-3.6.0.min.js' %}"></script>
 
 <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
  
 <script type="text/javascript" src= "{% static '/DataTables/datatables.js' %}"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.3/sorting/datetime-moment.js"></script>
 <br>
 <div class="bg-white">
     <table id="table_db" class="table align-middle bg-white" style="width:100%">
@@ -36,19 +38,20 @@
 
 <script>
     $(document).ready(function () {
-    $('#table_db').DataTable( {
-        "paging": true,
-        "searching": true,
-        "autoWidth": false,
-        "ordering": true,
-        "order": [[ 0, "desc" ],[2, "desc"]],
-        
-        "columnDefs": [
-            {"width": "50px", "targets": 0},
-            {"width": "250px", "targets": 1},
-        ],
-    }
-    );
+        $.fn.dataTable.moment( 'DD/MM/YYYY' );
+        $('#table_db').DataTable( {
+            "paging": true,
+            "searching": true,
+            "autoWidth": false,
+            "ordering": true,
+            "order": [[0, "desc"]],
+
+            "columnDefs": [
+                {"width": "50px", "targets": 0},
+                {"width": "250px", "targets": 1},
+            ],
+        }
+        );
 } );
 </script>
 

@@ -46,28 +46,42 @@ def homeview(request):
 # --- Formulario Accidente Vehicular ---
 @csrf_protect
 def ACview(request):
+    tipoAV = {
+        ('A', 'Automovil'),
+        ('B', 'Omnibus'),
+        ('C', 'Camion'),
+        ('D', 'Motocicleta'),
+        ('E', 'Atropellado')
+    }
+
+    tiposC = {
+        ('C', 'Calle'),
+        ('A', 'Avenida'),
+        ('R', 'Ruta'),
+        ('U', 'Undefined')
+    }
     AVf = AVform()
     if request.method == "POST":
         AVf = AVform(request.POST)
         if AVf.is_valid():
-            AVf.save(request)
-            messages.success(request, 'Form submission successful.')
+            av = AVf.save(request)
             request.session['dict'] = dict = {
-                'date': AVf.data['date'],
-                'hora': AVf.data['hora'],
-                'nombre': AVf.cleaned_data['nombre'],
-                'telefono': AVf.cleaned_data['telefono'],
-                'ciudad': AVf.cleaned_data['ciudad'],
-                'direccion': AVf.cleaned_data['direccion'],
-                'referencia': AVf.cleaned_data['referencia'],
-                'claseAC': AVf.cleaned_data['claseAC'],
-                'cantVehiculos': AVf.cleaned_data['cantVehiculos'],
-                'cantPersonas': AVf.cleaned_data['cantPersonas'],
-                'corteTransito': AVf.cleaned_data['corteTransito'],
-                'tipoCalle': AVf.cleaned_data['tipoCalle'],
-                'servEmergencia': AVf.cleaned_data['servEmergencia'],
-                'herido': AVf.cleaned_data['herido'],
+                'Fecha':str(av.date),
+                'Hora': str(av.hora),
+                'Nombre': str(av.nombre),
+                'Telefono': str(av.telefono),
+                'Ciudad': str(av.ciudad),
+                'Direccion': str(av.direccion),
+                'Referencia': str(av.referencia),
+                'Clase de Accidente': str(av.claseAC),
+                'Corta el Transito': "Si" if str(av.corteTransito) else "No",
+                'Cantidad de Vehiculos': str(av.cantVehiculos),
+                'Cantidad de Personas': str(av.cantPersonas),
+                'Tipo de Calle': str(av.tipoCalle),
+                'Servicio de Emergencia': str(av.servEmergencia),
+                'Heridos': str(av.herido),
             }
+            messages.success(request, 'Form submission successful.')
             return redirect('pdf/', AVf)
         else:
             messages.error(request, 'Form submission error.')
@@ -112,21 +126,21 @@ def IFview(request):
     if request.method == "POST":
         IFf = IFform(request.POST)
         if IFf.is_valid():
-            IFf.save(request)
+            iff = IFf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
-                'date': IFf.data['date'],
-                'hora': IFf.data['hora'],
-                'nombre': IFf.cleaned_data['nombre'],
-                'telefono': IFf.cleaned_data['telefono'],
-                'ciudad': IFf.cleaned_data['ciudad'],
-                'direccion': IFf.cleaned_data['direccion'],
-                'referencia': IFf.cleaned_data['referencia'],
-                'sentido': IFf.cleaned_data['sentido'],
-                'riesgoProp': IFf.cleaned_data['riesgoProp'],
-                'edificios': IFf.cleaned_data['edificios'],
-                'servEmergencia': IFf.cleaned_data['servEmergencia'],
+                'Fecha': str(iff.date),
+                'Hora': str(iff.hora),
+                'Nombre': str(iff.nombre),
+                'Telefono': str(iff.telefono),
+                'Ciudad': str(iff.ciudad),
+                'Direccion': str(iff.direccion),
+                'Referencia': str(iff.referencia),
+                'Sentido': str(iff.sentido),
+                'Edificios': str(iff.edificios),
+                'Riesgo de Propagacion': "Si" if str(iff.riesgoProp) else "No",
+                'Servicio de Emergencia': str(iff.servEmergencia),
             }
             return redirect('pdf/', IFf)
         else:
@@ -173,17 +187,17 @@ def AUXview(request):
     if request.method == "POST":
         AUX = AUXform(request.POST)
         if AUX.is_valid():
-            AUX.save(request)
+            auxf = AUX.save(request)
             print("se guardo")
             print(AUX)
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
-                'date': AUX.data['date'],
-                'hora': AUX.data['hora'],
-                'nombre': AUX.cleaned_data['nombre'],
-                'telefono': AUX.cleaned_data['telefono'],
-                'direccion': AUX.cleaned_data['direccion'],
-                'auxiliar': AUX.cleaned_data['auxiliar'],
+                'Fecha': str(auxf.date),
+                'Hora': str(auxf.hora),
+                'Nombre': str(auxf.nombre),
+                'Telefono': str(auxf.telefono),
+                'Direccion': str(auxf.direccion),
+                'Info. adicional': str(auxf.auxiliar),
             }
             return redirect('pdf/', AUX)
         else:
@@ -230,19 +244,19 @@ def IBview(request):
     if request.method == "POST":
         IBf = IBform(request.POST)
         if IBf.is_valid():
-            IBf.save(request)
+            ibf = IBf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
-                'date': IBf.data['date'],
-                'hora': IBf.data['hora'],
-                'nombre': IBf.cleaned_data['nombre'],
-                'telefono': IBf.cleaned_data['telefono'],
-                'ciudad': IBf.cleaned_data['ciudad'],
-                'direccion': IBf.cleaned_data['direccion'],
-                'referencia': IBf.cleaned_data['referencia'],
-                'entreCalles': IBf.cleaned_data['entreCalles'],
-                'riesgoProp': IBf.cleaned_data['riesgoProp'],
+                'Fecha': str(ibf.date),
+                'Hora': str(ibf.hora),
+                'Nombre': str(ibf.nombre),
+                'Telefono': str(ibf.telefono),
+                'Ciudad': str(ibf.ciudad),
+                'Direccion': str(ibf.direccion),
+                'Referencia': str(ibf.referencia),
+                'Entre que Calles': str(ibf.entreCalles),
+                'Riesgo de Propagacion': "Si" if str(ibf.riesgoProp) else "No",
             }
             return redirect('pdf/', IBf)
         else:
@@ -289,7 +303,7 @@ def RAview(request):
     if request.method == "POST":
         RAf = RAform(request.POST)
         if RAf.is_valid():
-            RAf.save(request)
+            raf = RAf.save(request)
             print("se guardo")
             # request.session['nombre'] = RAf.cleaned_data['nombre']
             # request.session['animal'] = RAf.cleaned_data['animal']
@@ -299,16 +313,16 @@ def RAview(request):
             # request.session['condicion'] = RAf.cleaned_data['condicionAnimal']
 
             request.session['dict'] = dict = {
-                'date': RAf.data['date'],
-                'hora': RAf.data['hora'],
-                'nombre': RAf.cleaned_data['nombre'],
-                'telefono': RAf.cleaned_data['telefono'],
-                'ciudad': RAf.cleaned_data['ciudad'],
-                'direccion': RAf.cleaned_data['direccion'],
-                'referencia': RAf.cleaned_data['referencia'],
-                'animal': RAf.cleaned_data['animal'],
-                'condicionAnimal': RAf.cleaned_data['condicionAnimal'],
-                'vision': RAf.cleaned_data['vision'],
+                'Fecha': str(raf.date),
+                'Hora': str(raf.hora),
+                'Nombre': str(raf.nombre),
+                'Telefono': str(raf.telefono),
+                'Ciudad': str(raf.ciudad),
+                'Direccion': str(raf.direccion),
+                'Referencia': str(raf.referencia),
+                'Animal': str(raf.animal),
+                'Condicion del Animal': str(raf.condicionAnimal),
+                'Vision del Animal': "Si" if str(raf.vision) else "No",
             }
 
             return redirect('pdf/', RAf)
@@ -365,23 +379,23 @@ def IVview(request):
     if request.method == "POST":
         IVf = IVform(request.POST)
         if IVf.is_valid():
-            IVf.save(request)
+            ivf = IVf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
-                'date': IVf.data['date'],
-                'hora': IVf.data['hora'],
-                'nombre': IVf.cleaned_data['nombre'],
-                'telefono': IVf.cleaned_data['telefono'],
-                'ciudad': IVf.cleaned_data['ciudad'],
-                'direccion': IVf.cleaned_data['direccion'],
-                'referencia': IVf.cleaned_data['referencia'],
-                'entreCalles': IVf.cleaned_data['entreCalles'],
-                'estadoFuego': IVf.cleaned_data['estadoFuego'],
-                'habitantes': IVf.cleaned_data['habitantes'],
-                'localHabit': IVf.cleaned_data['localHabit'],
-                'descVivienda': IVf.cleaned_data['descVivienda'],
-                'espera': IVf.cleaned_data['espera'],
+                'Fecha': str(ivf.date),
+                'Hora': str(ivf.hora),
+                'Nombre': str(ivf.nombre),
+                'Telefono': str(ivf.telefono),
+                'Ciudad': str(ivf.ciudad),
+                'Direccion': str(ivf.direccion),
+                'Referencia': str(ivf.referencia),
+                'Entre que Calles': str(ivf.entreCalles),
+                'Estado del Fuego': str(ivf.estadoFuego),
+                'Habitantes': str(ivf.habitantes),
+                'Puede ver a los propietarios?': str(ivf.localHabit),
+                'Descripcion de Vivienda': str(ivf.descVivienda),
+                'Pueden esperar?': "Si" if str(ivf.espera) else "No",
             }
 
             return redirect('pdf/', IVf)
@@ -419,7 +433,7 @@ class IVasPDF(View):
 
         }
         # html = template.render(context)
-        pdf = render_to_pdf('IVpdf.html', context)
+        pdf = render_to_pdf('IVhpdf.html', context)
         return HttpResponse(pdf, content_type='application/pdf')
 
 
@@ -430,21 +444,21 @@ def IEview(request):
     if request.method == "POST":
         IEf = IEform(request.POST)
         if IEf.is_valid():
-            IEf.save(request)
+            ief = IEf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
-                'date': IEf.data['date'],
-                'hora': IEf.data['hora'],
-                'nombre': IEf.cleaned_data['nombre'],
-                'telefono': IEf.cleaned_data['telefono'],
-                'ciudad': IEf.cleaned_data['ciudad'],
-                'direccion': IEf.cleaned_data['direccion'],
-                'referencia': IEf.cleaned_data['referencia'],
-                'desperfecto': IEf.cleaned_data['desperfecto'],
-                'humoLlamas': IEf.cleaned_data['humoLlamas'],
-                'epec': IEf.cleaned_data['epec'],
-                'servEmergencia': IEf.cleaned_data['servEmergencia'],
+                'Fecha': str(ief.date),
+                'Hora': str(ief.hora),
+                'Nombre': str(ief.nombre),
+                'Telefono': str(ief.telefono),
+                'Ciudad': str(ief.ciudad),
+                'Direccion': str(ief.direccion),
+                'Referencia': str(ief.referencia),
+                'Donde se encuentra el desperfecto?': str(ief.desperfecto),
+                'Puede ver humo o llamas?': str(ief.humoLlamas),
+                'Llamaron a EPEC?': str(ief.epec),
+                'Servicio de Emergencia': str(ief.servEmergencia),
             }
             return redirect('pdf/', IEf)
         else:
@@ -489,22 +503,22 @@ def IVhview(request):
     if request.method == "POST":
         IVhf = IVhform(request.POST)
         if IVhf.is_valid():
-            IVhf.save(request)
+            ivhf = IVhf.save(request)
             print("se guardo")
             messages.success(request, 'Form submission successful.')
             request.session['dict'] = dict = {
-                'date': IVhf.data['date'],
-                'hora': IVhf.data['hora'],
-                'nombre': IVhf.cleaned_data['nombre'],
-                'telefono': IVhf.cleaned_data['telefono'],
-                'ciudad': IVhf.cleaned_data['ciudad'],
-                'direccion': IVhf.cleaned_data['direccion'],
-                'referencia': IVhf.cleaned_data['referencia'],
-                'tipoVehiculo': IVhf.cleaned_data['tipoVehiculo'],
-                'humoLlamas': IVhf.cleaned_data['humoLlamas'],
-                'vehiculoOcup': IVhf.cleaned_data['vehiculoOcup'],
-                'gnc': IVhf.cleaned_data['gnc'],
-                'riesgoProp': IVhf.cleaned_data['riesgoProp'],
+                'Fecha': str(ivhf.date),
+                'Hora': str(ivhf.hora),
+                'Nombre': str(ivhf.nombre),
+                'Telefono': str(ivhf.telefono),
+                'Ciudad': str(ivhf.ciudad),
+                'Direccion': str(ivhf.direccion),
+                'Referencia': str(ivhf.referencia),
+                'Tipo de Vehiculo': str(ivhf.tipoVehiculo),
+                'Puede ver humo o llamas?': str(ivhf.humoLlamas),
+                'Los ocupantes se encuentran fuera del vehiculo?': "Si" if str(ivhf.vehiculoOcup) else "No",
+                'Alcanza a ver si tiene tubo de GNC a la vista?': str(ivhf.gnc),
+                'Riesgo de Propagacion': "Si" if str(ivhf.riesgoProp) else "No",
             }
             return redirect('pdf/', IVhf)
         else:
@@ -604,7 +618,7 @@ def Histview(request):
         for i in queryset:
             eve.append(i)
 
-    eve.sort(key=myfunc2, reverse=True)        
+    eve.sort(key=myfunc2, reverse=True)
     eve.sort(key=myfunc, reverse=True)
 
     context = {
