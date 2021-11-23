@@ -33,7 +33,7 @@ class AVform(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class': 'form-control fs-5', "autocomplete": "off"}),
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style':'height: 150px'})),
             'claseAC': forms.RadioSelect(attrs={'class': ''}),
-            'cantVehiculos': forms.Textarea(attrs=({'class': 'form-control fs-5', 'id': 'mytextarea', 'style':'height: 150px'})),
+            'cantVehiculos': forms.Textarea(attrs=({'class': 'form-control fs-5', 'id': 'mytextarea', 'style':'height: 50px''width: 200%'})),
             'cantPersonas': forms.NumberInput(attrs={'class': 'form-control'}),
             'corteTransito': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')], attrs=({'class': 'checkbox-inline'})),
             'tipoCalle':forms.RadioSelect(),
@@ -60,7 +60,7 @@ class IFform(forms.ModelForm):
             'sentido': forms.TextInput(attrs=({'class': 'form-control fs-5', "autocomplete": "off"})),
             'riesgoProp': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')], attrs=({'class': 'checkbox-inline'})),
             'edificios': forms.NumberInput(attrs=({'class': 'form-control fs-5', 'min': 0})),
-            'servEmergencia': forms.TextInput(attrs=({'class': 'form-control fs-5', "autocomplete": "off"})),
+            'servEmergencia': forms.TextInput(attrs=({'class': 'form-control fs-5', "autocomplete": "off", 'style': 'width: 100px'})),
 
         }
 
@@ -172,7 +172,7 @@ class RAform(forms.ModelForm):
             'referencia': forms.Textarea(attrs=({'class': 'form-control', 'id': 'floatingTextarea2', 'style': 'height: 150px'})),
             'animal': forms.TimeInput(attrs={'class': 'form-control', "autocomplete": "off"}),
             'condicionAnimal': forms.TimeInput(attrs={'class': 'form-control', 'style': 'height: 100px', "autocomplete": "off"}),
-            'vision': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')], attrs=({'class': 'checkbox-inline'})),
+            'vision': forms.RadioSelect(choices=[(True, 'SI'), (False, 'NO')], attrs=({'class': 'checkbox-inline', 'style':'list-style: none;'})),
         }
 
 
